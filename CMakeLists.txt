@@ -1,0 +1,94 @@
+project(libnetwork)
+
+set(DYLIB_INSTALL_NAME "/usr/lib/libnetwork.dylib")
+set(DYLIB_COMPAT_VERSION "1.0.0")
+set(DYLIB_CURRENT_VERSION "1.0.0")
+
+add_darling_library(libnetwork
+	src/nw.m
+	src/NWConcrete_nw_socks5_connection.m
+	src/NWConcrete_nw_endpoint_flow.m
+	src/NWConcrete_nw_content_context.m
+	src/NWConcrete_nw_browse_result.m
+	src/NWConcrete_nw_endpoint_proxy.m
+	src/OS_tcp_listener.m
+	src/OS_network_proxy.m
+	src/NWConcrete_nw_context.m
+	src/NWConcrete_nw_ws_request.m
+	src/NWConcrete_nw_activity.m
+	src/NWConcrete_nw_authentication_protection_space.m
+	src/NWConcrete_nw_authentication_challenge.m
+	src/NWConcrete_nw_authentication_credential.m
+	src/NWConcrete_nw_endpoint_handler.m
+	src/NWConcrete_nw_browse_descriptor.m
+	src/NWConcrete_nw_pac_resolver.m
+	src/nw_listener_inbox_socket.m
+	src/nw_listener_inbox_protocol.m
+	src/nw_listener_inbox.m
+	src/NWConcrete_nw_error.m
+	src/NWConcrete_nw_endpoint_transform.m
+	src/NWConcrete_nw_ws_ping_request.m
+	src/NWConcrete_nw_resolver.m
+	src/NWConcrete_nw_framer.m
+	src/NWConcrete_nw_read_request.m
+	src/NWConcrete_nw_unique_connection_request.m
+	src/NWConcrete_nw_unique_connection.m
+	src/NWConcrete_nw_service_connector.m
+	src/NWConcrete_nw_interface.m
+	src/NWConcrete_nw_association.m
+	src/NWConcrete_nw_protocol_transform.m
+	src/NWConcrete_nw_browser.m
+	src/NWConcrete_nw_endpoint_fallback.m
+	src/NWConcrete_nw_link_info.m
+	src/NWConcrete_nw_ethernet_channel.m
+	src/NWConcrete_nw_socks5_server.m
+	src/NWConcrete_nw_protocol_instance_stub.m
+	src/NWConcrete_nw_protocol_instance.m
+	src/NWConcrete_nw_protocol_definition.m
+	src/NWConcrete_nw_protocol_data_array.m
+	src/NWConcrete_nw_protocol_metadata.m
+	src/NWConcrete_nw_protocol_options.m
+	src/NWConcrete_nw_ws_response.m
+	src/NWConcrete_nw_protocol_stack.m
+	src/NWConcrete_nw_path_parameters.m
+	src/NWConcrete_nw_parameters.m
+	src/NWConcrete_nw_endpoint_resolver.m
+	src/NWConcrete_nw_connection.m
+	src/NWConcrete_nw_write_request.m
+	src/NWConcrete_nw_interface_status_monitor.m
+	src/NWConcrete_nw_nat64_prefixes_resolver.m
+	src/NWConcrete_tcp_connection.m
+	src/NWConcrete_nw_fd_wrapper.m
+	src/NWConcrete_nw_listener.m
+	src/NWConcrete_nw_address_endpoint.m
+	src/NWConcrete_nw_hostname_endpoint.m
+	src/NWConcrete_nw_bonjour_service_endpoint.m
+	src/NWConcrete_nw_srv_endpoint.m
+	src/NW_URL_ENDPOINT_CLS.m
+	src/NWConcrete_nw_custom_endpoint.m
+	src/NWConcrete_nw_endpoint.m
+	src/nw_interpose_flow.m
+	src/nw_ip_channel_inbox.m
+	src/NWConcrete_nw_txt_record.m
+	src/NWConcrete_nw_path_observer.m
+	src/NWConcrete_nw_path_evaluator.m
+	src/NWConcrete_nw_path_flow.m
+	src/NWConcrete_nw_path_flow_registration.m
+	src/NWConcrete_nw_path.m
+	src/NWConcrete_nw_interpose.m
+	src/OS_nw_array.m
+	src/OS_nw_parallel_array.m
+	src/OS_nw_dictionary.m
+	src/OS_nw_frame.m
+	src/OS_nw_channel.m
+	src/OS_nw_nexus.m
+	src/OS_nw_protocol_socket.m
+	src/NWConcrete_nw_protocol_establishment_report.m
+	src/NWConcrete_nw_establishment_report.m
+	src/NWConcrete_nw_data_transfer_report.m
+	src/NWConcrete_nw_advertise_descriptor.m
+)
+set_target_properties(libnetwork PROPERTIES OUTPUT_NAME "network")
+make_fat(libnetwork)
+target_link_libraries(libnetwork system objc Foundation)
+install(TARGETS libnetwork DESTINATION libexec/darling/usr/lib)
