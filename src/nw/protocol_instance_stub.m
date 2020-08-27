@@ -17,13 +17,11 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#include <nw/internal/protocol_instance_stub.h>
+#include <nw/internal/stubs.h>
 
-#include <Foundation/Foundation.h>
+@implementation _NW_CONCRETE_IMPL(nw_protocol_instance_stub)
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+DARLING_NW_CLASS_STUB;
 
 @end
-
-#endif // _NW_URLENDPOINT_CLS_H_

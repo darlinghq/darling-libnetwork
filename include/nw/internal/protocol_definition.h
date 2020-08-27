@@ -17,13 +17,14 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_INTERNAL_PROTOCOL_DEFINITION_H_
+#define _NW_INTERNAL_PROTOCOL_DEFINITION_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
+#include <nw/protocol_definition.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+@interface _NW_CONCRETE(nw_protocol_definition)
 
 @end
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_INTERNAL_PROTOCOL_DEFINITION_H_

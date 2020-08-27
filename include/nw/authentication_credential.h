@@ -17,13 +17,18 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_AUTHENTICATION_CREDENTIAL_H_
+#define _NW_AUTHENTICATION_CREDENTIAL_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_authentication_credential);
 
-@end
+void* nw_authentication_credential_add_valid_authentication_type(void);
+void* nw_authentication_credential_create(void);
+void* nw_authentication_credential_iterate_valid_authentication_types(void);
+void* nw_authentication_credential_set_identity(void);
+void* nw_authentication_credential_set_password(void);
+void* nw_authentication_credential_set_username(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_AUTHENTICATION_CREDENTIAL_H_

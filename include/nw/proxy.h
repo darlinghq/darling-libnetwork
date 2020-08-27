@@ -17,13 +17,13 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_PROXY_H_
+#define _NW_PROXY_H_
 
-#include <Foundation/Foundation.h>
+void* nw_proxy_copy_http_connect_definition(void);
+void* nw_proxy_create_options(void);
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+void* nw_proxy_options_set_authentication_challenge_handler(void);
+void* nw_proxy_options_set_http_proxy_authorization_header(void);
 
-@end
-
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_PROXY_H_

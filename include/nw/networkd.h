@@ -17,13 +17,19 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_NETWORKD_H_
+#define _NW_NETWORKD_H_
 
-#include <Foundation/Foundation.h>
+void* networkd_privileged_reload_managed_network_settings(void);
+void* networkd_privileged_set_agent_on_interface_internal(void);
+void* networkd_privileged_set_constrained(void);
+void* networkd_privileged_set_expensive(void);
+void* networkd_privileged_setup_feth_pair(void);
+void* networkd_privileged_teardown_feth_pair(void);
+void* networkd_privileged_type_to_string(void);
+void* networkd_settings_copy_value_of_type(void);
+void* networkd_settings_get_bool(void);
+void* networkd_settings_get_int64(void);
+void* networkd_settings_get_int64_with_default(void);
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
-
-@end
-
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_NETWORKD_H_

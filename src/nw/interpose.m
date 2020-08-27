@@ -17,13 +17,19 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#include <nw/internal/interpose.h>
+#include <nw/internal/stubs.h>
 
-#include <Foundation/Foundation.h>
+@implementation _NW_CONCRETE_IMPL(nw_interpose)
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+DARLING_NW_CLASS_STUB;
 
 @end
 
-#endif // _NW_URLENDPOINT_CLS_H_
+DARLING_NW_STUB(nw_interpose_cancel);
+DARLING_NW_STUB(nw_interpose_client_claim);
+DARLING_NW_STUB(nw_interpose_client_register);
+DARLING_NW_STUB(nw_interpose_get_client_uuid);
+DARLING_NW_STUB(nw_interpose_set_flow_event_handler);
+DARLING_NW_STUB(nw_interpose_set_queue);
+DARLING_NW_STUB(nw_interpose_start);

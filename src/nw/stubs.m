@@ -17,13 +17,12 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#include <nw/internal/stubs.h>
+#include <nw/internal/stubs.h>
 
-#include <Foundation/Foundation.h>
+bool __darling_nw_verbose = false;
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
-
-@end
-
-#endif // _NW_URLENDPOINT_CLS_H_
+__attribute__((constructor))
+static void __darling_nw_verbose_initializer(void) {
+	__darling_nw_verbose = getenv(DARLING_NW_STUB_ENV_VAR) != NULL;
+};

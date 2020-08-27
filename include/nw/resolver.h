@@ -17,13 +17,22 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_RESOLVER_H_
+#define _NW_RESOLVER_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_resolver);
 
-@end
+void* nw_resolver_cancel(void);
+void* nw_resolver_create_srv_weighted_variant(void);
+void* nw_resolver_create_with_endpoint(void);
+void* nw_resolver_create_with_path(void);
+void* nw_resolver_get_error(void);
+void* nw_resolver_get_status(void);
+void* nw_resolver_inject_dns_service_error(void);
+void* nw_resolver_set_cancel_handler(void);
+void* nw_resolver_set_enable_esni(void);
+void* nw_resolver_set_update_handler(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_RESOLVER_H_

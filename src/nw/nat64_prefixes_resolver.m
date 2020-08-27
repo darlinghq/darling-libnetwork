@@ -17,13 +17,19 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#include <nw/internal/nat64_prefixes_resolver.h>
+#include <nw/internal/stubs.h>
 
-#include <Foundation/Foundation.h>
+@implementation _NW_CONCRETE_IMPL(nw_nat64_prefixes_resolver)
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+DARLING_NW_CLASS_STUB;
 
 @end
 
-#endif // _NW_URLENDPOINT_CLS_H_
+DARLING_NW_STUB(nw_nat64_prefixes_resolver_cancel);
+DARLING_NW_STUB(nw_nat64_prefixes_resolver_copy_interface);
+DARLING_NW_STUB(nw_nat64_prefixes_resolver_create);
+DARLING_NW_STUB(nw_nat64_prefixes_resolver_set_cancel_handler);
+DARLING_NW_STUB(nw_nat64_prefixes_resolver_set_queue);
+DARLING_NW_STUB(nw_nat64_prefixes_resolver_set_update_handler);
+DARLING_NW_STUB(nw_nat64_prefixes_resolver_start);

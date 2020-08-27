@@ -17,13 +17,16 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#include <nw/internal/path_parameters.h>
+#include <nw/internal/stubs.h>
 
-#include <Foundation/Foundation.h>
+@implementation _NW_CONCRETE_IMPL(nw_path_parameters)
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+DARLING_NW_CLASS_STUB;
 
 @end
 
-#endif // _NW_URLENDPOINT_CLS_H_
+DARLING_NW_STUB(nw_path_parameters_are_equal);
+DARLING_NW_STUB(nw_path_parameters_copy_context);
+DARLING_NW_STUB(nw_path_parameters_get_context_privacy_level);
+DARLING_NW_STUB(nw_path_parameters_get_hash);

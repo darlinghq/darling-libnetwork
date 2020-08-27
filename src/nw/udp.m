@@ -17,13 +17,10 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
-
-#include <Foundation/Foundation.h>
-
-@interface NW_URL_ENDPOINT_CLS : NSObject
-
-@end
-
-#endif // _NW_URLENDPOINT_CLS_H_
+#include <nw/udp.h>
+#include <nw/internal/stubs.h>
+DARLING_NW_STUB(nw_udp_create_metadata);
+DARLING_NW_STUB(nw_udp_create_options);
+DARLING_NW_STUB(nw_udp_options_get_no_metadata);
+DARLING_NW_STUB(nw_udp_options_set_no_metadata);
+DARLING_NW_STUB(nw_udp_options_set_prefer_no_checksum);

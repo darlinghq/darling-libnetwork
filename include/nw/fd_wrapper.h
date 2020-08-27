@@ -17,13 +17,17 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_FD_WRAPPER_H_
+#define _NW_FD_WRAPPER_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_fd_wrapper);
 
-@end
+void* nw_fd_wrapper_close(void);
+void* nw_fd_wrapper_create(void);
+void* nw_fd_wrapper_get_fd(void);
+void* nw_fd_wrapper_guard(void);
+void* nw_fd_wrapper_is_guarded(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_FD_WRAPPER_H_

@@ -17,13 +17,14 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_INTERNAL_TXT_RECORD_H_
+#define _NW_INTERNAL_TXT_RECORD_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
+#include <nw/txt_record.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+@interface _NW_CONCRETE(nw_txt_record)
 
 @end
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_INTERNAL_TXT_RECORD_H_

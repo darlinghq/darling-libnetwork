@@ -17,13 +17,21 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_ERROR_H_
+#define _NW_ERROR_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_error);
 
-@end
+void* nw_error_copy_cf_error(void);
+void* nw_error_create_dns_error(void);
+void* nw_error_create_error_with_inferred_domain(void);
+void* nw_error_create_posix_error(void);
+void* nw_error_create_tls_error(void);
+void* nw_error_get_error_domain(void);
+void* nw_error_is_equal(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+int nw_error_get_error_code(nw_error_t error);
+
+#endif // _NW_ERROR_H_

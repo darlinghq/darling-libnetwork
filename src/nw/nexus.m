@@ -17,13 +17,17 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#import <nw/nexus.h>
+#include <nw/internal/stubs.h>
 
-#include <Foundation/Foundation.h>
+@implementation _NW_OS_OBJECT_IMPL(nw_nexus)
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+DARLING_NW_CLASS_STUB;
 
 @end
 
-#endif // _NW_URLENDPOINT_CLS_H_
+DARLING_NW_STUB(nw_nexus_bind_client_port);
+DARLING_NW_STUB(nw_nexus_close);
+DARLING_NW_STUB(nw_nexus_close_channel_and_instance);
+DARLING_NW_STUB(nw_nexus_create);
+DARLING_NW_STUB(nw_nexus_create_channel_to_new_instance);

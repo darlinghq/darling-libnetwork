@@ -17,13 +17,16 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_INTERFACE_STATUS_MONITOR_H_
+#define _NW_INTERFACE_STATUS_MONITOR_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_interface_status_monitor);
 
-@end
+void* nw_interface_status_monitor_cancel(void);
+void* nw_interface_status_monitor_copy_interface(void);
+void* nw_interface_status_monitor_set_packet_event_handler(void);
+void* nw_interface_status_monitor_set_update_handler(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_INTERFACE_STATUS_MONITOR_H_

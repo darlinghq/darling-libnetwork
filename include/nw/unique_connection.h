@@ -17,13 +17,11 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_UNIQUE_CONNECTION_H_
+#define _NW_UNIQUE_CONNECTION_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_unique_connection);
 
-@end
-
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_UNIQUE_CONNECTION_H_

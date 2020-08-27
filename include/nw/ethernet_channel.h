@@ -17,13 +17,19 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_ETHERNET_CHANNEL_H_
+#define _NW_ETHERNET_CHANNEL_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_ethernet_channel);
 
-@end
+void* nw_ethernet_channel_cancel(void);
+void* nw_ethernet_channel_create(void);
+void* nw_ethernet_channel_send(void);
+void* nw_ethernet_channel_set_queue(void);
+void* nw_ethernet_channel_set_receive_handler(void);
+void* nw_ethernet_channel_set_state_changed_handler(void);
+void* nw_ethernet_channel_start(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_ETHERNET_CHANNEL_H_

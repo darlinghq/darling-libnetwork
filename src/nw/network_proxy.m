@@ -17,13 +17,19 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#import <nw/network_proxy.h>
+#include <nw/internal/stubs.h>
 
-#include <Foundation/Foundation.h>
+@implementation _NW_OS_OBJECT_IMPL(network_proxy)
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+DARLING_NW_CLASS_STUB;
 
 @end
 
-#endif // _NW_URLENDPOINT_CLS_H_
+DARLING_NW_STUB(network_proxy_copy_host);
+DARLING_NW_STUB(network_proxy_copy_password);
+DARLING_NW_STUB(network_proxy_copy_user);
+DARLING_NW_STUB(network_proxy_create_from_parameters);
+DARLING_NW_STUB(network_proxy_get_port);
+DARLING_NW_STUB(network_proxy_get_type);
+DARLING_NW_STUB(network_proxy_is_transparent);

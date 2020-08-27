@@ -17,13 +17,15 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
-
-#include <Foundation/Foundation.h>
-
-@interface NW_URL_ENDPOINT_CLS : NSObject
-
-@end
-
-#endif // _NW_URLENDPOINT_CLS_H_
+#include <nw/nat64.h>
+#include <nw/internal/stubs.h>
+DARLING_NW_STUB(nw_nat64_can_v4_address_be_synthesized);
+DARLING_NW_STUB(nw_nat64_copy_prefixes);
+DARLING_NW_STUB(nw_nat64_copy_prefixes_async);
+DARLING_NW_STUB(nw_nat64_copy_prefixes_from_ipv4only_records);
+DARLING_NW_STUB(nw_nat64_does_interface_index_support_nat64);
+DARLING_NW_STUB(nw_nat64_extract_v4);
+DARLING_NW_STUB(nw_nat64_synthesize);
+DARLING_NW_STUB(nw_nat64_synthesize_v6);
+DARLING_NW_STUB(nw_nat64_v4_address_requires_synthesis);
+DARLING_NW_STUB(nw_nat64_write_prefix_to_string);

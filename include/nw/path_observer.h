@@ -17,13 +17,13 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_PATH_OBSERVER_H_
+#define _NW_PATH_OBSERVER_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_path_observer);
 
-@end
+void* nw_path_observer_cancel(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_PATH_OBSERVER_H_

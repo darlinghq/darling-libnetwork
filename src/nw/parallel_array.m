@@ -17,13 +17,23 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#import <nw/parallel_array.h>
+#include <nw/internal/stubs.h>
 
-#include <Foundation/Foundation.h>
+@implementation _NW_OS_OBJECT_IMPL(nw_parallel_array)
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+DARLING_NW_CLASS_STUB;
 
 @end
 
-#endif // _NW_URLENDPOINT_CLS_H_
+DARLING_NW_STUB(nw_parallel_array_append);
+DARLING_NW_STUB(nw_parallel_array_apply);
+DARLING_NW_STUB(nw_parallel_array_apply_with_range);
+DARLING_NW_STUB(nw_parallel_array_contains);
+DARLING_NW_STUB(nw_parallel_array_copy);
+DARLING_NW_STUB(nw_parallel_array_create);
+DARLING_NW_STUB(nw_parallel_array_find);
+DARLING_NW_STUB(nw_parallel_array_get_at_index);
+DARLING_NW_STUB(nw_parallel_array_get_count);
+DARLING_NW_STUB(nw_parallel_array_is_equal);
+DARLING_NW_STUB(nw_parallel_array_remove_at_index);

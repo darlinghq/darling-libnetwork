@@ -17,13 +17,19 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_SERVICE_CONNECTOR_H_
+#define _NW_SERVICE_CONNECTOR_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_service_connector);
 
-@end
+void* nw_service_connector_cancel(void);
+void* nw_service_connector_cancel_active_connection(void);
+void* nw_service_connector_cancel_request(void);
+void* nw_service_connector_create(void);
+void* nw_service_connector_set_service_available_block(void);
+void* nw_service_connector_start(void);
+void* nw_service_connector_start_request(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_SERVICE_CONNECTOR_H_

@@ -1,0 +1,148 @@
+/*
+ This file is part of Darling.
+
+ Copyright (C) 2020 Lubos Dolezel
+
+ Darling is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Darling is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Darling.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#include <nw/internal/tcp_connection.h>
+#include <nw/internal/stubs.h>
+
+@implementation _NW_CONCRETE_IMPL(tcp_connection)
+
+DARLING_NW_CLASS_STUB;
+
+@end
+
+DARLING_NW_STUB(tcp_connection_accept);
+DARLING_NW_STUB(tcp_connection_add_event_adaptive_read_timeout);
+DARLING_NW_STUB(tcp_connection_add_event_adaptive_write_timeout);
+DARLING_NW_STUB(tcp_connection_add_event_excessive_keepalives);
+DARLING_NW_STUB(tcp_connection_allow_client_socket_access);
+DARLING_NW_STUB(tcp_connection_are_proxies_supported);
+DARLING_NW_STUB(tcp_connection_cancel);
+DARLING_NW_STUB(tcp_connection_conditions_get_unmet_reason);
+DARLING_NW_STUB(tcp_connection_conditions_met);
+DARLING_NW_STUB(tcp_connection_copy_connected_path);
+DARLING_NW_STUB(tcp_connection_copy_context);
+DARLING_NW_STUB(tcp_connection_copy_description);
+DARLING_NW_STUB(tcp_connection_copy_endpoint);
+DARLING_NW_STUB(tcp_connection_copy_metadata);
+DARLING_NW_STUB(tcp_connection_copy_nw_connection);
+DARLING_NW_STUB(tcp_connection_copy_parameters);
+DARLING_NW_STUB(tcp_connection_copy_proxy);
+DARLING_NW_STUB(tcp_connection_copy_socket);
+DARLING_NW_STUB(tcp_connection_copy_tcp_info);
+DARLING_NW_STUB(tcp_connection_create);
+DARLING_NW_STUB(tcp_connection_create_inbound);
+DARLING_NW_STUB(tcp_connection_create_upgrade);
+DARLING_NW_STUB(tcp_connection_create_with_connected_fd);
+DARLING_NW_STUB(tcp_connection_create_with_connection);
+DARLING_NW_STUB(tcp_connection_create_with_endpoint_and_parameters);
+DARLING_NW_STUB(tcp_connection_create_with_nw_connection);
+DARLING_NW_STUB(tcp_connection_create_with_service);
+DARLING_NW_STUB(tcp_connection_create_with_sockaddr);
+DARLING_NW_STUB(tcp_connection_did_fallback);
+DARLING_NW_STUB(tcp_connection_event_to_string);
+DARLING_NW_STUB(tcp_connection_fallback_is_fast);
+DARLING_NW_STUB(tcp_connection_fallback_watcher_create);
+DARLING_NW_STUB(tcp_connection_fallback_watcher_destroy);
+DARLING_NW_STUB(tcp_connection_fillout_tcp_connection_info);
+DARLING_NW_STUB(tcp_connection_get_connection_quality);
+DARLING_NW_STUB(tcp_connection_get_counts);
+DARLING_NW_STUB(tcp_connection_get_error);
+DARLING_NW_STUB(tcp_connection_get_hostname);
+DARLING_NW_STUB(tcp_connection_get_interface);
+DARLING_NW_STUB(tcp_connection_get_local);
+DARLING_NW_STUB(tcp_connection_get_remote);
+DARLING_NW_STUB(tcp_connection_get_socket);
+DARLING_NW_STUB(tcp_connection_get_statistics);
+DARLING_NW_STUB(tcp_connection_get_tfo_success);
+DARLING_NW_STUB(tcp_connection_get_txtrecord);
+DARLING_NW_STUB(tcp_connection_get_unsent_length);
+DARLING_NW_STUB(tcp_connection_has_better_route);
+DARLING_NW_STUB(tcp_connection_id);
+DARLING_NW_STUB(tcp_connection_is_cellular);
+DARLING_NW_STUB(tcp_connection_is_expensive);
+DARLING_NW_STUB(tcp_connection_is_multipath);
+DARLING_NW_STUB(tcp_connection_is_sleep_proxied);
+DARLING_NW_STUB(tcp_connection_is_viable);
+DARLING_NW_STUB(tcp_connection_log_event);
+DARLING_NW_STUB(tcp_connection_multipath_copy_subflow_switch_counts);
+DARLING_NW_STUB(tcp_connection_multipath_get_primary_subflow_ifindex);
+DARLING_NW_STUB(tcp_connection_multipath_get_subflow_count);
+DARLING_NW_STUB(tcp_connection_override_obscure);
+DARLING_NW_STUB(tcp_connection_read);
+DARLING_NW_STUB(tcp_connection_read_buffer);
+DARLING_NW_STUB(tcp_connection_release);
+DARLING_NW_STUB(tcp_connection_retain);
+DARLING_NW_STUB(tcp_connection_retry);
+DARLING_NW_STUB(tcp_connection_set_account_identifier);
+DARLING_NW_STUB(tcp_connection_set_background_traffic_management);
+DARLING_NW_STUB(tcp_connection_set_cancel_handler);
+DARLING_NW_STUB(tcp_connection_set_cellular_service);
+DARLING_NW_STUB(tcp_connection_set_connection_attempt_timeout);
+DARLING_NW_STUB(tcp_connection_set_connection_pool);
+DARLING_NW_STUB(tcp_connection_set_context);
+DARLING_NW_STUB(tcp_connection_set_duet_conditional);
+DARLING_NW_STUB(tcp_connection_set_ecn_enabled);
+DARLING_NW_STUB(tcp_connection_set_event_handler);
+DARLING_NW_STUB(tcp_connection_set_event_handler_f);
+DARLING_NW_STUB(tcp_connection_set_extended_background_idle);
+DARLING_NW_STUB(tcp_connection_set_fallback_fast);
+DARLING_NW_STUB(tcp_connection_set_force_address_family);
+DARLING_NW_STUB(tcp_connection_set_indefinite);
+DARLING_NW_STUB(tcp_connection_set_initial_data_payload);
+DARLING_NW_STUB(tcp_connection_set_interface_by_index);
+DARLING_NW_STUB(tcp_connection_set_interface_by_name);
+DARLING_NW_STUB(tcp_connection_set_keepalive);
+DARLING_NW_STUB(tcp_connection_set_keepalive_offload);
+DARLING_NW_STUB(tcp_connection_set_low_latency);
+DARLING_NW_STUB(tcp_connection_set_metadata);
+DARLING_NW_STUB(tcp_connection_set_minimum_throughput);
+DARLING_NW_STUB(tcp_connection_set_multipath);
+DARLING_NW_STUB(tcp_connection_set_multipath_service);
+DARLING_NW_STUB(tcp_connection_set_no_cellular);
+DARLING_NW_STUB(tcp_connection_set_no_delay);
+DARLING_NW_STUB(tcp_connection_set_no_expensive);
+DARLING_NW_STUB(tcp_connection_set_no_fallback);
+DARLING_NW_STUB(tcp_connection_set_opportunistic);
+DARLING_NW_STUB(tcp_connection_set_persistent);
+DARLING_NW_STUB(tcp_connection_set_power_nap);
+DARLING_NW_STUB(tcp_connection_set_preparesocket);
+DARLING_NW_STUB(tcp_connection_set_prohibited_interface_subtypes);
+DARLING_NW_STUB(tcp_connection_set_prohibited_interface_types);
+DARLING_NW_STUB(tcp_connection_set_proxies);
+DARLING_NW_STUB(tcp_connection_set_queue);
+DARLING_NW_STUB(tcp_connection_set_read_buffer_size);
+DARLING_NW_STUB(tcp_connection_set_receive_any_interface);
+DARLING_NW_STUB(tcp_connection_set_requires_power);
+DARLING_NW_STUB(tcp_connection_set_sleep_idle_interval);
+DARLING_NW_STUB(tcp_connection_set_source_application);
+DARLING_NW_STUB(tcp_connection_set_source_application_by_bundle);
+DARLING_NW_STUB(tcp_connection_set_tfo);
+DARLING_NW_STUB(tcp_connection_set_timeframe);
+DARLING_NW_STUB(tcp_connection_set_tls);
+DARLING_NW_STUB(tcp_connection_set_tls_handshake_message_handler);
+DARLING_NW_STUB(tcp_connection_set_tls_mode);
+DARLING_NW_STUB(tcp_connection_set_tls_prepare);
+DARLING_NW_STUB(tcp_connection_set_traffic_class);
+DARLING_NW_STUB(tcp_connection_set_url);
+DARLING_NW_STUB(tcp_connection_set_usage_model);
+DARLING_NW_STUB(tcp_connection_set_workload);
+DARLING_NW_STUB(tcp_connection_start);
+DARLING_NW_STUB(tcp_connection_write);
+DARLING_NW_STUB(tcp_connection_write_buffer);
+DARLING_NW_STUB(tcp_connection_write_eof);

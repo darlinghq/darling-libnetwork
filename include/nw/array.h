@@ -17,13 +17,24 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_ARRAY_H_
+#define _NW_ARRAY_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OS_OBJECT(nw_array);
+_NW_OS_CONTAINER(nw_array);
 
-@end
+void* nw_array_append(void);
+void* nw_array_apply(void);
+void* nw_array_contains_object(void);
+void* nw_array_copy(void);
+void* nw_array_create(void);
+void* nw_array_create_by_removal(void);
+void* nw_array_create_combined_array(void);
+void* nw_array_duplicate_array_without_object(void);
+void* nw_array_get_count(void);
+void* nw_array_get_object_at_index(void);
+void* nw_array_is_equal(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_ARRAY_H_

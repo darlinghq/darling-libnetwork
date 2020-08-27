@@ -1,0 +1,65 @@
+/*
+ This file is part of Darling.
+
+ Copyright (C) 2020 Lubos Dolezel
+
+ Darling is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Darling is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Darling.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#include <nw/quic.h>
+#include <nw/internal/stubs.h>
+DARLING_NW_STUB(nw_quic_connection_copy_sec_protocol_metadata);
+DARLING_NW_STUB(nw_quic_connection_copy_sec_protocol_options);
+DARLING_NW_STUB(nw_quic_connection_get_idle_timeout);
+DARLING_NW_STUB(nw_quic_connection_get_initial_max_data);
+DARLING_NW_STUB(nw_quic_connection_get_initial_max_stream_data_bidirectional_local);
+DARLING_NW_STUB(nw_quic_connection_get_initial_max_stream_data_bidirectional_remote);
+DARLING_NW_STUB(nw_quic_connection_get_initial_max_stream_data_unidirectional);
+DARLING_NW_STUB(nw_quic_connection_get_initial_max_streams_bidirectional);
+DARLING_NW_STUB(nw_quic_connection_get_initial_max_streams_unidirectional);
+DARLING_NW_STUB(nw_quic_connection_get_max_packet_size);
+DARLING_NW_STUB(nw_quic_connection_get_max_streams_bidirectional);
+DARLING_NW_STUB(nw_quic_connection_get_max_streams_bidirectional_handler);
+DARLING_NW_STUB(nw_quic_connection_get_max_streams_unidirectional);
+DARLING_NW_STUB(nw_quic_connection_get_max_streams_unidirectional_handler);
+DARLING_NW_STUB(nw_quic_connection_metadata_set_stream_options);
+DARLING_NW_STUB(nw_quic_connection_set_idle_timeout);
+DARLING_NW_STUB(nw_quic_connection_set_initial_max_data);
+DARLING_NW_STUB(nw_quic_connection_set_initial_max_stream_data_bidirectional_local);
+DARLING_NW_STUB(nw_quic_connection_set_initial_max_stream_data_bidirectional_remote);
+DARLING_NW_STUB(nw_quic_connection_set_initial_max_stream_data_unidirectional);
+DARLING_NW_STUB(nw_quic_connection_set_initial_max_streams_bidirectional);
+DARLING_NW_STUB(nw_quic_connection_set_initial_max_streams_unidirectional);
+DARLING_NW_STUB(nw_quic_connection_set_max_data);
+DARLING_NW_STUB(nw_quic_connection_set_max_data_handler);
+DARLING_NW_STUB(nw_quic_connection_set_max_packet_size);
+DARLING_NW_STUB(nw_quic_connection_set_max_stream_data_bidirectional_local);
+DARLING_NW_STUB(nw_quic_connection_set_max_stream_data_bidirectional_local_handler);
+DARLING_NW_STUB(nw_quic_connection_set_max_stream_data_bidirectional_remote);
+DARLING_NW_STUB(nw_quic_connection_set_max_stream_data_bidirectional_remote_handler);
+DARLING_NW_STUB(nw_quic_connection_set_max_stream_data_unidirectional);
+DARLING_NW_STUB(nw_quic_connection_set_max_stream_data_unidirectional_handler);
+DARLING_NW_STUB(nw_quic_connection_set_max_streams_bidirectional);
+DARLING_NW_STUB(nw_quic_connection_set_max_streams_bidirectional_handler);
+DARLING_NW_STUB(nw_quic_connection_set_max_streams_unidirectional);
+DARLING_NW_STUB(nw_quic_connection_set_max_streams_unidirectional_handler);
+DARLING_NW_STUB(nw_quic_connection_set_sec_protocol_metadata);
+DARLING_NW_STUB(nw_quic_create_connection_metadata);
+DARLING_NW_STUB(nw_quic_create_connection_options);
+DARLING_NW_STUB(nw_quic_create_stream_options);
+DARLING_NW_STUB(nw_quic_metadata_copy_stream_options);
+DARLING_NW_STUB(nw_quic_metadata_set_original);
+DARLING_NW_STUB(nw_quic_stream_copy_shared_connection_options);
+DARLING_NW_STUB(nw_quic_stream_get_is_unidirectional);
+DARLING_NW_STUB(nw_quic_stream_set_is_unidirectional);

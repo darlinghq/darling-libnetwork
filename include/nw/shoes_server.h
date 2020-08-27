@@ -17,13 +17,16 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_SHOES_H_
+#define _NW_SHOES_H_
 
-#include <Foundation/Foundation.h>
+void* nw_shoes_server_cancel(void);
+void* nw_shoes_server_copy_parameters(void);
+void* nw_shoes_server_create(void);
+void* nw_shoes_server_fillout_statistics(void);
+void* nw_shoes_server_get_port(void);
+void* nw_shoes_server_set_error_handler(void);
+void* nw_shoes_server_set_state_changed_handler(void);
+void* nw_shoes_server_start(void);
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
-
-@end
-
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_SHOES_H_

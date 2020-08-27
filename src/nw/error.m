@@ -17,13 +17,27 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#include <nw/internal/error.h>
+#include <nw/internal/stubs.h>
 
-#include <Foundation/Foundation.h>
+@implementation _NW_CONCRETE_IMPL(nw_error)
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+DARLING_NW_CLASS_STUB;
 
 @end
 
-#endif // _NW_URLENDPOINT_CLS_H_
+DARLING_NW_STUB(nw_error_copy_cf_error);
+DARLING_NW_STUB(nw_error_create_dns_error);
+DARLING_NW_STUB(nw_error_create_error_with_inferred_domain);
+DARLING_NW_STUB(nw_error_create_posix_error);
+DARLING_NW_STUB(nw_error_create_tls_error);
+DARLING_NW_STUB(nw_error_get_error_domain);
+DARLING_NW_STUB(nw_error_is_equal);
+
+/**
+ *
+ * ~~~ fixed up stubs ~~~
+ *
+ */
+
+DARLING_NW_FIXED_UP_STUB(nw_error_get_error_code, int, 0, nw_error_t error);

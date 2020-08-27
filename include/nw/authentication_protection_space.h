@@ -17,13 +17,17 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_AUTHENTICATION_PROTECTION_SPACE_H_
+#define _NW_AUTHENTICATION_PROTECTION_SPACE_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_authentication_protection_space);
 
-@end
+void* nw_authentication_protection_space_copy_endpoint(void);
+void* nw_authentication_protection_space_create(void);
+void* nw_authentication_protection_space_get_is_proxy(void);
+void* nw_authentication_protection_space_set_endpoint(void);
+void* nw_authentication_protection_space_set_is_proxy(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_AUTHENTICATION_PROTECTION_SPACE_H_

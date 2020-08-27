@@ -17,13 +17,19 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_AUTHENTICATION_CHALLENGE_H_
+#define _NW_AUTHENTICATION_CHALLENGE_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_authentication_challenge);
 
-@end
+void* nw_authentication_challenge_copy_http_message(void);
+void* nw_authentication_challenge_copy_protection_space(void);
+void* nw_authentication_challenge_create(void);
+void* nw_authentication_challenge_get_attempt_count(void);
+void* nw_authentication_challenge_get_type(void);
+void* nw_authentication_challenge_set_attempt_count(void);
+void* nw_authentication_challenge_set_protection_space(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_AUTHENTICATION_CHALLENGE_H_

@@ -17,13 +17,19 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#include <nw/internal/socks5_server.h>
+#include <nw/internal/stubs.h>
 
-#include <Foundation/Foundation.h>
+@implementation _NW_CONCRETE_IMPL(nw_socks5_server)
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+DARLING_NW_CLASS_STUB;
 
 @end
 
-#endif // _NW_URLENDPOINT_CLS_H_
+DARLING_NW_STUB(nw_socks5_server_cancel);
+DARLING_NW_STUB(nw_socks5_server_copy_parameters);
+DARLING_NW_STUB(nw_socks5_server_create);
+DARLING_NW_STUB(nw_socks5_server_get_port);
+DARLING_NW_STUB(nw_socks5_server_set_error_handler);
+DARLING_NW_STUB(nw_socks5_server_set_state_changed_handler);
+DARLING_NW_STUB(nw_socks5_server_start);

@@ -17,13 +17,22 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_BROWSER_H_
+#define _NW_BROWSER_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_browser);
 
-@end
+void* nw_browser_cancel(void);
+void* nw_browser_copy_browse_descriptor(void);
+void* nw_browser_copy_browse_results(void);
+void* nw_browser_copy_parameters(void);
+void* nw_browser_create(void);
+void* nw_browser_get_description(void);
+void* nw_browser_set_browse_results_changed_handler(void);
+void* nw_browser_set_queue(void);
+void* nw_browser_set_state_changed_handler(void);
+void* nw_browser_start(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_BROWSER_H_

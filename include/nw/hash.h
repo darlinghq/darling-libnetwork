@@ -17,13 +17,20 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_HASH_H_
+#define _NW_HASH_H_
 
-#include <Foundation/Foundation.h>
+void* nw_hash_node_get_extra(void);
+void* nw_hash_node_get_object(void);
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+void* nw_hash_table_add_object(void);
+void* nw_hash_table_apply(void);
+void* nw_hash_table_count(void);
+void* nw_hash_table_create(void);
+void* nw_hash_table_get_node(void);
+void* nw_hash_table_get_some_node(void);
+void* nw_hash_table_release(void);
+void* nw_hash_table_release_all_objects(void);
+void* nw_hash_table_remove_node(void);
 
-@end
-
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_HASH_H_

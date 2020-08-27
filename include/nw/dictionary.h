@@ -17,13 +17,19 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_DICTIONARY_H_
+#define _NW_DICTIONARY_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OS_OBJECT(nw_dictionary);
+_NW_OS_CONTAINER(nw_dictionary);
 
-@end
+void* nw_dictionary_apply(void);
+void* nw_dictionary_copy(void);
+void* nw_dictionary_copy_value(void);
+void* nw_dictionary_create(void);
+void* nw_dictionary_get_count(void);
+void* nw_dictionary_set_value(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_DICTIONARY_H_

@@ -17,13 +17,12 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_UTILITIES_H_
+#define _NW_UTILITIES_H_
 
-#include <Foundation/Foundation.h>
+void* nw_utilities_cidr_string_to_subnet_and_mask(void);
+void* nw_utilities_copy_local_entitlement_value(void);
+void* nw_utilities_copy_sanitized_url(void);
+void* nw_utilities_create_c_string_from_cfstring(void);
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
-
-@end
-
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_UTILITIES_H_

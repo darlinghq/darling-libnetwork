@@ -17,13 +17,17 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_WS_RESPONSE_H_
+#define _NW_WS_RESPONSE_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_ws_response);
 
-@end
+void* nw_ws_response_add_additional_header(void);
+void* nw_ws_response_create(void);
+void* nw_ws_response_enumerate_additional_headers(void);
+void* nw_ws_response_get_selected_subprotocol(void);
+void* nw_ws_response_get_status(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_WS_RESPONSE_H_

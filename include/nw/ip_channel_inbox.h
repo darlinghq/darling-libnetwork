@@ -17,13 +17,13 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_IP_CHANNEL_INBOX_H_
+#define _NW_IP_CHANNEL_INBOX_H_
 
 #include <Foundation/Foundation.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+@interface nw_ip_channel_inbox : NSObject
 
 @end
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_IP_CHANNEL_INBOX_H_

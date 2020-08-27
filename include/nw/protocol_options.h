@@ -17,13 +17,22 @@
  along with Darling.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _NW_URLENDPOINT_CLS_H_
-#define _NW_URLENDPOINT_CLS_H_
+#ifndef _NW_PROTOCOL_OPTIONS_H_
+#define _NW_PROTOCOL_OPTIONS_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
+_NW_OPAQUE(nw_protocol_options);
 
-@end
+void* nw_protocol_options_access_handle(void);
+void* nw_protocol_options_copy(void);
+void* nw_protocol_options_copy_definition(void);
+void* nw_protocol_options_get_hash(void);
+void* nw_protocol_options_get_log_id_num(void);
+void* nw_protocol_options_get_log_id_str(void);
+void* nw_protocol_options_is_quic(void);
+void* nw_protocol_options_is_quic_connection(void);
+void* nw_protocol_options_is_quic_stream(void);
+void* nw_protocol_options_is_tcp(void);
 
-#endif // _NW_URLENDPOINT_CLS_H_
+#endif // _NW_PROTOCOL_OPTIONS_H_
