@@ -71,4 +71,7 @@ DARLING_NW_STUB(nw_tls_set_session_ticket_enabled);
  *
  */
 
-DARLING_NW_FIXED_UP_STUB(nw_tls_copy_sec_protocol_options, sec_protocol_options_t, NULL, nw_protocol_options_t options);
+sec_protocol_options_t nw_tls_copy_sec_protocol_options(nw_protocol_options_t options) {
+	DARLING_NW_STUB_PRINT;
+	return NULL;
+};

@@ -50,9 +50,21 @@
 	#define _NW_CONCRETE(_name) NWConcrete_ ## _name : NSObject <OS_OBJECT_CLASS(_name)>
 	#define _NW_CONCRETE_SUBCLASS(_name, _parent) NWConcrete_ ## _name : NWConcrete_ ## _parent
 	#define _NW_CONCRETE_PROTOCOL(_name) NWConcrete_ ## _name <NSObject>
+
+	// for non-OSObject interfaces
+	#define _NW_OBJECT(_name) \
+		@interface _name : NSObject \
+		@end
+
+	// for non-OSObject protocols
+	#define _NW_WEIRD_OPAQUE(_name) \
+		@protocol _name \
+		@end
 #else
 	#define _NW_OS_OBJECT(_name) typedef struct OS_ ## _name ## _s * _name ## _t
 	#define _NW_OS_CONTAINER(_name) /* empty because you're supposed to call both `_NW_OS_OBJECT` and `_NW_OS_CONTAINER` for containers */
+	#define _NW_OBJECT(_name) typedef struct _name ## _s * _name ## _t
+	#define _NW_WEIRD_OPAQUE(_name) typedef struct _name ## _s * _name ## _t
 #endif
 
 // `@implementation` macros
@@ -85,5 +97,7 @@
 #else
 	#define _NW_ENUM(_type, _name) _type _name; enum
 #endif
+
+#define _NW_BLOCKS __has_extension(blocks)
 
 #endif // _NW_BASE_H_

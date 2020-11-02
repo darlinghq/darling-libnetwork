@@ -20,10 +20,8 @@
 #ifndef _NW_LISTENER_INBOX_DELEGATE_H_
 #define _NW_LISTENER_INBOX_DELEGATE_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@protocol nw_listener_inbox_delegate
-
-@end
+_NW_WEIRD_OPAQUE(nw_listener_inbox_delegate);
 
 #endif // _NW_LISTENER_INBOX_DELEGATE_H_

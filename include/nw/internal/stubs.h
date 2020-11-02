@@ -30,18 +30,15 @@
 
 extern bool __darling_nw_verbose;
 
+#define DARLING_NW_STUB_PRINT \
+	if (__darling_nw_verbose) \
+		printf("libnetwork stub called: %s\n", __func__);
+
 #define DARLING_NW_STUB(_name) \
 	void* _name(void) { \
 		if (__darling_nw_verbose) \
 			puts("libnetwork stub called:" #_name); \
 		return NULL; \
-	}
-
-#define DARLING_NW_FIXED_UP_STUB(_name, _return_type, _default_return, ...) \
-	_return_type _name(__VA_ARGS__) { \
-		if (__darling_nw_verbose) \
-			puts("libnetwork stub called:" #_name); \
-		return _default_return; \
 	}
 
 #define DARLING_NW_CLASS_STUB \

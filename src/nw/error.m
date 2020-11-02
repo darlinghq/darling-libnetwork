@@ -40,4 +40,7 @@ DARLING_NW_STUB(nw_error_is_equal);
  *
  */
 
-DARLING_NW_FIXED_UP_STUB(nw_error_get_error_code, int, 0, nw_error_t error);
+int nw_error_get_error_code(nw_error_t error) {
+	DARLING_NW_STUB_PRINT;
+	return 0;
+};

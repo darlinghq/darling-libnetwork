@@ -20,6 +20,12 @@
 #include <nw/internal/connection.h>
 #include <nw/internal/stubs.h>
 
+// i have *zero* clue how Apple is statically creating Objective-C interface instances
+
+const nw_content_context_t NW_CONNECTION_DEFAULT_MESSAGE_CONTEXT = 1;
+const nw_content_context_t NW_CONNECTION_DEFAULT_STREAM_CONTEXT = 2;
+const nw_content_context_t NW_CONNECTION_FINAL_MESSAGE_CONTEXT = 3;
+
 @implementation _NW_CONCRETE_IMPL(nw_connection)
 
 DARLING_NW_CLASS_STUB;
@@ -75,7 +81,6 @@ DARLING_NW_STUB(nw_connection_multipath_get_subflow_count);
 DARLING_NW_STUB(nw_connection_read);
 DARLING_NW_STUB(nw_connection_read_buffer);
 DARLING_NW_STUB(nw_connection_read_multiple);
-DARLING_NW_STUB(nw_connection_receive);
 DARLING_NW_STUB(nw_connection_receive_message);
 DARLING_NW_STUB(nw_connection_receive_message_with_context);
 DARLING_NW_STUB(nw_connection_receive_with_context);
@@ -83,7 +88,6 @@ DARLING_NW_STUB(nw_connection_remove_probe);
 DARLING_NW_STUB(nw_connection_reset_expected_progress_target);
 DARLING_NW_STUB(nw_connection_reset_traffic_class);
 DARLING_NW_STUB(nw_connection_restart);
-DARLING_NW_STUB(nw_connection_send);
 DARLING_NW_STUB(nw_connection_send_reply);
 DARLING_NW_STUB(nw_connection_set_adaptive_read_handler);
 DARLING_NW_STUB(nw_connection_set_adaptive_write_handler);
@@ -119,14 +123,36 @@ DARLING_NW_STUB(nw_connection_write_multiple);
  *
  */
 
-DARLING_NW_FIXED_UP_STUB(nw_connection_create, nw_connection_t, NULL, nw_endpoint_t endpoint, nw_parameters_t parameters);
+nw_connection_t nw_connection_create(nw_endpoint_t endpoint, nw_parameters_t parameters) {
+	DARLING_NW_STUB_PRINT;
+	return NULL;
+};
 
-DARLING_NW_FIXED_UP_STUB(nw_connection_cancel, void, /* void */, nw_connection_t connection);
+void nw_connection_cancel(nw_connection_t connection) {
+	DARLING_NW_STUB_PRINT;
+};
 
-DARLING_NW_FIXED_UP_STUB(nw_connection_start, void, /* void */, nw_connection_t connection);
+void nw_connection_start(nw_connection_t connection) {
+	DARLING_NW_STUB_PRINT;
+};
 
-DARLING_NW_FIXED_UP_STUB(nw_connection_copy_endpoint, nw_endpoint_t, NULL, nw_connection_t connection);
+nw_endpoint_t nw_connection_copy_endpoint(nw_connection_t connection) {
+	DARLING_NW_STUB_PRINT;
+	return NULL;
+};
 
-DARLING_NW_FIXED_UP_STUB(nw_connection_set_queue, void, /* void */, nw_connection_t connection, dispatch_queue_t queue);
+void nw_connection_set_queue(nw_connection_t connection, dispatch_queue_t queue) {
+	DARLING_NW_STUB_PRINT;
+};
 
-DARLING_NW_FIXED_UP_STUB(nw_connection_set_state_changed_handler, void, /* void */, nw_connection_t connection, nw_connection_state_changed_handler_t handler);
+void nw_connection_set_state_changed_handler(nw_connection_t connection, nw_connection_state_changed_handler_t handler) {
+	DARLING_NW_STUB_PRINT;
+};
+
+void nw_connection_send(nw_connection_t connection, dispatch_data_t content, nw_content_context_t context, bool is_complete, nw_connection_send_completion_t completion_handler) {
+	DARLING_NW_STUB_PRINT;
+};
+
+void nw_connection_receive(nw_connection_t connection, uint32_t minimum_length, uint32_t maximum_length, nw_connection_receive_completion_t completion_handler) {
+	DARLING_NW_STUB_PRINT;
+};

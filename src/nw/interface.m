@@ -33,7 +33,6 @@ DARLING_NW_STUB(nw_interface_copy_ipv4_netmask_endpoint);
 DARLING_NW_STUB(nw_interface_create_from_dictionary);
 DARLING_NW_STUB(nw_interface_create_from_necp);
 DARLING_NW_STUB(nw_interface_create_static);
-DARLING_NW_STUB(nw_interface_create_with_index);
 DARLING_NW_STUB(nw_interface_create_with_index_and_name);
 DARLING_NW_STUB(nw_interface_create_with_name);
 DARLING_NW_STUB(nw_interface_deep_compare);
@@ -41,7 +40,6 @@ DARLING_NW_STUB(nw_interface_functional_type_to_interface_subtype);
 DARLING_NW_STUB(nw_interface_functional_type_to_interface_type);
 DARLING_NW_STUB(nw_interface_get_active_state);
 DARLING_NW_STUB(nw_interface_get_generation);
-DARLING_NW_STUB(nw_interface_get_index);
 DARLING_NW_STUB(nw_interface_get_ipv4_broadcast);
 DARLING_NW_STUB(nw_interface_get_ipv4_netmask);
 DARLING_NW_STUB(nw_interface_get_ipv4_network_signature);
@@ -63,3 +61,13 @@ DARLING_NW_STUB(nw_interface_supports_carrier_aggregation);
 DARLING_NW_STUB(nw_interface_supports_tx_start);
 DARLING_NW_STUB(nw_interface_type_get_description);
 DARLING_NW_STUB(nw_interface_type_to_functional_type);
+
+nw_interface_t nw_interface_create_with_index(uint32_t index) {
+	DARLING_NW_STUB_PRINT;
+	return NULL;
+};
+
+uint32_t nw_interface_get_index(nw_interface_t interface) {
+	DARLING_NW_STUB_PRINT;
+	return 0;
+};

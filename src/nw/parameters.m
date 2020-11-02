@@ -208,7 +208,6 @@ DARLING_NW_STUB(nw_parameters_prohibit_interface);
 DARLING_NW_STUB(nw_parameters_prohibit_interface_type);
 DARLING_NW_STUB(nw_parameters_remove_definition_from_protocol_stack);
 DARLING_NW_STUB(nw_parameters_remove_from_protocol_stack);
-DARLING_NW_STUB(nw_parameters_require_interface);
 DARLING_NW_STUB(nw_parameters_set_account_id);
 DARLING_NW_STUB(nw_parameters_set_allow_duplicate_state_updates);
 DARLING_NW_STUB(nw_parameters_set_allow_joining_connected_fd);
@@ -228,7 +227,6 @@ DARLING_NW_STUB(nw_parameters_set_delegated_unique_pid);
 DARLING_NW_STUB(nw_parameters_set_desperate_ivan);
 DARLING_NW_STUB(nw_parameters_set_discretionary);
 DARLING_NW_STUB(nw_parameters_set_dry_run);
-DARLING_NW_STUB(nw_parameters_set_e_proc_uuid);
 DARLING_NW_STUB(nw_parameters_set_ecn_mode);
 DARLING_NW_STUB(nw_parameters_set_effective_audit_token);
 DARLING_NW_STUB(nw_parameters_set_effective_bundle_id);
@@ -268,7 +266,6 @@ DARLING_NW_STUB(nw_parameters_set_no_proxy_path_selection);
 DARLING_NW_STUB(nw_parameters_set_no_transform);
 DARLING_NW_STUB(nw_parameters_set_only_primary_requires_type);
 DARLING_NW_STUB(nw_parameters_set_parent_id);
-DARLING_NW_STUB(nw_parameters_set_pid);
 DARLING_NW_STUB(nw_parameters_set_prefer_no_proxy);
 DARLING_NW_STUB(nw_parameters_set_preferred_netagent_classes);
 DARLING_NW_STUB(nw_parameters_set_preferred_netagent_uuids);
@@ -315,7 +312,6 @@ DARLING_NW_STUB(nw_parameters_set_tls_session_id);
 DARLING_NW_STUB(nw_parameters_set_tls_session_ticket_enabled);
 DARLING_NW_STUB(nw_parameters_set_traffic_class);
 DARLING_NW_STUB(nw_parameters_set_transform_array);
-DARLING_NW_STUB(nw_parameters_set_uid);
 DARLING_NW_STUB(nw_parameters_set_url);
 DARLING_NW_STUB(nw_parameters_set_url_endpoint);
 DARLING_NW_STUB(nw_parameters_set_use_awdl);
@@ -329,6 +325,27 @@ DARLING_NW_STUB(nw_parameters_set_use_tfo_heuristics);
  *
  */
 
-DARLING_NW_FIXED_UP_STUB(nw_parameters_create_secure_tcp, nw_parameters_t, NULL, nw_parameters_configure_protocol_block_t configure_tls, nw_parameters_configure_protocol_block_t configure_tcp);
+nw_parameters_t nw_parameters_create_secure_tcp(nw_parameters_configure_protocol_block_t configure_tls, nw_parameters_configure_protocol_block_t configure_tcp) {
+	DARLING_NW_STUB_PRINT;
+	return NULL;
+};
 
-DARLING_NW_FIXED_UP_STUB(nw_parameters_set_indefinite, void, /* void */, nw_parameters_t parameters, bool value);
+void nw_parameters_set_indefinite(nw_parameters_t parameters, bool value) {
+	DARLING_NW_STUB_PRINT;
+};
+
+void nw_parameters_set_e_proc_uuid(nw_parameters_t parameters, uuid_t uuid) {
+	DARLING_NW_STUB_PRINT;
+};
+
+void nw_parameters_set_pid(nw_parameters_t parameters, pid_t pid) {
+	DARLING_NW_STUB_PRINT;
+};
+
+void nw_parameters_set_uid(nw_parameters_t parameters, uid_t uid) {
+	DARLING_NW_STUB_PRINT;
+};
+
+void nw_parameters_require_interface(nw_parameters_t parameters, nw_interface_t interface) {
+	DARLING_NW_STUB_PRINT;
+};

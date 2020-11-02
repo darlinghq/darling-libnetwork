@@ -20,6 +20,9 @@
 #ifndef _NW_NW_H_
 #define _NW_NW_H_
 
+// mDNSResponder expects libnetwork to have this include somewhere
+#include <net/if.h>
+
 #include <nw/base.h>
 
 #include <nw/activity.h>

@@ -19,13 +19,26 @@
 
 #include <nw/nat64.h>
 #include <nw/internal/stubs.h>
+
 DARLING_NW_STUB(nw_nat64_can_v4_address_be_synthesized);
 DARLING_NW_STUB(nw_nat64_copy_prefixes);
 DARLING_NW_STUB(nw_nat64_copy_prefixes_async);
-DARLING_NW_STUB(nw_nat64_copy_prefixes_from_ipv4only_records);
 DARLING_NW_STUB(nw_nat64_does_interface_index_support_nat64);
-DARLING_NW_STUB(nw_nat64_extract_v4);
 DARLING_NW_STUB(nw_nat64_synthesize);
-DARLING_NW_STUB(nw_nat64_synthesize_v6);
 DARLING_NW_STUB(nw_nat64_v4_address_requires_synthesis);
 DARLING_NW_STUB(nw_nat64_write_prefix_to_string);
+
+int nw_nat64_extract_v4(nw_nat64_prefix_t* prefix, const struct in6_addr* v6_address, struct in_addr* v4_address) {
+	DARLING_NW_STUB_PRINT;
+	return 0;
+};
+
+int nw_nat64_synthesize_v6(nw_nat64_prefix_t* prefix, const struct in_addr* v4_address, struct in6_addr* v6_address) {
+	DARLING_NW_STUB_PRINT;
+	return 0;
+};
+
+int32_t nw_nat64_copy_prefixes_from_ipv4only_records(const struct in6_addr* v6_addresses, uint32_t count, nw_nat64_prefix_t** prefixes) {
+	DARLING_NW_STUB_PRINT;
+	return 0;
+};

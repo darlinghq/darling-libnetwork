@@ -20,10 +20,8 @@
 #ifndef _NW_URLENDPOINT_CLS_H_
 #define _NW_URLENDPOINT_CLS_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface NW_URL_ENDPOINT_CLS : NSObject
-
-@end
+_NW_OBJECT(NW_URL_ENDPOINT_CLS);
 
 #endif // _NW_URLENDPOINT_CLS_H_

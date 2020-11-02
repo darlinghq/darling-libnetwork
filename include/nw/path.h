@@ -20,7 +20,24 @@
 #ifndef _NW_PATH_H_
 #define _NW_PATH_H_
 
+#include <stdint.h>
+#include <stdbool.h>
+
 #include <nw/base.h>
+#include <nw/interface.h>
+
+typedef _NW_ENUM(int, nw_path_status_t) {
+	nw_path_status_satisfied,
+	nw_path_status_unsatisfied,
+	nw_path_status_satisfiable,
+	nw_path_status_invalid,
+};
+
+typedef _NW_ENUM(int, nw_path_reason_t) {
+	nw_path_reason_no_reason, // not present in any Apple code, but we use it as a default value
+	nw_path_reason_no_route,
+	// there are probably more...
+};
 
 _NW_OPAQUE(nw_path);
 
@@ -57,18 +74,8 @@ void* nw_path_copy_parameters(void);
 void* nw_path_copy_path_for_client(void);
 void* nw_path_copy_proxy_settings(void);
 void* nw_path_copy_resolved_endpoints(void);
-void* nw_path_copy_scoped_interface(void);
 void* nw_path_create_assign_message(void);
 void* nw_path_create_browse_result(void);
-void* nw_path_create_default_evaluator(void);
-void* nw_path_create_evaluator_for_advertise(void);
-void* nw_path_create_evaluator_for_browse(void);
-void* nw_path_create_evaluator_for_client_id(void);
-void* nw_path_create_evaluator_for_custom_ether(void);
-void* nw_path_create_evaluator_for_custom_ip(void);
-void* nw_path_create_evaluator_for_endpoint(void);
-void* nw_path_create_evaluator_for_interpose(void);
-void* nw_path_create_evaluator_for_listener(void);
 void* nw_path_create_from_tlv(void);
 void* nw_path_create_necp_parameters(void);
 void* nw_path_create_observer(void);
@@ -92,7 +99,6 @@ void* nw_path_get_fallback_agent(void);
 void* nw_path_get_fallback_generation(void);
 void* nw_path_get_fallback_interface_index(void);
 void* nw_path_get_filter_unit(void);
-void* nw_path_get_flow_divert_unit(void);
 void* nw_path_get_interface_index(void);
 void* nw_path_get_interface_option_count(void);
 void* nw_path_get_interface_time_delta(void);
@@ -109,20 +115,16 @@ void* nw_path_get_nexus_key(void);
 void* nw_path_get_nexus_protocol_level(void);
 void* nw_path_get_policy_id(void);
 void* nw_path_get_private_dns_config_id(void);
-void* nw_path_get_reason(void);
 void* nw_path_get_reason_description(void);
 void* nw_path_get_recommended_mss(void);
 void* nw_path_get_rtt_values(void);
 void* nw_path_get_scoped_interface_index(void);
-void* nw_path_get_status(void);
 void* nw_path_get_sysctls_region(void);
 void* nw_path_get_vpn_config_id(void);
 void* nw_path_has_advertise_descriptor(void);
 void* nw_path_has_browse_descriptor(void);
 void* nw_path_has_dns(void);
 void* nw_path_has_flow_for_nexus_agent(void);
-void* nw_path_has_ipv4(void);
-void* nw_path_has_ipv6(void);
 void* nw_path_has_proxy_settings(void);
 void* nw_path_has_unsatisfied_cellular_agent(void);
 void* nw_path_has_unsatisfied_fallback_agent(void);
@@ -130,13 +132,11 @@ void* nw_path_has_unsatisfied_route(void);
 void* nw_path_increment_agent_use_count(void);
 void* nw_path_ipv4_default_address(void);
 void* nw_path_ipv6_default_address(void);
-void* nw_path_is_constrained(void);
 void* nw_path_is_defunct(void);
 void* nw_path_is_direct(void);
 void* nw_path_is_eligible_for_CrazyIvan46(void);
 void* nw_path_is_equal(void);
 void* nw_path_is_equal_inner(void);
-void* nw_path_is_expensive(void);
 void* nw_path_is_flow_divert(void);
 void* nw_path_is_listener(void);
 void* nw_path_is_local(void);
@@ -196,5 +196,16 @@ void* nw_path_listener_uses_nexus_only(void);
 void* nw_path_fallback_is_forced(void);
 void* nw_path_fallback_is_weak(void);
 void* nw_path_fallback_should_not_use_timer(void);
+
+int32_t nw_path_get_flow_divert_unit(nw_path_t path);
+nw_path_status_t nw_path_get_status(nw_path_t path);
+nw_path_reason_t nw_path_get_reason(nw_path_t path);
+
+nw_interface_t nw_path_copy_scoped_interface(nw_path_t path);
+
+bool nw_path_is_constrained(nw_path_t path);
+bool nw_path_is_expensive(nw_path_t path);
+bool nw_path_has_ipv4(nw_path_t path);
+bool nw_path_has_ipv6(nw_path_t path);
 
 #endif // _NW_PATH_H_

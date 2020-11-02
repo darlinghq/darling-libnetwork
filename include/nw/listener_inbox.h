@@ -20,10 +20,8 @@
 #ifndef _NW_LISTENER_INBOX_H_
 #define _NW_LISTENER_INBOX_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface nw_listener_inbox : NSObject
-
-@end
+_NW_OBJECT(nw_listener_inbox);
 
 #endif // _NW_LISTENER_INBOX_H_

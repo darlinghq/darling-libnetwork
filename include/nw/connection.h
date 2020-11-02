@@ -20,6 +20,9 @@
 #ifndef _NW_CONNECTION_H_
 #define _NW_CONNECTION_H_
 
+#include <stdbool.h>
+#include <stdint.h>
+
 #include <nw/base.h>
 
 #include <dispatch/dispatch.h>
@@ -27,8 +30,11 @@
 #include <nw/endpoint.h>
 #include <nw/parameters.h>
 #include <nw/error.h>
+#include <nw/content_context.h>
 
-//nw_connection_state_t
+extern const nw_content_context_t NW_CONNECTION_DEFAULT_MESSAGE_CONTEXT;
+extern const nw_content_context_t NW_CONNECTION_DEFAULT_STREAM_CONTEXT;
+extern const nw_content_context_t NW_CONNECTION_FINAL_MESSAGE_CONTEXT;
 
 _NW_OPAQUE(nw_connection);
 
@@ -41,8 +47,10 @@ typedef _NW_ENUM(unsigned int, nw_connection_state_t) {
 	nw_connection_state_cancelled,
 };
 
-#if __has_extension(blocks)
-	typedef void(^nw_connection_state_changed_handler_t)(nw_connection_state_t connection_state, nw_error_t error);
+#if _NW_BLOCKS
+	typedef void (^nw_connection_send_completion_t)(nw_error_t error);
+	typedef void (^nw_connection_receive_completion_t)(dispatch_data_t content, nw_content_context_t context, bool is_complete, nw_error_t error);
+	typedef void (^nw_connection_state_changed_handler_t)(nw_connection_state_t connection_state, nw_error_t error);
 #endif
 
 void* nw_connection_access_establishment_report(void);
@@ -94,7 +102,6 @@ void* nw_connection_multipath_get_subflow_count(void);
 void* nw_connection_read(void);
 void* nw_connection_read_buffer(void);
 void* nw_connection_read_multiple(void);
-void* nw_connection_receive(void);
 void* nw_connection_receive_message(void);
 void* nw_connection_receive_message_with_context(void);
 void* nw_connection_receive_with_context(void);
@@ -102,7 +109,6 @@ void* nw_connection_remove_probe(void);
 void* nw_connection_reset_expected_progress_target(void);
 void* nw_connection_reset_traffic_class(void);
 void* nw_connection_restart(void);
-void* nw_connection_send(void);
 void* nw_connection_send_reply(void);
 void* nw_connection_set_adaptive_read_handler(void);
 void* nw_connection_set_adaptive_write_handler(void);
@@ -141,7 +147,10 @@ nw_endpoint_t nw_connection_copy_endpoint(nw_connection_t connection);
 
 void nw_connection_set_queue(nw_connection_t connection, dispatch_queue_t queue);
 
-#if __has_extension(blocks)
+#if _NW_BLOCKS
+	void nw_connection_send(nw_connection_t connection, dispatch_data_t content, nw_content_context_t context, bool is_complete, nw_connection_send_completion_t completion_handler);
+	void nw_connection_receive(nw_connection_t connection, uint32_t minimum_length, uint32_t maximum_length, nw_connection_receive_completion_t completion_handler);
+
 	void nw_connection_set_state_changed_handler(nw_connection_t connection, nw_connection_state_changed_handler_t handler);
 #endif
 

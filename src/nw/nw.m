@@ -73,10 +73,20 @@ DARLING_NW_STUB(validate_tcp_cksum);
  *
  */
 
-DARLING_NW_FIXED_UP_STUB(network_retain, void*, NULL, void* network_object);
+void* network_retain(void* network_object) {
+	DARLING_NW_STUB_PRINT;
+	return NULL;
+};
 
-DARLING_NW_FIXED_UP_STUB(network_release, void, /* void */, void* network_object);
+void network_release(void* network_object) {
+	DARLING_NW_STUB_PRINT;
+};
 
-DARLING_NW_FIXED_UP_STUB(nw_retain, void*, NULL, void* nw_object);
+void* nw_retain(void* nw_object) {
+	DARLING_NW_STUB_PRINT;
+	return NULL;
+};
 
-DARLING_NW_FIXED_UP_STUB(nw_release, void, /* void */, void* nw_object);
+void nw_release(void* nw_object) {
+	DARLING_NW_STUB_PRINT;
+};

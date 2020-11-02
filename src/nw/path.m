@@ -59,18 +59,8 @@ DARLING_NW_STUB(nw_path_copy_parameters);
 DARLING_NW_STUB(nw_path_copy_path_for_client);
 DARLING_NW_STUB(nw_path_copy_proxy_settings);
 DARLING_NW_STUB(nw_path_copy_resolved_endpoints);
-DARLING_NW_STUB(nw_path_copy_scoped_interface);
 DARLING_NW_STUB(nw_path_create_assign_message);
 DARLING_NW_STUB(nw_path_create_browse_result);
-DARLING_NW_STUB(nw_path_create_default_evaluator);
-DARLING_NW_STUB(nw_path_create_evaluator_for_advertise);
-DARLING_NW_STUB(nw_path_create_evaluator_for_browse);
-DARLING_NW_STUB(nw_path_create_evaluator_for_client_id);
-DARLING_NW_STUB(nw_path_create_evaluator_for_custom_ether);
-DARLING_NW_STUB(nw_path_create_evaluator_for_custom_ip);
-DARLING_NW_STUB(nw_path_create_evaluator_for_endpoint);
-DARLING_NW_STUB(nw_path_create_evaluator_for_interpose);
-DARLING_NW_STUB(nw_path_create_evaluator_for_listener);
 DARLING_NW_STUB(nw_path_create_from_tlv);
 DARLING_NW_STUB(nw_path_create_necp_parameters);
 DARLING_NW_STUB(nw_path_create_observer);
@@ -97,7 +87,6 @@ DARLING_NW_STUB(nw_path_get_fallback_agent);
 DARLING_NW_STUB(nw_path_get_fallback_generation);
 DARLING_NW_STUB(nw_path_get_fallback_interface_index);
 DARLING_NW_STUB(nw_path_get_filter_unit);
-DARLING_NW_STUB(nw_path_get_flow_divert_unit);
 DARLING_NW_STUB(nw_path_get_interface_index);
 DARLING_NW_STUB(nw_path_get_interface_option_count);
 DARLING_NW_STUB(nw_path_get_interface_time_delta);
@@ -114,20 +103,16 @@ DARLING_NW_STUB(nw_path_get_nexus_key);
 DARLING_NW_STUB(nw_path_get_nexus_protocol_level);
 DARLING_NW_STUB(nw_path_get_policy_id);
 DARLING_NW_STUB(nw_path_get_private_dns_config_id);
-DARLING_NW_STUB(nw_path_get_reason);
 DARLING_NW_STUB(nw_path_get_reason_description);
 DARLING_NW_STUB(nw_path_get_recommended_mss);
 DARLING_NW_STUB(nw_path_get_rtt_values);
 DARLING_NW_STUB(nw_path_get_scoped_interface_index);
-DARLING_NW_STUB(nw_path_get_status);
 DARLING_NW_STUB(nw_path_get_sysctls_region);
 DARLING_NW_STUB(nw_path_get_vpn_config_id);
 DARLING_NW_STUB(nw_path_has_advertise_descriptor);
 DARLING_NW_STUB(nw_path_has_browse_descriptor);
 DARLING_NW_STUB(nw_path_has_dns);
 DARLING_NW_STUB(nw_path_has_flow_for_nexus_agent);
-DARLING_NW_STUB(nw_path_has_ipv4);
-DARLING_NW_STUB(nw_path_has_ipv6);
 DARLING_NW_STUB(nw_path_has_proxy_settings);
 DARLING_NW_STUB(nw_path_has_unsatisfied_cellular_agent);
 DARLING_NW_STUB(nw_path_has_unsatisfied_fallback_agent);
@@ -135,13 +120,11 @@ DARLING_NW_STUB(nw_path_has_unsatisfied_route);
 DARLING_NW_STUB(nw_path_increment_agent_use_count);
 DARLING_NW_STUB(nw_path_ipv4_default_address);
 DARLING_NW_STUB(nw_path_ipv6_default_address);
-DARLING_NW_STUB(nw_path_is_constrained);
 DARLING_NW_STUB(nw_path_is_defunct);
 DARLING_NW_STUB(nw_path_is_direct);
 DARLING_NW_STUB(nw_path_is_eligible_for_CrazyIvan46);
 DARLING_NW_STUB(nw_path_is_equal);
 DARLING_NW_STUB(nw_path_is_equal_inner);
-DARLING_NW_STUB(nw_path_is_expensive);
 DARLING_NW_STUB(nw_path_is_flow_divert);
 DARLING_NW_STUB(nw_path_is_listener);
 DARLING_NW_STUB(nw_path_is_local);
@@ -190,3 +173,43 @@ DARLING_NW_STUB(nw_path_uses_interface_subtype);
 DARLING_NW_STUB(nw_path_uses_interface_type);
 DARLING_NW_STUB(nw_path_uses_nexus);
 DARLING_NW_STUB(nw_path_voluntary_agent_matches_address);
+
+int32_t nw_path_get_flow_divert_unit(nw_path_t path) {
+	DARLING_NW_STUB_PRINT;
+	return 0;
+};
+
+nw_path_status_t nw_path_get_status(nw_path_t path) {
+	DARLING_NW_STUB_PRINT;
+	return nw_path_status_invalid;
+};
+
+nw_path_reason_t nw_path_get_reason(nw_path_t path) {
+	DARLING_NW_STUB_PRINT;
+	return nw_path_reason_no_reason;
+};
+
+nw_interface_t nw_path_copy_scoped_interface(nw_path_t path) {
+	DARLING_NW_STUB_PRINT;
+	return NULL;
+};
+
+bool nw_path_is_constrained(nw_path_t path) {
+	DARLING_NW_STUB_PRINT;
+	return false;
+};
+
+bool nw_path_is_expensive(nw_path_t path) {
+	DARLING_NW_STUB_PRINT;
+	return false;
+};
+
+bool nw_path_has_ipv4(nw_path_t path) {
+	DARLING_NW_STUB_PRINT;
+	return false;
+};
+
+bool nw_path_has_ipv6(nw_path_t path) {
+	DARLING_NW_STUB_PRINT;
+	return false;
+};

@@ -22,10 +22,14 @@
 
 #include <nw/base.h>
 #include <nw/protocol_options.h>
+#include <nw/interface.h>
+
+#include <sys/types.h>
+#include <uuid/uuid.h>
 
 _NW_OPAQUE(nw_parameters);
 
-#if __has_extension(blocks)
+#if _NW_BLOCKS
 	typedef void(^nw_parameters_configure_protocol_block_t)(nw_protocol_options_t NW_NON_NULL options);
 
 	extern nw_parameters_configure_protocol_block_t _nw_parameters_configure_protocol_default_configuration;
@@ -214,7 +218,6 @@ void* nw_parameters_prohibit_interface(void);
 void* nw_parameters_prohibit_interface_type(void);
 void* nw_parameters_remove_definition_from_protocol_stack(void);
 void* nw_parameters_remove_from_protocol_stack(void);
-void* nw_parameters_require_interface(void);
 void* nw_parameters_set_account_id(void);
 void* nw_parameters_set_allow_duplicate_state_updates(void);
 void* nw_parameters_set_allow_joining_connected_fd(void);
@@ -234,7 +237,6 @@ void* nw_parameters_set_delegated_unique_pid(void);
 void* nw_parameters_set_desperate_ivan(void);
 void* nw_parameters_set_discretionary(void);
 void* nw_parameters_set_dry_run(void);
-void* nw_parameters_set_e_proc_uuid(void);
 void* nw_parameters_set_ecn_mode(void);
 void* nw_parameters_set_effective_audit_token(void);
 void* nw_parameters_set_effective_bundle_id(void);
@@ -274,7 +276,6 @@ void* nw_parameters_set_no_proxy_path_selection(void);
 void* nw_parameters_set_no_transform(void);
 void* nw_parameters_set_only_primary_requires_type(void);
 void* nw_parameters_set_parent_id(void);
-void* nw_parameters_set_pid(void);
 void* nw_parameters_set_prefer_no_proxy(void);
 void* nw_parameters_set_preferred_netagent_classes(void);
 void* nw_parameters_set_preferred_netagent_uuids(void);
@@ -321,7 +322,6 @@ void* nw_parameters_set_tls_session_id(void);
 void* nw_parameters_set_tls_session_ticket_enabled(void);
 void* nw_parameters_set_traffic_class(void);
 void* nw_parameters_set_transform_array(void);
-void* nw_parameters_set_uid(void);
 void* nw_parameters_set_url(void);
 void* nw_parameters_set_url_endpoint(void);
 void* nw_parameters_set_use_awdl(void);
@@ -329,10 +329,15 @@ void* nw_parameters_set_use_long_outstanding_queries(void);
 void* nw_parameters_set_use_p2p(void);
 void* nw_parameters_set_use_tfo_heuristics(void);
 
-#if __has_extension(blocks)
+#if _NW_BLOCKS
 	nw_parameters_t nw_parameters_create_secure_tcp(nw_parameters_configure_protocol_block_t configure_tls, nw_parameters_configure_protocol_block_t configure_tcp);
 #endif
 
+void nw_parameters_set_e_proc_uuid(nw_parameters_t parameters, uuid_t uuid);
 void nw_parameters_set_indefinite(nw_parameters_t parameters, bool value);
+void nw_parameters_set_pid(nw_parameters_t parameters, pid_t pid);
+void nw_parameters_set_uid(nw_parameters_t parameters, uid_t uid);
+
+void nw_parameters_require_interface(nw_parameters_t parameters, nw_interface_t interface);
 
 #endif // _NW_PARAMETERS_H_

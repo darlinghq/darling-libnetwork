@@ -89,8 +89,17 @@ DARLING_NW_STUB(nw_endpoint_set_weight);
  *
  */
 
-DARLING_NW_FIXED_UP_STUB(nw_endpoint_create_host, nw_endpoint_t, NULL, const char* hostname, const char* port);
+nw_endpoint_t nw_endpoint_create_host(const char* hostname, const char* port) {
+	DARLING_NW_STUB_PRINT;
+	return NULL;
+};
 
-DARLING_NW_FIXED_UP_STUB(nw_endpoint_get_hostname, const char*, NULL, nw_endpoint_t endpoint);
+const char* nw_endpoint_get_hostname(nw_endpoint_t endpoint) {
+	DARLING_NW_STUB_PRINT;
+	return NULL;
+};
 
-DARLING_NW_FIXED_UP_STUB(nw_endpoint_get_port, uint16_t, 0, nw_endpoint_t endpoint);
+uint16_t nw_endpoint_get_port(nw_endpoint_t endpoint) {
+	DARLING_NW_STUB_PRINT;
+	return 0;
+};

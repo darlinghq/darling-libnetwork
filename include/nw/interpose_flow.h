@@ -20,10 +20,8 @@
 #ifndef _NW_INTERPOSE_FLOW_H_
 #define _NW_INTERPOSE_FLOW_H_
 
-#include <Foundation/Foundation.h>
+#include <nw/base.h>
 
-@interface nw_interpose_flow : NSObject
-
-@end
+_NW_OBJECT(nw_interpose_flow);
 
 #endif // _NW_INTERPOSE_FLOW_H_
