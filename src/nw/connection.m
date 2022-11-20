@@ -22,9 +22,9 @@
 
 // i have *zero* clue how Apple is statically creating Objective-C interface instances
 
-const nw_content_context_t NW_CONNECTION_DEFAULT_MESSAGE_CONTEXT = 1;
-const nw_content_context_t NW_CONNECTION_DEFAULT_STREAM_CONTEXT = 2;
-const nw_content_context_t NW_CONNECTION_FINAL_MESSAGE_CONTEXT = 3;
+const nw_content_context_t NW_CONNECTION_DEFAULT_MESSAGE_CONTEXT = (const nw_content_context_t)1;
+const nw_content_context_t NW_CONNECTION_DEFAULT_STREAM_CONTEXT = (const nw_content_context_t)2;
+const nw_content_context_t NW_CONNECTION_FINAL_MESSAGE_CONTEXT = (const nw_content_context_t)3;
 
 @implementation _NW_CONCRETE_IMPL(nw_connection)
 
