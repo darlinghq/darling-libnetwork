@@ -4,6 +4,8 @@ set(DYLIB_INSTALL_NAME "/usr/lib/libnetwork.dylib")
 set(DYLIB_COMPAT_VERSION "1.0.0")
 set(DYLIB_CURRENT_VERSION "1.0.0")
 
+add_definitions(-DPRIVATE)
+
 add_darling_library(libnetwork
 	src/nw/nw.m
 
@@ -107,6 +109,8 @@ add_darling_library(libnetwork
 	src/nw/ws_request.m
 	src/nw/ws_response.m
 	src/nw/ws.m
+
+	submodules/network_cmds/mptcp_client/conn_lib.c
 )
 make_fat(libnetwork)
 

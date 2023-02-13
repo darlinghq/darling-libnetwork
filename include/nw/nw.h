@@ -37,6 +37,7 @@
 #include <nw/browser.h>
 #include <nw/channel.h>
 #include <nw/connection.h>
+#include <nw/conn_lib.h>
 #include <nw/content_context.h>
 #include <nw/context.h>
 #include <nw/dictionary.h>
@@ -124,13 +125,7 @@
 void* __nw_create_backtrace_string(void);
 void* __nw_should_simulate_crash(void);
 
-void* copyassocids(void);
-void* copyconnids(void);
-void* copyconninfo(void);
 void* copymptcpinfo(void);
-void* freeassocids(void);
-void* freeconnids(void);
-void* freeconninfo(void);
 void* freemptcpinfo(void);
 void* in6_pseudo(void);
 void* in_addword(void);

@@ -21,13 +21,7 @@
 #include <nw/internal/stubs.h>
 DARLING_NW_STUB(__nw_create_backtrace_string);
 DARLING_NW_STUB(__nw_should_simulate_crash);
-DARLING_NW_STUB(copyassocids);
-DARLING_NW_STUB(copyconnids);
-DARLING_NW_STUB(copyconninfo);
 DARLING_NW_STUB(copymptcpinfo);
-DARLING_NW_STUB(freeassocids);
-DARLING_NW_STUB(freeconnids);
-DARLING_NW_STUB(freeconninfo);
 DARLING_NW_STUB(freemptcpinfo);
 DARLING_NW_STUB(in6_pseudo);
 DARLING_NW_STUB(in_addword);
