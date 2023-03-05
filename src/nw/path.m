@@ -108,7 +108,6 @@ DARLING_NW_STUB(nw_path_get_recommended_mss);
 DARLING_NW_STUB(nw_path_get_rtt_values);
 DARLING_NW_STUB(nw_path_get_scoped_interface_index);
 DARLING_NW_STUB(nw_path_get_sysctls_region);
-DARLING_NW_STUB(nw_path_get_vpn_config_id);
 DARLING_NW_STUB(nw_path_has_advertise_descriptor);
 DARLING_NW_STUB(nw_path_has_browse_descriptor);
 DARLING_NW_STUB(nw_path_has_dns);
@@ -125,13 +124,11 @@ DARLING_NW_STUB(nw_path_is_direct);
 DARLING_NW_STUB(nw_path_is_eligible_for_CrazyIvan46);
 DARLING_NW_STUB(nw_path_is_equal);
 DARLING_NW_STUB(nw_path_is_equal_inner);
-DARLING_NW_STUB(nw_path_is_flow_divert);
 DARLING_NW_STUB(nw_path_is_listener);
 DARLING_NW_STUB(nw_path_is_local);
 DARLING_NW_STUB(nw_path_is_multilayer_packet_logging_enabled);
 DARLING_NW_STUB(nw_path_is_override_constrained);
 DARLING_NW_STUB(nw_path_is_override_expensive);
-DARLING_NW_STUB(nw_path_is_per_app_vpn);
 DARLING_NW_STUB(nw_path_is_preferred);
 DARLING_NW_STUB(nw_path_is_roaming);
 DARLING_NW_STUB(nw_path_is_traffic_mgmt_background);
@@ -213,3 +210,18 @@ bool nw_path_has_ipv6(nw_path_t path) {
 	DARLING_NW_STUB_PRINT;
 	return false;
 };
+
+bool nw_path_is_flow_divert(nw_path_t path) {
+	DARLING_NW_STUB_PRINT;
+	return false;
+}
+
+bool nw_path_get_vpn_config_id(nw_path_t path, uuid_t *uuid) {
+	DARLING_NW_STUB_PRINT;
+	return false;
+}
+
+bool nw_path_is_per_app_vpn(nw_path_t path) {
+	DARLING_NW_STUB_PRINT;
+	return false;
+}
