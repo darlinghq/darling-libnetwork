@@ -141,6 +141,7 @@ DARLING_NW_STUB(nw_path_may_span_multiple_interfaces);
 DARLING_NW_STUB(nw_path_monitor_cancel);
 DARLING_NW_STUB(nw_path_monitor_create);
 DARLING_NW_STUB(nw_path_monitor_create_with_type);
+DARLING_NW_STUB(nw_path_monitor_prohibit_interface_type);
 DARLING_NW_STUB(nw_path_monitor_set_cancel_handler);
 DARLING_NW_STUB(nw_path_monitor_set_queue);
 DARLING_NW_STUB(nw_path_monitor_set_update_handler);
