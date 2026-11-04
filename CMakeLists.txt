@@ -99,6 +99,7 @@ add_darling_library(libnetwork
 	src/nw/tcp_listener.m
 	src/nw/tcp.m
 	src/nw/tls.m
+	src/nw/darling_tls.m
 	src/nw/txt_record.m
 	src/nw/udp.m
 	src/nw/unique_connection_request.m
@@ -118,10 +119,20 @@ set_target_properties(libnetwork PROPERTIES
 	OUTPUT_NAME "network"
 )
 
+# darling_tls.m: the TLS options Security's sec_protocol_* functions store into, and the
+# handshake over LibreSSL's libtls. Manual reference counting, like the dispatch and xpc
+# objects it holds.
+set_source_files_properties(src/nw/darling_tls.m PROPERTIES COMPILE_FLAGS "-fno-objc-arc")
+target_include_directories(libnetwork PRIVATE
+	${CMAKE_SOURCE_DIR}/src/external/libressl-2.8.3/include
+	${CMAKE_SOURCE_DIR}/src/external/security/darling/include
+)
+
 target_link_libraries(libnetwork
 	system
 	objc
 	Foundation
+	tls18
 )
 
 install(TARGETS libnetwork DESTINATION libexec/darling/usr/lib)
