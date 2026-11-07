@@ -183,6 +183,7 @@ void* nw_path_nexus_should_use_event_ring(void);
 void* nw_path_monitor_cancel(void);
 void* nw_path_monitor_create(void);
 void* nw_path_monitor_create_with_type(void);
+void* nw_path_monitor_prohibit_interface_type(void);
 void* nw_path_monitor_set_cancel_handler(void);
 void* nw_path_monitor_set_queue(void);
 void* nw_path_monitor_set_update_handler(void);

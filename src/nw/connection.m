@@ -26,6 +26,11 @@ const nw_content_context_t NW_CONNECTION_DEFAULT_MESSAGE_CONTEXT = (const nw_con
 const nw_content_context_t NW_CONNECTION_DEFAULT_STREAM_CONTEXT = (const nw_content_context_t)2;
 const nw_content_context_t NW_CONNECTION_FINAL_MESSAGE_CONTEXT = (const nw_content_context_t)3;
 
+// Current clients import this data name for the existing default message context.
+__asm__(".globl __nw_content_context_default_message\n"
+        ".set __nw_content_context_default_message, _NW_CONNECTION_DEFAULT_MESSAGE_CONTEXT\n"
+);
+
 @implementation _NW_CONCRETE_IMPL(nw_connection)
 
 DARLING_NW_CLASS_STUB;
