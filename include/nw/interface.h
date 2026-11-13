@@ -25,6 +25,14 @@
 
 _NW_OPAQUE(nw_interface);
 
+typedef _NW_ENUM(int, nw_interface_type_t) {
+	nw_interface_type_other = 0,
+	nw_interface_type_wifi = 1,
+	nw_interface_type_cellular = 2,
+	nw_interface_type_wired = 3,
+	nw_interface_type_loopback = 4,
+};
+
 void* nw_interface_copy_delegate_interface(void);
 void* nw_interface_copy_dictionary(void);
 void* nw_interface_copy_ipv4_broadcast_endpoint(void);

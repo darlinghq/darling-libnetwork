@@ -76,11 +76,11 @@ void network_release(void* network_object) {
 	DARLING_NW_STUB_PRINT;
 };
 
+// nw objects are Objective-C objects; C and C++ callers own them through these
 void* nw_retain(void* nw_object) {
-	DARLING_NW_STUB_PRINT;
-	return NULL;
+	return [(id)nw_object retain];
 };
 
 void nw_release(void* nw_object) {
-	DARLING_NW_STUB_PRINT;
+	[(id)nw_object release];
 };
