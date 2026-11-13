@@ -23,7 +23,12 @@
 #include <nw/base.h>
 #include <nw/path.h>
 
-@interface _NW_CONCRETE(nw_path)
+@interface _NW_CONCRETE(nw_path) {
+	@public
+	nw_path_status_t _status;
+	bool _has_ipv4;
+	bool _has_ipv6;
+}
 
 @end
 

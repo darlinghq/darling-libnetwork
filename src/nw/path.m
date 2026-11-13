@@ -27,12 +27,7 @@
 
 // A path is an immutable snapshot of the guest's connectivity. Interfaces are
 // not modelled: anything that is not loopback is reported as wired.
-@implementation _NW_CONCRETE_IMPL(nw_path) {
-	@public
-	nw_path_status_t _status;
-	bool _has_ipv4;
-	bool _has_ipv6;
-}
+@implementation _NW_CONCRETE_IMPL(nw_path)
 
 DARLING_NW_CLASS_STUB;
 
