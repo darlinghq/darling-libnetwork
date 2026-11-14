@@ -20,20 +20,51 @@
 #ifndef _NW_IP_H_
 #define _NW_IP_H_
 
-void* nw_ip_create_metadata(void);
+#include <stdbool.h>
+#include <stdint.h>
+
+#include <nw/base.h>
+#include <nw/protocol_options.h>
+#include <nw/protocol_metadata.h>
+
+// Service class of a connection's traffic.
+typedef _NW_ENUM(unsigned int, nw_service_class_t) {
+	nw_service_class_best_effort = 0,
+	nw_service_class_background = 1,
+	nw_service_class_interactive_video = 2,
+	nw_service_class_interactive_voice = 3,
+	nw_service_class_responsive_data = 4,
+	nw_service_class_signaling = 5,
+};
+
+typedef _NW_ENUM(unsigned int, nw_ip_version_t) {
+	nw_ip_version_any = 0,
+	nw_ip_version_4 = 4,
+	nw_ip_version_6 = 6,
+};
+
+// Explicit congestion notification codepoint of an IP packet.
+typedef _NW_ENUM(unsigned int, nw_ip_ecn_flag_t) {
+	nw_ip_ecn_flag_non_ect = 0,
+	nw_ip_ecn_flag_ect_0 = 2,
+	nw_ip_ecn_flag_ect_1 = 1,
+	nw_ip_ecn_flag_ce = 3,
+};
+
+nw_protocol_metadata_t NW_NON_NULL nw_ip_create_metadata(void);
 void* nw_ip_create_options(void);
 
-void* nw_ip_metadata_get_ecn_flag(void);
-void* nw_ip_metadata_get_receive_time(void);
-void* nw_ip_metadata_get_service_class(void);
-void* nw_ip_metadata_set_ecn_flag(void);
-void* nw_ip_metadata_set_service_class(void);
+nw_ip_ecn_flag_t nw_ip_metadata_get_ecn_flag(nw_protocol_metadata_t NW_NON_NULL metadata);
+uint64_t nw_ip_metadata_get_receive_time(nw_protocol_metadata_t NW_NON_NULL metadata);
+nw_service_class_t nw_ip_metadata_get_service_class(nw_protocol_metadata_t NW_NON_NULL metadata);
+void nw_ip_metadata_set_ecn_flag(nw_protocol_metadata_t NW_NON_NULL metadata, nw_ip_ecn_flag_t ecn_flag);
+void nw_ip_metadata_set_service_class(nw_protocol_metadata_t NW_NON_NULL metadata, nw_service_class_t service_class);
 
-void* nw_ip_options_set_calculate_receive_time(void);
-void* nw_ip_options_set_disable_fragmentation(void);
-void* nw_ip_options_set_hop_limit(void);
+void nw_ip_options_set_calculate_receive_time(nw_protocol_options_t NW_NON_NULL options, bool calculate_receive_time);
+void nw_ip_options_set_disable_fragmentation(nw_protocol_options_t NW_NON_NULL options, bool disable_fragmentation);
+void nw_ip_options_set_hop_limit(nw_protocol_options_t NW_NON_NULL options, uint8_t hop_limit);
 void* nw_ip_options_set_local_address_preference(void);
-void* nw_ip_options_set_use_minimum_mtu(void);
-void* nw_ip_options_set_version(void);
+void nw_ip_options_set_use_minimum_mtu(nw_protocol_options_t NW_NON_NULL options, bool use_minimum_mtu);
+void nw_ip_options_set_version(nw_protocol_options_t NW_NON_NULL options, nw_ip_version_t version);
 
 #endif // _NW_IP_H_

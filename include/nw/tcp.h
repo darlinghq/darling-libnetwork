@@ -20,10 +20,17 @@
 #ifndef _NW_TCP_H_
 #define _NW_TCP_H_
 
+#include <stdbool.h>
+#include <stdint.h>
+
+#include <nw/base.h>
+#include <nw/protocol_options.h>
+#include <nw/protocol_metadata.h>
+
 void* nw_tcp_create_metadata(void);
-void* nw_tcp_create_options(void);
-void* nw_tcp_get_available_receive_buffer(void);
-void* nw_tcp_get_available_send_buffer(void);
+nw_protocol_options_t NW_NON_NULL nw_tcp_create_options(void);
+uint32_t nw_tcp_get_available_receive_buffer(nw_protocol_metadata_t NW_NON_NULL metadata);
+uint32_t nw_tcp_get_available_send_buffer(nw_protocol_metadata_t NW_NON_NULL metadata);
 void* nw_tcp_set_callbacks(void);
 
 void* nw_tcp_connection_copy_error(void);
@@ -52,27 +59,27 @@ void* nw_tcp_options_get_persist_timeout(void);
 void* nw_tcp_options_get_reduce_buffering(void);
 void* nw_tcp_options_get_retransmit_connection_drop_time(void);
 void* nw_tcp_options_get_retransmit_fin_drop(void);
-void* nw_tcp_options_set_connection_timeout(void);
-void* nw_tcp_options_set_disable_ack_stretching(void);
+void nw_tcp_options_set_connection_timeout(nw_protocol_options_t NW_NON_NULL options, uint32_t connection_timeout);
+void nw_tcp_options_set_disable_ack_stretching(nw_protocol_options_t NW_NON_NULL options, bool disable_ack_stretching);
 void* nw_tcp_options_set_disable_blackhole_detection(void);
-void* nw_tcp_options_set_disable_ecn(void);
+void nw_tcp_options_set_disable_ecn(nw_protocol_options_t NW_NON_NULL options, bool disable_ecn);
 void* nw_tcp_options_set_enable_background_traffic_management(void);
-void* nw_tcp_options_set_enable_fast_open(void);
-void* nw_tcp_options_set_enable_keepalive(void);
+void nw_tcp_options_set_enable_fast_open(nw_protocol_options_t NW_NON_NULL options, bool enable_fast_open);
+void nw_tcp_options_set_enable_keepalive(nw_protocol_options_t NW_NON_NULL options, bool enable_keepalive);
 void* nw_tcp_options_set_enable_keepalive_offload(void);
 void* nw_tcp_options_set_fast_open_force_enable(void);
-void* nw_tcp_options_set_keepalive_count(void);
-void* nw_tcp_options_set_keepalive_idle_time(void);
-void* nw_tcp_options_set_keepalive_interval(void);
-void* nw_tcp_options_set_maximum_segment_size(void);
-void* nw_tcp_options_set_no_delay(void);
+void nw_tcp_options_set_keepalive_count(nw_protocol_options_t NW_NON_NULL options, uint32_t keepalive_count);
+void nw_tcp_options_set_keepalive_idle_time(nw_protocol_options_t NW_NON_NULL options, uint32_t keepalive_idle_time);
+void nw_tcp_options_set_keepalive_interval(nw_protocol_options_t NW_NON_NULL options, uint32_t keepalive_interval);
+void nw_tcp_options_set_maximum_segment_size(nw_protocol_options_t NW_NON_NULL options, uint32_t maximum_segment_size);
+void nw_tcp_options_set_no_delay(nw_protocol_options_t NW_NON_NULL options, bool no_delay);
 void* nw_tcp_options_set_no_fast_open_cookie(void);
-void* nw_tcp_options_set_no_options(void);
-void* nw_tcp_options_set_no_push(void);
+void nw_tcp_options_set_no_options(nw_protocol_options_t NW_NON_NULL options, bool no_options);
+void nw_tcp_options_set_no_push(nw_protocol_options_t NW_NON_NULL options, bool no_push);
 void* nw_tcp_options_set_no_timewait(void);
-void* nw_tcp_options_set_persist_timeout(void);
+void nw_tcp_options_set_persist_timeout(nw_protocol_options_t NW_NON_NULL options, uint32_t persist_timeout);
 void* nw_tcp_options_set_reduce_buffering(void);
-void* nw_tcp_options_set_retransmit_connection_drop_time(void);
-void* nw_tcp_options_set_retransmit_fin_drop(void);
+void nw_tcp_options_set_retransmit_connection_drop_time(nw_protocol_options_t NW_NON_NULL options, uint32_t retransmit_connection_drop_time);
+void nw_tcp_options_set_retransmit_fin_drop(nw_protocol_options_t NW_NON_NULL options, bool retransmit_fin_drop);
 
 #endif // _NW_TCP_H_

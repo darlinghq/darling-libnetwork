@@ -20,11 +20,18 @@
 #ifndef _NW_UDP_H_
 #define _NW_UDP_H_
 
-void* nw_udp_create_metadata(void);
-void* nw_udp_create_options(void);
+#include <stdbool.h>
+#include <stdint.h>
+
+#include <nw/base.h>
+#include <nw/protocol_options.h>
+#include <nw/protocol_metadata.h>
+
+nw_protocol_metadata_t NW_NON_NULL nw_udp_create_metadata(void);
+nw_protocol_options_t NW_NON_NULL nw_udp_create_options(void);
 
 void* nw_udp_options_get_no_metadata(void);
 void* nw_udp_options_set_no_metadata(void);
-void* nw_udp_options_set_prefer_no_checksum(void);
+void nw_udp_options_set_prefer_no_checksum(nw_protocol_options_t NW_NON_NULL options, bool prefer_no_checksum);
 
 #endif // _NW_UDP_H_
