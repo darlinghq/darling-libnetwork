@@ -26,11 +26,13 @@
 #include <nw/base.h>
 #include <nw/interface.h>
 
+#include <dispatch/dispatch.h>
+
 typedef _NW_ENUM(int, nw_path_status_t) {
-	nw_path_status_satisfied,
-	nw_path_status_unsatisfied,
-	nw_path_status_satisfiable,
-	nw_path_status_invalid,
+	nw_path_status_invalid = 0,
+	nw_path_status_satisfied = 1,
+	nw_path_status_unsatisfied = 2,
+	nw_path_status_satisfiable = 3,
 };
 
 typedef _NW_ENUM(int, nw_path_reason_t) {
@@ -40,6 +42,13 @@ typedef _NW_ENUM(int, nw_path_reason_t) {
 };
 
 _NW_OPAQUE(nw_path);
+_NW_OPAQUE(nw_path_monitor);
+
+#if _NW_BLOCKS
+	typedef bool (^nw_path_enumerate_interfaces_block_t)(nw_interface_t interface);
+	typedef void (^nw_path_monitor_cancel_handler_t)(void);
+	typedef void (^nw_path_monitor_update_handler_t)(nw_path_t path);
+#endif
 
 void* nw_path_allows_multipath(void);
 void* nw_path_assert_agent(void);
@@ -85,7 +94,6 @@ void* nw_path_endpoint_is_always_satisfied(void);
 void* nw_path_enumerate_browse_options(void);
 void* nw_path_enumerate_gateways(void);
 void* nw_path_enumerate_interface_options(void);
-void* nw_path_enumerate_interfaces(void);
 void* nw_path_enumerate_resolve_options(void);
 void* nw_path_fillout_route_stats(void);
 void* nw_path_get_client_id(void);
@@ -123,7 +131,6 @@ void* nw_path_get_sysctls_region(void);
 bool nw_path_get_vpn_config_id(nw_path_t path, uuid_t *uuid);
 void* nw_path_has_advertise_descriptor(void);
 void* nw_path_has_browse_descriptor(void);
-void* nw_path_has_dns(void);
 void* nw_path_has_flow_for_nexus_agent(void);
 void* nw_path_has_proxy_settings(void);
 void* nw_path_has_unsatisfied_cellular_agent(void);
@@ -135,7 +142,6 @@ void* nw_path_ipv6_default_address(void);
 void* nw_path_is_defunct(void);
 void* nw_path_is_direct(void);
 void* nw_path_is_eligible_for_CrazyIvan46(void);
-void* nw_path_is_equal(void);
 void* nw_path_is_equal_inner(void);
 bool nw_path_is_flow_divert(nw_path_t path);
 void* nw_path_is_listener(void);
@@ -171,7 +177,6 @@ void* nw_path_trigger_inactive_cellular_agent_if_necessary(void);
 void* nw_path_unassert_agent(void);
 void* nw_path_update_parameters_for_fallback(void);
 void* nw_path_uses_interface_subtype(void);
-void* nw_path_uses_interface_type(void);
 void* nw_path_uses_nexus(void);
 void* nw_path_voluntary_agent_matches_address(void);
 
@@ -180,14 +185,17 @@ void* nw_path_nexus_can_support_user_packet_pool(void);
 void* nw_path_nexus_should_use_event_ring(void);
 
 // same with these
-void* nw_path_monitor_cancel(void);
-void* nw_path_monitor_create(void);
-void* nw_path_monitor_create_with_type(void);
-void* nw_path_monitor_prohibit_interface_type(void);
-void* nw_path_monitor_set_cancel_handler(void);
-void* nw_path_monitor_set_queue(void);
-void* nw_path_monitor_set_update_handler(void);
-void* nw_path_monitor_start(void);
+nw_path_monitor_t nw_path_monitor_create(void);
+nw_path_monitor_t nw_path_monitor_create_with_type(nw_interface_type_t required_interface_type);
+void nw_path_monitor_prohibit_interface_type(nw_path_monitor_t monitor, nw_interface_type_t interface_type);
+void nw_path_monitor_set_queue(nw_path_monitor_t monitor, dispatch_queue_t queue);
+void nw_path_monitor_start(nw_path_monitor_t monitor);
+void nw_path_monitor_cancel(nw_path_monitor_t monitor);
+
+#if _NW_BLOCKS
+	void nw_path_monitor_set_cancel_handler(nw_path_monitor_t monitor, nw_path_monitor_cancel_handler_t cancel_handler);
+	void nw_path_monitor_set_update_handler(nw_path_monitor_t monitor, nw_path_monitor_update_handler_t update_handler);
+#endif
 
 // maybe these too?
 void* nw_path_listener_is_interface_specific(void);
@@ -208,5 +216,12 @@ bool nw_path_is_constrained(nw_path_t path);
 bool nw_path_is_expensive(nw_path_t path);
 bool nw_path_has_ipv4(nw_path_t path);
 bool nw_path_has_ipv6(nw_path_t path);
+bool nw_path_has_dns(nw_path_t path);
+bool nw_path_uses_interface_type(nw_path_t path, nw_interface_type_t interface_type);
+bool nw_path_is_equal(nw_path_t path, nw_path_t other_path);
+
+#if _NW_BLOCKS
+	void nw_path_enumerate_interfaces(nw_path_t path, nw_path_enumerate_interfaces_block_t enumerate_block);
+#endif
 
 #endif // _NW_PATH_H_
