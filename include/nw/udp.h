@@ -27,11 +27,11 @@
 #include <nw/protocol_options.h>
 #include <nw/protocol_metadata.h>
 
-nw_protocol_metadata_t NW_NON_NULL nw_udp_create_metadata(void);
-nw_protocol_options_t NW_NON_NULL nw_udp_create_options(void);
+NW_RETURNS_RETAINED nw_protocol_metadata_t NW_NON_NULL nw_udp_create_metadata(void) NW_AVAILABLE_2018;
+NW_RETURNS_RETAINED nw_protocol_options_t NW_NON_NULL nw_udp_create_options(void) NW_AVAILABLE_2018;
 
 void* nw_udp_options_get_no_metadata(void);
 void* nw_udp_options_set_no_metadata(void);
-void nw_udp_options_set_prefer_no_checksum(nw_protocol_options_t NW_NON_NULL options, bool prefer_no_checksum);
+void nw_udp_options_set_prefer_no_checksum(nw_protocol_options_t NW_NON_NULL options, bool prefer_no_checksum) NW_AVAILABLE_2018;
 
 #endif // _NW_UDP_H_

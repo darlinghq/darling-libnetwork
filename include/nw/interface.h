@@ -41,7 +41,7 @@ void* nw_interface_create_from_dictionary(void);
 void* nw_interface_create_from_necp(void);
 void* nw_interface_create_static(void);
 void* nw_interface_create_with_index_and_name(void);
-void* nw_interface_create_with_name(void);
+NW_RETURNS_RETAINED nw_interface_t NW_NULLABLE nw_interface_create_with_name(const char * NW_NON_NULL interface_name) NW_AVAILABLE_2018;
 void* nw_interface_deep_compare(void);
 void* nw_interface_functional_type_to_interface_subtype(void);
 void* nw_interface_functional_type_to_interface_type(void);
@@ -52,10 +52,10 @@ void* nw_interface_get_ipv4_netmask(void);
 void* nw_interface_get_ipv4_network_signature(void);
 void* nw_interface_get_ipv6_network_signature(void);
 void* nw_interface_get_mtu(void);
-const char * NW_NON_NULL nw_interface_get_name(nw_interface_t NW_NON_NULL interface);
+const char * NW_NON_NULL nw_interface_get_name(nw_interface_t NW_NON_NULL interface) NW_AVAILABLE_2018;
 void* nw_interface_get_shallow_hash(void);
 void* nw_interface_get_subtype(void);
-nw_interface_type_t nw_interface_get_type(nw_interface_t NW_NON_NULL interface);
+nw_interface_type_t nw_interface_get_type(nw_interface_t NW_NON_NULL interface) NW_AVAILABLE_2018;
 void* nw_interface_is_constrained(void);
 void* nw_interface_is_expensive(void);
 void* nw_interface_is_multilayer_packet_logging_enabled(void);
@@ -69,8 +69,8 @@ void* nw_interface_supports_tx_start(void);
 void* nw_interface_type_get_description(void);
 void* nw_interface_type_to_functional_type(void);
 
-nw_interface_t nw_interface_create_with_index(uint32_t index);
+NW_RETURNS_RETAINED nw_interface_t NW_NULLABLE nw_interface_create_with_index(uint32_t interface_index) NW_AVAILABLE_2018;
 
-uint32_t nw_interface_get_index(nw_interface_t interface);
+uint32_t nw_interface_get_index(nw_interface_t NW_NON_NULL interface) NW_AVAILABLE_2018;
 
 #endif // _NW_INTERFACE_H_

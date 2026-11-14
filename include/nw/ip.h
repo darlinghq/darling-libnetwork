@@ -24,18 +24,9 @@
 #include <stdint.h>
 
 #include <nw/base.h>
+#include <nw/parameters.h>
 #include <nw/protocol_options.h>
 #include <nw/protocol_metadata.h>
-
-// Service class of a connection's traffic.
-typedef _NW_ENUM(unsigned int, nw_service_class_t) {
-	nw_service_class_best_effort = 0,
-	nw_service_class_background = 1,
-	nw_service_class_interactive_video = 2,
-	nw_service_class_interactive_voice = 3,
-	nw_service_class_responsive_data = 4,
-	nw_service_class_signaling = 5,
-};
 
 typedef _NW_ENUM(unsigned int, nw_ip_version_t) {
 	nw_ip_version_any = 0,
@@ -51,20 +42,20 @@ typedef _NW_ENUM(unsigned int, nw_ip_ecn_flag_t) {
 	nw_ip_ecn_flag_ce = 3,
 };
 
-nw_protocol_metadata_t NW_NON_NULL nw_ip_create_metadata(void);
+NW_RETURNS_RETAINED nw_protocol_metadata_t NW_NON_NULL nw_ip_create_metadata(void) NW_AVAILABLE_2018;
 void* nw_ip_create_options(void);
 
-nw_ip_ecn_flag_t nw_ip_metadata_get_ecn_flag(nw_protocol_metadata_t NW_NON_NULL metadata);
-uint64_t nw_ip_metadata_get_receive_time(nw_protocol_metadata_t NW_NON_NULL metadata);
-nw_service_class_t nw_ip_metadata_get_service_class(nw_protocol_metadata_t NW_NON_NULL metadata);
-void nw_ip_metadata_set_ecn_flag(nw_protocol_metadata_t NW_NON_NULL metadata, nw_ip_ecn_flag_t ecn_flag);
-void nw_ip_metadata_set_service_class(nw_protocol_metadata_t NW_NON_NULL metadata, nw_service_class_t service_class);
+nw_ip_ecn_flag_t nw_ip_metadata_get_ecn_flag(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
+uint64_t nw_ip_metadata_get_receive_time(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
+nw_service_class_t nw_ip_metadata_get_service_class(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
+void nw_ip_metadata_set_ecn_flag(nw_protocol_metadata_t NW_NON_NULL metadata, nw_ip_ecn_flag_t ecn_flag) NW_AVAILABLE_2018;
+void nw_ip_metadata_set_service_class(nw_protocol_metadata_t NW_NON_NULL metadata, nw_service_class_t service_class) NW_AVAILABLE_2018;
 
-void nw_ip_options_set_calculate_receive_time(nw_protocol_options_t NW_NON_NULL options, bool calculate_receive_time);
-void nw_ip_options_set_disable_fragmentation(nw_protocol_options_t NW_NON_NULL options, bool disable_fragmentation);
-void nw_ip_options_set_hop_limit(nw_protocol_options_t NW_NON_NULL options, uint8_t hop_limit);
+void nw_ip_options_set_calculate_receive_time(nw_protocol_options_t NW_NON_NULL options, bool calculate_receive_time) NW_AVAILABLE_2018;
+void nw_ip_options_set_disable_fragmentation(nw_protocol_options_t NW_NON_NULL options, bool disable_fragmentation) NW_AVAILABLE_2018;
+void nw_ip_options_set_hop_limit(nw_protocol_options_t NW_NON_NULL options, uint8_t hop_limit) NW_AVAILABLE_2018;
 void* nw_ip_options_set_local_address_preference(void);
-void nw_ip_options_set_use_minimum_mtu(nw_protocol_options_t NW_NON_NULL options, bool use_minimum_mtu);
-void nw_ip_options_set_version(nw_protocol_options_t NW_NON_NULL options, nw_ip_version_t version);
+void nw_ip_options_set_use_minimum_mtu(nw_protocol_options_t NW_NON_NULL options, bool use_minimum_mtu) NW_AVAILABLE_2018;
+void nw_ip_options_set_version(nw_protocol_options_t NW_NON_NULL options, nw_ip_version_t version) NW_AVAILABLE_2018;
 
 #endif // _NW_IP_H_

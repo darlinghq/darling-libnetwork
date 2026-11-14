@@ -26,7 +26,7 @@ DARLING_NW_STUB(nw_log_ring_copyout);
 DARLING_NW_STUB(nw_log_ring_parse);
 DARLING_NW_STUB(nw_log_ring_parse_count);
 DARLING_NW_STUB(nwlog_get_private_redacted);
-DARLING_NW_STUB(nwlog_get_string_for_dns_service_error);
+DARLING_NW_STUB_FUNCTION(const char * NW_NON_NULL, nwlog_get_string_for_dns_service_error, (int32_t err));
 DARLING_NW_STUB(nwlog_send_copy_to_fd);
 DARLING_NW_STUB(__nwlog_create_hash_from_private_string);
 DARLING_NW_STUB(__nwlog_disable_simulate_crash_block);

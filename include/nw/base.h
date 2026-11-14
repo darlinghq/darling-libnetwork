@@ -22,6 +22,7 @@
 
 #include <os/object.h>
 #include <os/object_private.h>
+#include <os/availability.h>
 
 #define _NW_OPAQUE(_name) OS_OBJECT_DECL_CLASS(_name)
 
@@ -99,5 +100,20 @@
 #endif
 
 #define _NW_BLOCKS __has_extension(blocks)
+
+// Functions that return a +1 reference (create, copy) say so for ARC and for the Swift importer.
+#if OS_OBJECT_USE_OBJC
+	#define NW_RETURNS_RETAINED __attribute__((__ns_returns_retained__))
+	#define NW_NULLABLE _Nullable
+#else
+	#define NW_RETURNS_RETAINED
+	#define NW_NULLABLE
+#endif
+
+// Availability of the Network API that the original framework introduced in macOS 10.14.
+#define NW_AVAILABLE_2018 API_AVAILABLE(macos(10.14), ios(12.0), watchos(5.0), tvos(12.0))
+
+// A block parameter that the callee only calls before it returns.
+#define NW_NOESCAPE __attribute__((__noescape__))
 
 #endif // _NW_BASE_H_

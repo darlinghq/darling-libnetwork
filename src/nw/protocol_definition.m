@@ -31,7 +31,7 @@ DARLING_NW_STUB(nw_protocol_definition_create_named);
 DARLING_NW_STUB(nw_protocol_definition_create_with_identifier);
 DARLING_NW_STUB(nw_protocol_definition_get_identifier);
 DARLING_NW_STUB(nw_protocol_definition_get_variant);
-DARLING_NW_STUB(nw_protocol_definition_is_equal);
+DARLING_NW_STUB_FUNCTION(bool, nw_protocol_definition_is_equal, (nw_protocol_definition_t NW_NON_NULL definition1, nw_protocol_definition_t NW_NON_NULL definition2));
 DARLING_NW_STUB(nw_protocol_definition_register);
 DARLING_NW_STUB(nw_protocol_definition_set_cache_entry_deallocator);
 DARLING_NW_STUB(nw_protocol_definition_set_copy_establishment_report);

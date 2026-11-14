@@ -20,6 +20,10 @@
 #ifndef _NW_LOG_H_
 #define _NW_LOG_H_
 
+#include <stdint.h>
+
+#include <nw/base.h>
+
 void* nw_log_delta_to_ms(void);
 void* nw_log_ms_to_delta(void);
 void* nw_log_ring_append(void);
@@ -44,7 +48,7 @@ void* __nwlog_salted_hostname_hash(void);
 void* __nwlog_snprintf_pack(void);
 
 void* nwlog_get_private_redacted(void);
-void* nwlog_get_string_for_dns_service_error(void);
+const char * NW_NON_NULL nwlog_get_string_for_dns_service_error(int32_t err) NW_AVAILABLE_2018;
 void* nwlog_send_copy_to_fd(void);
 
 #endif // _NW_LOG_H_

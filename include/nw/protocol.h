@@ -20,15 +20,18 @@
 #ifndef _NW_PROTOCOL_H_
 #define _NW_PROTOCOL_H_
 
+#include <nw/base.h>
+#include <nw/protocol_definition.h>
+
 void* nw_protocol_can_join_existing(void);
-void* nw_protocol_copy_ip_definition(void);
+NW_RETURNS_RETAINED nw_protocol_definition_t NW_NON_NULL nw_protocol_copy_ip_definition(void) NW_AVAILABLE_2018;
 void* nw_protocol_copy_quic_connection_definition(void);
 void* nw_protocol_copy_quic_stream_definition(void);
 void* nw_protocol_copy_subdata(void);
 void* nw_protocol_copy_superdata(void);
-void* nw_protocol_copy_tcp_definition(void);
-void* nw_protocol_copy_tls_definition(void);
-void* nw_protocol_copy_udp_definition(void);
+NW_RETURNS_RETAINED nw_protocol_definition_t NW_NON_NULL nw_protocol_copy_tcp_definition(void) NW_AVAILABLE_2018;
+NW_RETURNS_RETAINED nw_protocol_definition_t NW_NON_NULL nw_protocol_copy_tls_definition(void) NW_AVAILABLE_2018;
+NW_RETURNS_RETAINED nw_protocol_definition_t NW_NON_NULL nw_protocol_copy_udp_definition(void) NW_AVAILABLE_2018;
 void* nw_protocol_copy_ws_definition(void);
 void* nw_protocol_create(void);
 void* nw_protocol_create_inbound_data(void);

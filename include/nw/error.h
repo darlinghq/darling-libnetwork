@@ -20,18 +20,27 @@
 #ifndef _NW_ERROR_H_
 #define _NW_ERROR_H_
 
+#include <dns_sd.h>
+
 #include <nw/base.h>
 
 _NW_OPAQUE(nw_error);
+
+typedef _NW_ENUM(int, nw_error_domain_t) {
+	nw_error_domain_invalid = 0,
+	nw_error_domain_posix = 1,
+	nw_error_domain_dns = 2,
+	nw_error_domain_tls = 3,
+};
 
 void* nw_error_copy_cf_error(void);
 void* nw_error_create_dns_error(void);
 void* nw_error_create_error_with_inferred_domain(void);
 void* nw_error_create_posix_error(void);
 void* nw_error_create_tls_error(void);
-void* nw_error_get_error_domain(void);
+nw_error_domain_t nw_error_get_error_domain(nw_error_t NW_NON_NULL error) NW_AVAILABLE_2018;
 void* nw_error_is_equal(void);
 
-int nw_error_get_error_code(nw_error_t error);
+int nw_error_get_error_code(nw_error_t NW_NON_NULL error) NW_AVAILABLE_2018;
 
 #endif // _NW_ERROR_H_

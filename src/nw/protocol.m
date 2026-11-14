@@ -20,14 +20,14 @@
 #include <nw/protocol.h>
 #include <nw/internal/stubs.h>
 DARLING_NW_STUB(nw_protocol_can_join_existing);
-DARLING_NW_STUB(nw_protocol_copy_ip_definition);
+DARLING_NW_STUB_FUNCTION(nw_protocol_definition_t NW_NON_NULL, nw_protocol_copy_ip_definition, (void));
 DARLING_NW_STUB(nw_protocol_copy_quic_connection_definition);
 DARLING_NW_STUB(nw_protocol_copy_quic_stream_definition);
 DARLING_NW_STUB(nw_protocol_copy_subdata);
 DARLING_NW_STUB(nw_protocol_copy_superdata);
-DARLING_NW_STUB(nw_protocol_copy_tcp_definition);
-DARLING_NW_STUB(nw_protocol_copy_tls_definition);
-DARLING_NW_STUB(nw_protocol_copy_udp_definition);
+DARLING_NW_STUB_FUNCTION(nw_protocol_definition_t NW_NON_NULL, nw_protocol_copy_tcp_definition, (void));
+DARLING_NW_STUB_FUNCTION(nw_protocol_definition_t NW_NON_NULL, nw_protocol_copy_tls_definition, (void));
+DARLING_NW_STUB_FUNCTION(nw_protocol_definition_t NW_NON_NULL, nw_protocol_copy_udp_definition, (void));
 DARLING_NW_STUB(nw_protocol_copy_ws_definition);
 DARLING_NW_STUB(nw_protocol_create);
 DARLING_NW_STUB(nw_protocol_create_inbound_data);

@@ -29,7 +29,7 @@ void* nw_protocol_definition_create_named(void);
 void* nw_protocol_definition_create_with_identifier(void);
 void* nw_protocol_definition_get_identifier(void);
 void* nw_protocol_definition_get_variant(void);
-void* nw_protocol_definition_is_equal(void);
+bool nw_protocol_definition_is_equal(nw_protocol_definition_t NW_NON_NULL definition1, nw_protocol_definition_t NW_NON_NULL definition2) NW_AVAILABLE_2018;
 void* nw_protocol_definition_register(void);
 void* nw_protocol_definition_set_cache_entry_deallocator(void);
 void* nw_protocol_definition_set_copy_establishment_report(void);

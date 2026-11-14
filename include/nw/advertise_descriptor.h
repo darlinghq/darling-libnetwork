@@ -20,19 +20,21 @@
 #ifndef _NW_ADVERTISE_DESCRIPTOR_H_
 #define _NW_ADVERTISE_DESCRIPTOR_H_
 
+#include <stddef.h>
+
 #include <nw/base.h>
 
 _NW_OPAQUE(nw_advertise_descriptor);
 
 void* nw_advertise_descriptor_copy_txt_record_object(void);
-void* nw_advertise_descriptor_create_bonjour_service(void);
+NW_RETURNS_RETAINED nw_advertise_descriptor_t NW_NULLABLE nw_advertise_descriptor_create_bonjour_service(const char * NW_NULLABLE name, const char * NW_NON_NULL type, const char * NW_NULLABLE domain) NW_AVAILABLE_2018;
 void* nw_advertise_descriptor_get_bonjour_domain(void);
 void* nw_advertise_descriptor_get_bonjour_name(void);
 void* nw_advertise_descriptor_get_bonjour_type(void);
 void* nw_advertise_descriptor_get_no_auto_rename(void);
 void* nw_advertise_descriptor_get_txt_record(void);
 void* nw_advertise_descriptor_set_no_auto_rename(void);
-void* nw_advertise_descriptor_set_txt_record(void);
+void nw_advertise_descriptor_set_txt_record(nw_advertise_descriptor_t NW_NON_NULL advertise_descriptor, const void * NW_NULLABLE txt_record, size_t txt_length) NW_AVAILABLE_2018;
 void* nw_advertise_descriptor_set_txt_record_object(void);
 
 #endif // _NW_ADVERTISE_DESCRIPTOR_H_

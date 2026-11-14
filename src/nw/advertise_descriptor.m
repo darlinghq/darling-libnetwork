@@ -27,12 +27,12 @@ DARLING_NW_CLASS_STUB;
 @end
 
 DARLING_NW_STUB(nw_advertise_descriptor_copy_txt_record_object);
-DARLING_NW_STUB(nw_advertise_descriptor_create_bonjour_service);
+DARLING_NW_STUB_FUNCTION(nw_advertise_descriptor_t NW_NULLABLE, nw_advertise_descriptor_create_bonjour_service, (const char * NW_NULLABLE name, const char * NW_NON_NULL type, const char * NW_NULLABLE domain));
 DARLING_NW_STUB(nw_advertise_descriptor_get_bonjour_domain);
 DARLING_NW_STUB(nw_advertise_descriptor_get_bonjour_name);
 DARLING_NW_STUB(nw_advertise_descriptor_get_bonjour_type);
 DARLING_NW_STUB(nw_advertise_descriptor_get_no_auto_rename);
 DARLING_NW_STUB(nw_advertise_descriptor_get_txt_record);
 DARLING_NW_STUB(nw_advertise_descriptor_set_no_auto_rename);
-DARLING_NW_STUB(nw_advertise_descriptor_set_txt_record);
+DARLING_NW_STUB_VOID_FUNCTION(nw_advertise_descriptor_set_txt_record, (nw_advertise_descriptor_t NW_NON_NULL advertise_descriptor, const void * NW_NULLABLE txt_record, size_t txt_length));
 DARLING_NW_STUB(nw_advertise_descriptor_set_txt_record_object);

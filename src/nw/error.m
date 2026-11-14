@@ -31,7 +31,7 @@ DARLING_NW_STUB(nw_error_create_dns_error);
 DARLING_NW_STUB(nw_error_create_error_with_inferred_domain);
 DARLING_NW_STUB(nw_error_create_posix_error);
 DARLING_NW_STUB(nw_error_create_tls_error);
-DARLING_NW_STUB(nw_error_get_error_domain);
+DARLING_NW_STUB_FUNCTION(nw_error_domain_t, nw_error_get_error_domain, (nw_error_t NW_NON_NULL error));
 DARLING_NW_STUB(nw_error_is_equal);
 
 /**

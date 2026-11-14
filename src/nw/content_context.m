@@ -27,16 +27,16 @@ DARLING_NW_CLASS_STUB;
 @end
 
 DARLING_NW_STUB(nw_content_context_copy_antecedent);
-DARLING_NW_STUB(nw_content_context_copy_protocol_metadata);
-DARLING_NW_STUB(nw_content_context_create);
-DARLING_NW_STUB(nw_content_context_foreach_protocol_metadata);
+DARLING_NW_STUB_FUNCTION(nw_protocol_metadata_t NW_NULLABLE, nw_content_context_copy_protocol_metadata, (nw_content_context_t NW_NON_NULL context, nw_protocol_definition_t NW_NON_NULL protocol));
+DARLING_NW_STUB_FUNCTION(nw_content_context_t NW_NON_NULL, nw_content_context_create, (const char * NW_NON_NULL context_identifier));
+DARLING_NW_STUB_VOID_FUNCTION(nw_content_context_foreach_protocol_metadata, (nw_content_context_t NW_NON_NULL context, void (^NW_NON_NULL foreach_block)(nw_protocol_definition_t NW_NON_NULL definition, nw_protocol_metadata_t NW_NON_NULL metadata)));
 DARLING_NW_STUB(nw_content_context_get_expiration_milliseconds);
-DARLING_NW_STUB(nw_content_context_get_identifier);
-DARLING_NW_STUB(nw_content_context_get_is_final);
+DARLING_NW_STUB_FUNCTION(const char * NW_NON_NULL, nw_content_context_get_identifier, (nw_content_context_t NW_NON_NULL context));
+DARLING_NW_STUB_FUNCTION(bool, nw_content_context_get_is_final, (nw_content_context_t NW_NON_NULL context));
 DARLING_NW_STUB(nw_content_context_get_relative_priority);
-DARLING_NW_STUB(nw_content_context_set_antecedent);
-DARLING_NW_STUB(nw_content_context_set_expiration_milliseconds);
-DARLING_NW_STUB(nw_content_context_set_is_final);
-DARLING_NW_STUB(nw_content_context_set_metadata_for_protocol);
+DARLING_NW_STUB_VOID_FUNCTION(nw_content_context_set_antecedent, (nw_content_context_t NW_NON_NULL context, nw_content_context_t NW_NULLABLE antecedent_context));
+DARLING_NW_STUB_VOID_FUNCTION(nw_content_context_set_expiration_milliseconds, (nw_content_context_t NW_NON_NULL context, uint64_t expiration_milliseconds));
+DARLING_NW_STUB_VOID_FUNCTION(nw_content_context_set_is_final, (nw_content_context_t NW_NON_NULL context, bool is_final));
+DARLING_NW_STUB_VOID_FUNCTION(nw_content_context_set_metadata_for_protocol, (nw_content_context_t NW_NON_NULL context, nw_protocol_metadata_t NW_NON_NULL protocol_metadata));
 DARLING_NW_STUB(nw_content_context_set_packet_id);
-DARLING_NW_STUB(nw_content_context_set_relative_priority);
+DARLING_NW_STUB_VOID_FUNCTION(nw_content_context_set_relative_priority, (nw_content_context_t NW_NON_NULL context, double relative_priority));

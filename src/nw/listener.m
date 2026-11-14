@@ -26,20 +26,20 @@ DARLING_NW_CLASS_STUB;
 
 @end
 
-DARLING_NW_STUB(nw_listener_cancel);
+DARLING_NW_STUB_VOID_FUNCTION(nw_listener_cancel, (nw_listener_t NW_NON_NULL listener));
 DARLING_NW_STUB(nw_listener_copy_advertise_descriptor);
 DARLING_NW_STUB(nw_listener_copy_local_endpoint);
-DARLING_NW_STUB(nw_listener_create);
-DARLING_NW_STUB(nw_listener_create_with_connection);
+DARLING_NW_STUB_FUNCTION(nw_listener_t NW_NULLABLE, nw_listener_create, (nw_parameters_t NW_NON_NULL parameters));
+DARLING_NW_STUB_FUNCTION(nw_listener_t NW_NULLABLE, nw_listener_create_with_connection, (nw_connection_t NW_NON_NULL connection, nw_parameters_t NW_NON_NULL parameters));
 DARLING_NW_STUB(nw_listener_create_with_launchd_key);
-DARLING_NW_STUB(nw_listener_create_with_port);
+DARLING_NW_STUB_FUNCTION(nw_listener_t NW_NULLABLE, nw_listener_create_with_port, (const char * NW_NON_NULL port, nw_parameters_t NW_NON_NULL parameters));
 DARLING_NW_STUB(nw_listener_get_new_connection_limit);
-DARLING_NW_STUB(nw_listener_get_port);
-DARLING_NW_STUB(nw_listener_set_advertise_descriptor);
-DARLING_NW_STUB(nw_listener_set_advertised_endpoint_changed_handler);
+DARLING_NW_STUB_FUNCTION(uint16_t, nw_listener_get_port, (nw_listener_t NW_NON_NULL listener));
+DARLING_NW_STUB_VOID_FUNCTION(nw_listener_set_advertise_descriptor, (nw_listener_t NW_NON_NULL listener, nw_advertise_descriptor_t NW_NULLABLE advertise_descriptor));
+DARLING_NW_STUB_VOID_FUNCTION(nw_listener_set_advertised_endpoint_changed_handler, (nw_listener_t NW_NON_NULL listener, nw_listener_advertised_endpoint_changed_handler_t NW_NULLABLE handler));
 DARLING_NW_STUB(nw_listener_set_event_handler);
-DARLING_NW_STUB(nw_listener_set_new_connection_handler);
+DARLING_NW_STUB_VOID_FUNCTION(nw_listener_set_new_connection_handler, (nw_listener_t NW_NON_NULL listener, nw_listener_new_connection_handler_t NW_NULLABLE handler));
 DARLING_NW_STUB(nw_listener_set_new_connection_limit);
-DARLING_NW_STUB(nw_listener_set_queue);
-DARLING_NW_STUB(nw_listener_set_state_changed_handler);
-DARLING_NW_STUB(nw_listener_start);
+DARLING_NW_STUB_VOID_FUNCTION(nw_listener_set_queue, (nw_listener_t NW_NON_NULL listener, dispatch_queue_t NW_NON_NULL queue));
+DARLING_NW_STUB_VOID_FUNCTION(nw_listener_set_state_changed_handler, (nw_listener_t NW_NON_NULL listener, nw_listener_state_changed_handler_t NW_NULLABLE handler));
+DARLING_NW_STUB_VOID_FUNCTION(nw_listener_start, (nw_listener_t NW_NON_NULL listener));
