@@ -21,21 +21,28 @@
 #define _NW_PROTOCOL_STACK_H_
 
 #include <nw/base.h>
+#include <nw/protocol_options.h>
 
 _NW_OPAQUE(nw_protocol_stack);
 
+#if _NW_BLOCKS
+	typedef void (^nw_protocol_stack_iterate_protocols_block_t)(nw_protocol_options_t NW_NON_NULL protocol);
+#endif
+
 void* nw_protocol_stack_append_application_protocol(void);
-void* nw_protocol_stack_clear_application_protocols(void);
+void nw_protocol_stack_clear_application_protocols(nw_protocol_stack_t NW_NON_NULL stack) NW_AVAILABLE_2018;
 void* nw_protocol_stack_copy_application_protocols(void);
-void* nw_protocol_stack_copy_internet_protocol(void);
-void* nw_protocol_stack_copy_transport_protocol(void);
+NW_RETURNS_RETAINED nw_protocol_options_t NW_NULLABLE nw_protocol_stack_copy_internet_protocol(nw_protocol_stack_t NW_NON_NULL stack) NW_AVAILABLE_2018;
+NW_RETURNS_RETAINED nw_protocol_options_t NW_NULLABLE nw_protocol_stack_copy_transport_protocol(nw_protocol_stack_t NW_NON_NULL stack) NW_AVAILABLE_2018;
 void* nw_protocol_stack_create_empty(void);
 void* nw_protocol_stack_includes_protocol(void);
-void* nw_protocol_stack_iterate_application_protocols(void);
-void* nw_protocol_stack_prepend_application_protocol(void);
+#if _NW_BLOCKS
+	void nw_protocol_stack_iterate_application_protocols(nw_protocol_stack_t NW_NON_NULL stack, NW_NOESCAPE nw_protocol_stack_iterate_protocols_block_t NW_NON_NULL iterate_block) NW_AVAILABLE_2018;
+#endif
+void nw_protocol_stack_prepend_application_protocol(nw_protocol_stack_t NW_NON_NULL stack, nw_protocol_options_t NW_NON_NULL protocol) NW_AVAILABLE_2018;
 void* nw_protocol_stack_remove_protocol(void);
 void* nw_protocol_stack_set_application_protocols(void);
 void* nw_protocol_stack_set_internet_protocol(void);
-void* nw_protocol_stack_set_transport_protocol(void);
+void nw_protocol_stack_set_transport_protocol(nw_protocol_stack_t NW_NON_NULL stack, nw_protocol_options_t NW_NON_NULL protocol) NW_AVAILABLE_2018;
 
 #endif // _NW_PROTOCOL_STACK_H_

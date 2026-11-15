@@ -21,12 +21,13 @@
 #define _NW_PROTOCOL_OPTIONS_H_
 
 #include <nw/base.h>
+#include <nw/protocol_definition.h>
 
 _NW_OPAQUE(nw_protocol_options);
 
 void* nw_protocol_options_access_handle(void);
 void* nw_protocol_options_copy(void);
-void* nw_protocol_options_copy_definition(void);
+NW_RETURNS_RETAINED nw_protocol_definition_t NW_NON_NULL nw_protocol_options_copy_definition(nw_protocol_options_t NW_NON_NULL options) NW_AVAILABLE_2018;
 void* nw_protocol_options_get_hash(void);
 void* nw_protocol_options_get_log_id_num(void);
 void* nw_protocol_options_get_log_id_str(void);

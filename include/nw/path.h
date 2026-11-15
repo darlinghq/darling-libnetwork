@@ -24,6 +24,7 @@
 #include <stdbool.h>
 
 #include <nw/base.h>
+#include <nw/endpoint.h>
 #include <nw/interface.h>
 
 #include <dispatch/dispatch.h>
@@ -45,9 +46,9 @@ _NW_OPAQUE(nw_path);
 _NW_OPAQUE(nw_path_monitor);
 
 #if _NW_BLOCKS
-	typedef bool (^nw_path_enumerate_interfaces_block_t)(nw_interface_t interface);
+	typedef bool (^nw_path_enumerate_interfaces_block_t)(nw_interface_t NW_NON_NULL interface);
 	typedef void (^nw_path_monitor_cancel_handler_t)(void);
-	typedef void (^nw_path_monitor_update_handler_t)(nw_path_t path);
+	typedef void (^nw_path_monitor_update_handler_t)(nw_path_t NW_NON_NULL path);
 #endif
 
 void* nw_path_allows_multipath(void);
@@ -66,8 +67,8 @@ void* nw_path_copy_derived_parameters(void);
 void* nw_path_copy_description(void);
 void* nw_path_copy_direct_interface(void);
 void* nw_path_copy_discovered_endpoints(void);
-void* nw_path_copy_effective_local_endpoint(void);
-void* nw_path_copy_effective_remote_endpoint(void);
+NW_RETURNS_RETAINED nw_endpoint_t NW_NULLABLE nw_path_copy_effective_local_endpoint(nw_path_t NW_NON_NULL path) NW_AVAILABLE_2018;
+NW_RETURNS_RETAINED nw_endpoint_t NW_NULLABLE nw_path_copy_effective_remote_endpoint(nw_path_t NW_NON_NULL path) NW_AVAILABLE_2018;
 void* nw_path_copy_endpoint(void);
 void* nw_path_copy_endpoint_from_tlv(void);
 void* nw_path_copy_flow_divert_token(void);
@@ -185,16 +186,16 @@ void* nw_path_nexus_can_support_user_packet_pool(void);
 void* nw_path_nexus_should_use_event_ring(void);
 
 // same with these
-nw_path_monitor_t nw_path_monitor_create(void);
-nw_path_monitor_t nw_path_monitor_create_with_type(nw_interface_type_t required_interface_type);
+NW_RETURNS_RETAINED nw_path_monitor_t NW_NON_NULL nw_path_monitor_create(void) NW_AVAILABLE_2018;
+NW_RETURNS_RETAINED nw_path_monitor_t NW_NON_NULL nw_path_monitor_create_with_type(nw_interface_type_t required_interface_type) NW_AVAILABLE_2018;
 void nw_path_monitor_prohibit_interface_type(nw_path_monitor_t monitor, nw_interface_type_t interface_type);
-void nw_path_monitor_set_queue(nw_path_monitor_t monitor, dispatch_queue_t queue);
-void nw_path_monitor_start(nw_path_monitor_t monitor);
-void nw_path_monitor_cancel(nw_path_monitor_t monitor);
+void nw_path_monitor_set_queue(nw_path_monitor_t NW_NON_NULL monitor, dispatch_queue_t NW_NON_NULL queue) NW_AVAILABLE_2018;
+void nw_path_monitor_start(nw_path_monitor_t NW_NON_NULL monitor) NW_AVAILABLE_2018;
+void nw_path_monitor_cancel(nw_path_monitor_t NW_NON_NULL monitor) NW_AVAILABLE_2018;
 
 #if _NW_BLOCKS
 	void nw_path_monitor_set_cancel_handler(nw_path_monitor_t monitor, nw_path_monitor_cancel_handler_t cancel_handler);
-	void nw_path_monitor_set_update_handler(nw_path_monitor_t monitor, nw_path_monitor_update_handler_t update_handler);
+	void nw_path_monitor_set_update_handler(nw_path_monitor_t NW_NON_NULL monitor, nw_path_monitor_update_handler_t NW_NON_NULL update_handler) NW_AVAILABLE_2018;
 #endif
 
 // maybe these too?
@@ -207,21 +208,21 @@ void* nw_path_fallback_is_weak(void);
 void* nw_path_fallback_should_not_use_timer(void);
 
 int32_t nw_path_get_flow_divert_unit(nw_path_t path);
-nw_path_status_t nw_path_get_status(nw_path_t path);
+nw_path_status_t nw_path_get_status(nw_path_t NW_NON_NULL path) NW_AVAILABLE_2018;
 nw_path_reason_t nw_path_get_reason(nw_path_t path);
 
 nw_interface_t nw_path_copy_scoped_interface(nw_path_t path);
 
 bool nw_path_is_constrained(nw_path_t path);
-bool nw_path_is_expensive(nw_path_t path);
-bool nw_path_has_ipv4(nw_path_t path);
-bool nw_path_has_ipv6(nw_path_t path);
-bool nw_path_has_dns(nw_path_t path);
-bool nw_path_uses_interface_type(nw_path_t path, nw_interface_type_t interface_type);
-bool nw_path_is_equal(nw_path_t path, nw_path_t other_path);
+bool nw_path_is_expensive(nw_path_t NW_NON_NULL path) NW_AVAILABLE_2018;
+bool nw_path_has_ipv4(nw_path_t NW_NON_NULL path) NW_AVAILABLE_2018;
+bool nw_path_has_ipv6(nw_path_t NW_NON_NULL path) NW_AVAILABLE_2018;
+bool nw_path_has_dns(nw_path_t NW_NON_NULL path) NW_AVAILABLE_2018;
+bool nw_path_uses_interface_type(nw_path_t NW_NON_NULL path, nw_interface_type_t interface_type) NW_AVAILABLE_2018;
+bool nw_path_is_equal(nw_path_t NW_NON_NULL path, nw_path_t NW_NON_NULL other_path) NW_AVAILABLE_2018;
 
 #if _NW_BLOCKS
-	void nw_path_enumerate_interfaces(nw_path_t path, nw_path_enumerate_interfaces_block_t enumerate_block);
+	void nw_path_enumerate_interfaces(nw_path_t NW_NON_NULL path, NW_NOESCAPE nw_path_enumerate_interfaces_block_t NW_NON_NULL enumerate_block) NW_AVAILABLE_2018;
 #endif
 
 #endif // _NW_PATH_H_

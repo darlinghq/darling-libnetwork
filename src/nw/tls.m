@@ -20,8 +20,8 @@
 #include <nw/tls.h>
 #include <nw/internal/stubs.h>
 DARLING_NW_STUB(nw_tls_copy_peer_certificates);
-DARLING_NW_STUB(nw_tls_copy_sec_protocol_metadata);
-DARLING_NW_STUB(nw_tls_create_options);
+DARLING_NW_STUB_FUNCTION(sec_protocol_metadata_t NW_NULLABLE, nw_tls_copy_sec_protocol_metadata, (nw_protocol_metadata_t NW_NON_NULL metadata));
+DARLING_NW_STUB_FUNCTION(nw_protocol_options_t NW_NON_NULL, nw_tls_create_options, (void));
 DARLING_NW_STUB(nw_tls_create_peer_acceptable_distinguished_names);
 DARLING_NW_STUB(nw_tls_create_peer_trust);
 DARLING_NW_STUB(nw_tls_create_secret);
@@ -71,7 +71,4 @@ DARLING_NW_STUB(nw_tls_set_session_ticket_enabled);
  *
  */
 
-sec_protocol_options_t nw_tls_copy_sec_protocol_options(nw_protocol_options_t options) {
-	DARLING_NW_STUB_PRINT;
-	return NULL;
-};
+DARLING_NW_STUB_FUNCTION(sec_protocol_options_t NW_NON_NULL, nw_tls_copy_sec_protocol_options, (nw_protocol_options_t NW_NON_NULL options));

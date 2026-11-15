@@ -41,6 +41,22 @@ extern bool __darling_nw_verbose;
 		return NULL; \
 	}
 
+// A stub with the real prototype (its arguments are ignored): returns 0, NULL or false. A function whose
+// prototype promises a non-null result still returns NULL here; that is what the stub is.
+#define DARLING_NW_STUB_FUNCTION(_ret, _name, _params) \
+	_Pragma("clang diagnostic push") \
+	_Pragma("clang diagnostic ignored \"-Wnonnull\"") \
+	_ret _name _params { \
+		DARLING_NW_STUB_PRINT \
+		return (_ret)0; \
+	} \
+	_Pragma("clang diagnostic pop")
+
+#define DARLING_NW_STUB_VOID_FUNCTION(_name, _params) \
+	void _name _params { \
+		DARLING_NW_STUB_PRINT \
+	}
+
 #define DARLING_NW_CLASS_STUB \
 	- (NSMethodSignature*)methodSignatureForSelector:(SEL)aSelector { \
 		return [NSMethodSignature signatureWithObjCTypes: "v@:"]; \
