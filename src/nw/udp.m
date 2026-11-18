@@ -19,8 +19,12 @@
 
 #include <nw/udp.h>
 #include <nw/internal/stubs.h>
+#include "darling_internal.h"
 DARLING_NW_STUB_FUNCTION(nw_protocol_metadata_t, nw_udp_create_metadata, (void));
-DARLING_NW_STUB_FUNCTION(nw_protocol_options_t, nw_udp_create_options, (void));
 DARLING_NW_STUB(nw_udp_options_get_no_metadata);
 DARLING_NW_STUB(nw_udp_options_set_no_metadata);
 DARLING_NW_STUB_VOID_FUNCTION(nw_udp_options_set_prefer_no_checksum, (nw_protocol_options_t NW_NON_NULL options, bool prefer_no_checksum));
+
+nw_protocol_options_t nw_udp_create_options(void) {
+	return darling_nw_protocol_options_create(DARLING_NW_PROTOCOL_UDP);
+}

@@ -19,11 +19,21 @@
 
 #include <nw/internal/parameters.h>
 #include <nw/internal/stubs.h>
+#include <nw/tcp.h>
+#include <nw/tls.h>
+#include <nw/udp.h>
+#include "darling_internal.h"
 
 nw_parameters_configure_protocol_block_t _nw_parameters_configure_protocol_default_configuration = ^(nw_protocol_options_t NW_NON_NULL options) {};
 nw_parameters_configure_protocol_block_t _nw_parameters_configure_protocol_disable = ^(nw_protocol_options_t NW_NON_NULL options) {};
 
 @implementation _NW_CONCRETE_IMPL(nw_parameters)
+
+- (void)dealloc {
+	[(id)transport_options release];
+	[(id)tls release];
+	[super dealloc];
+}
 
 DARLING_NW_CLASS_STUB;
 
@@ -74,7 +84,6 @@ DARLING_NW_STUB(nw_parameters_copy_required_netagent_uuids);
 DARLING_NW_STUB(nw_parameters_copy_tls_session_id);
 DARLING_NW_STUB(nw_parameters_copy_transform_array);
 DARLING_NW_STUB(nw_parameters_copy_url_endpoint);
-DARLING_NW_STUB_FUNCTION(nw_parameters_t NW_NON_NULL, nw_parameters_create, (void));
 DARLING_NW_STUB_FUNCTION(nw_parameters_t NW_NON_NULL, nw_parameters_create_custom_ip, (uint8_t custom_ip_protocol_number, nw_parameters_configure_protocol_block_t NW_NON_NULL configure_ip));
 DARLING_NW_STUB(nw_parameters_create_empty_stack);
 DARLING_NW_STUB(nw_parameters_create_from_dictionary);
@@ -84,7 +93,6 @@ DARLING_NW_STUB(nw_parameters_create_quic_connection);
 DARLING_NW_STUB(nw_parameters_create_quic_connection_with_tls_fallback);
 DARLING_NW_STUB(nw_parameters_create_quic_stream);
 DARLING_NW_STUB(nw_parameters_create_quic_stream_with_tls_fallback);
-DARLING_NW_STUB(nw_parameters_create_secure_udp);
 DARLING_NW_STUB(nw_parameters_get_account_id);
 DARLING_NW_STUB(nw_parameters_get_allow_duplicate_state_updates);
 DARLING_NW_STUB(nw_parameters_get_allow_joining_connected_fd);
@@ -325,10 +333,47 @@ DARLING_NW_STUB(nw_parameters_set_use_tfo_heuristics);
  *
  */
 
+// A transport with the configure blocks applied: the transport block runs on fresh options, the security block
+// (NULL or the "disable" block means none) on fresh TLS options.
+static nw_parameters_t create_with_stack(int protocol, nw_parameters_configure_protocol_block_t secure, nw_parameters_configure_protocol_block_t transport) {
+	NWConcrete_nw_parameters *parameters = [NWConcrete_nw_parameters new];
+	parameters->transport = protocol;
+	parameters->transport_options = darling_nw_protocol_options_create(protocol);
+	if (transport != NULL && transport != _nw_parameters_configure_protocol_disable)
+		transport(parameters->transport_options);
+	if (secure != NULL && secure != _nw_parameters_configure_protocol_disable) {
+		parameters->tls = (nw_protocol_options_t)nw_tls_create_options();
+		secure(parameters->tls);
+	}
+	return (nw_parameters_t)parameters;
+}
+
+nw_parameters_t nw_parameters_create(void) {
+	NWConcrete_nw_parameters *parameters = [NWConcrete_nw_parameters new];
+	parameters->transport = DARLING_NW_PROTOCOL_TCP;
+	parameters->transport_options = darling_nw_protocol_options_create(DARLING_NW_PROTOCOL_TCP);
+	return (nw_parameters_t)parameters;
+}
+
 nw_parameters_t nw_parameters_create_secure_tcp(nw_parameters_configure_protocol_block_t configure_tls, nw_parameters_configure_protocol_block_t configure_tcp) {
-	DARLING_NW_STUB_PRINT;
-	return NULL;
+	return create_with_stack(DARLING_NW_PROTOCOL_TCP, configure_tls, configure_tcp);
 };
+
+nw_parameters_t nw_parameters_create_secure_udp(nw_parameters_configure_protocol_block_t configure_dtls, nw_parameters_configure_protocol_block_t configure_udp) {
+	return create_with_stack(DARLING_NW_PROTOCOL_UDP, configure_dtls, configure_udp);
+}
+
+int darling_nw_parameters_get_transport(nw_parameters_t parameters) {
+	return ((NWConcrete_nw_parameters *)parameters)->transport;
+}
+
+nw_protocol_options_t darling_nw_parameters_get_tls(nw_parameters_t parameters) {
+	return ((NWConcrete_nw_parameters *)parameters)->tls;
+}
+
+nw_protocol_options_t darling_nw_parameters_get_transport_options(nw_parameters_t parameters) {
+	return ((NWConcrete_nw_parameters *)parameters)->transport_options;
+}
 
 void nw_parameters_set_indefinite(nw_parameters_t parameters, bool value) {
 	DARLING_NW_STUB_PRINT;

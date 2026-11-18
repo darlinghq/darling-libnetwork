@@ -19,11 +19,11 @@
 
 #include <nw/tcp.h>
 #include <nw/internal/stubs.h>
+#include "darling_internal.h"
 DARLING_NW_STUB(nw_tcp_connection_copy_error);
 DARLING_NW_STUB(nw_tcp_connection_set_tls_message_handler);
 DARLING_NW_STUB(nw_tcp_connection_set_tls_prepare_handler);
 DARLING_NW_STUB(nw_tcp_create_metadata);
-DARLING_NW_STUB_FUNCTION(nw_protocol_options_t, nw_tcp_create_options, (void));
 DARLING_NW_STUB_FUNCTION(uint32_t, nw_tcp_get_available_receive_buffer, (nw_protocol_metadata_t NW_NON_NULL metadata));
 DARLING_NW_STUB_FUNCTION(uint32_t, nw_tcp_get_available_send_buffer, (nw_protocol_metadata_t NW_NON_NULL metadata));
 DARLING_NW_STUB(nw_tcp_options_get_connection_timeout);
@@ -61,7 +61,6 @@ DARLING_NW_STUB_VOID_FUNCTION(nw_tcp_options_set_keepalive_count, (nw_protocol_o
 DARLING_NW_STUB_VOID_FUNCTION(nw_tcp_options_set_keepalive_idle_time, (nw_protocol_options_t NW_NON_NULL options, uint32_t keepalive_idle_time));
 DARLING_NW_STUB_VOID_FUNCTION(nw_tcp_options_set_keepalive_interval, (nw_protocol_options_t NW_NON_NULL options, uint32_t keepalive_interval));
 DARLING_NW_STUB_VOID_FUNCTION(nw_tcp_options_set_maximum_segment_size, (nw_protocol_options_t NW_NON_NULL options, uint32_t maximum_segment_size));
-DARLING_NW_STUB_VOID_FUNCTION(nw_tcp_options_set_no_delay, (nw_protocol_options_t NW_NON_NULL options, bool no_delay));
 DARLING_NW_STUB(nw_tcp_options_set_no_fast_open_cookie);
 DARLING_NW_STUB_VOID_FUNCTION(nw_tcp_options_set_no_options, (nw_protocol_options_t NW_NON_NULL options, bool no_options));
 DARLING_NW_STUB_VOID_FUNCTION(nw_tcp_options_set_no_push, (nw_protocol_options_t NW_NON_NULL options, bool no_push));
@@ -71,3 +70,11 @@ DARLING_NW_STUB(nw_tcp_options_set_reduce_buffering);
 DARLING_NW_STUB_VOID_FUNCTION(nw_tcp_options_set_retransmit_connection_drop_time, (nw_protocol_options_t NW_NON_NULL options, uint32_t retransmit_connection_drop_time));
 DARLING_NW_STUB_VOID_FUNCTION(nw_tcp_options_set_retransmit_fin_drop, (nw_protocol_options_t NW_NON_NULL options, bool retransmit_fin_drop));
 DARLING_NW_STUB(nw_tcp_set_callbacks);
+
+nw_protocol_options_t nw_tcp_create_options(void) {
+	return darling_nw_protocol_options_create(DARLING_NW_PROTOCOL_TCP);
+}
+
+void nw_tcp_options_set_no_delay(nw_protocol_options_t options, bool no_delay) {
+	darling_nw_protocol_options_set_no_delay(options, no_delay);
+}

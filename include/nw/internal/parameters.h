@@ -23,7 +23,12 @@
 #include <nw/base.h>
 #include <nw/parameters.h>
 
-@interface _NW_CONCRETE(nw_parameters)
+@interface _NW_CONCRETE(nw_parameters) {
+@public
+	int transport;
+	nw_protocol_options_t transport_options;
+	nw_protocol_options_t tls;
+}
 
 @end
 

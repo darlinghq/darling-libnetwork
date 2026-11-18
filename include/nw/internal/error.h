@@ -23,7 +23,11 @@
 #include <nw/base.h>
 #include <nw/error.h>
 
-@interface _NW_CONCRETE(nw_error)
+@interface _NW_CONCRETE(nw_error) {
+@public
+	nw_error_domain_t domain;
+	int code;
+}
 
 @end
 

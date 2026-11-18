@@ -23,7 +23,13 @@
 #include <nw/base.h>
 #include <nw/endpoint.h>
 
-@interface _NW_CONCRETE(nw_endpoint)
+@interface _NW_CONCRETE(nw_endpoint) {
+@public
+	nw_endpoint_type_t type;
+	char *hostname;
+	char *port_string;
+	struct sockaddr_storage address;
+}
 
 @end
 
