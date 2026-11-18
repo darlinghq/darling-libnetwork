@@ -132,6 +132,7 @@ target_link_libraries(libnetwork
 	system
 	objc
 	Foundation
+	Security
 	tls18
 )
 

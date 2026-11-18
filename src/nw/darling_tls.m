@@ -32,7 +32,8 @@
 #include <Security/SecPolicy.h>
 #include <CoreFoundation/CoreFoundation.h>
 #include <Block.h>
-#include <dlfcn.h>
+#include <Security/SecureTransport.h>
+#include <Security/SecBase.h>
 #include <string.h>
 #include <stdlib.h>
 #include <tls.h>
@@ -40,26 +41,6 @@
 #include <dispatch/dispatch.h>
 
 #define NW_EXPORT __attribute__((visibility("default")))
-
-// SSLProtocol values (SecureTransport.h), as Security's setters store them.
-enum {
-	DarlingSSLProtocolUnknown = 0,
-	DarlingTLSProtocol1 = 4,
-	DarlingTLSProtocol11 = 7,
-	DarlingTLSProtocol12 = 8,
-	DarlingTLSProtocol13 = 10,
-};
-
-// OSStatus codes (SecBase.h) for the failures NWError.tls reports.
-enum {
-	DarlingErrSSLProtocol = -9800,
-	DarlingErrSSLXCertChainInvalid = -9807,
-	DarlingErrSSLClosedAbort = -9806,
-	DarlingErrSSLPeerBadCert = -9825,
-	DarlingErrSSLHandshakeFail = -9824,
-	DarlingErrSSLInternal = -9810,
-	DarlingErrSSLBadConfiguration = -9848,
-};
 
 @protocol OS_nw_protocol_options <NSObject>
 @end
@@ -141,18 +122,6 @@ NW_EXPORT bool nw_protocol_metadata_access_handle(void *metadata, sec_access_blo
 	return access_block(&((DarlingNWTLSMetadata *)metadata)->content);
 }
 
-// Security links libnetwork's users, not the other way round (Heimdal, which Security uses,
-// links libnetwork), so its trust functions are looked up when a verify block needs them.
-static void *security_symbol(const char *name)
-{
-	static void *security;
-	static dispatch_once_t once;
-	dispatch_once(&once, ^{
-		security = dlopen("/System/Library/Frameworks/Security.framework/Security", RTLD_LAZY | RTLD_LOCAL);
-	});
-	return security != NULL ? dlsym(security, name) : NULL;
-}
-
 struct darling_nw_tls {
 	struct tls *ctx;
 	struct tls_config *config;
@@ -163,13 +132,15 @@ struct darling_nw_tls {
 };
 typedef struct darling_nw_tls *darling_nw_tls_t;
 
+// The libtls protocol mask for the version range, or 0 when no version in the range can be
+// spoken. LibreSSL 2.8's libtls speaks TLS 1.0 to 1.2: a range that asks for TLS 1.3 or newer
+// only is not satisfied by a lower version, so it fails rather than silently downgrading.
 static uint32_t protocol_mask(SSLProtocol min, SSLProtocol max)
 {
-	// LibreSSL 2.8 speaks TLS 1.0 to 1.2, so a TLS 1.3 minimum or maximum becomes 1.2.
-	int low = min == DarlingTLSProtocol11 ? 1 : min >= DarlingTLSProtocol12 ? 2 : 0;
-	int high = (max == DarlingSSLProtocolUnknown || max >= DarlingTLSProtocol12) ? 2 : max == DarlingTLSProtocol11 ? 1 : 0;
+	int low = min == kTLSProtocol11 ? 1 : (min == kTLSProtocol12 ? 2 : (min >= kTLSProtocol13 ? 3 : 0));
+	int high = (max == kSSLProtocolUnknown || max >= kTLSProtocol12) ? 2 : max == kTLSProtocol11 ? 1 : 0;
 	if (low > high)
-		low = high;
+		return 0;
 	uint32_t mask = 0;
 	for (int v = low; v <= high; v++)
 		mask |= TLS_PROTOCOL_TLSv1_0 << v;
@@ -219,38 +190,47 @@ static int32_t fail(darling_nw_tls_t t, int32_t status, const char *what)
 NW_EXPORT darling_nw_tls_t darling_nw_tls_create(sec_protocol_options_t options, int fd, const char *host, int32_t *status)
 {
 	if (![(id)options isKindOfClass:[DarlingNWTLSOptions class]]) {
-		*status = DarlingErrSSLBadConfiguration;
+		*status = errSSLBadConfiguration;
 		return NULL;
 	}
 	darling_nw_tls_t t = calloc(1, sizeof(*t));
+	if (t == NULL) {
+		*status = errSSLInternal;
+		return NULL;
+	}
 	t->options = [(DarlingNWTLSOptions *)options retain];
 	struct sec_protocol_options_content *content = &t->options->content;
 
 	t->config = tls_config_new();
 	t->ctx = tls_client();
 	if (t->config == NULL || t->ctx == NULL) {
-		*status = DarlingErrSSLInternal;
+		*status = errSSLInternal;
 		goto failed;
 	}
-	tls_config_set_protocols(t->config, protocol_mask(content->min_version, content->max_version));
+	uint32_t protocols = protocol_mask(content->min_version, content->max_version);
+	if (protocols == 0) {
+		*status = fail(t, errSSLBadConfiguration, "no TLS version in the requested range is supported");
+		goto failed;
+	}
+	tls_config_set_protocols(t->config, protocols);
 	char *alpn = alpn_list(content->application_protocols);
 	if (alpn != NULL) {
 		tls_config_set_alpn(t->config, alpn);
 		free(alpn);
 	}
-	// A verify block decides trust itself, after the handshake (darling_nw_tls_verify).
-	if (content->verify_block != NULL) {
-		tls_config_insecure_noverifycert(t->config);
-		tls_config_insecure_noverifyname(t->config);
-	}
+	// Trust is settled after the handshake through Security (darling_nw_tls_verify), with the
+	// system trust and the application's verify block when it set one, so libtls's own
+	// certificate checks are not used. The session is not usable until that has succeeded.
+	tls_config_insecure_noverifycert(t->config);
+	tls_config_insecure_noverifyname(t->config);
 	if (tls_configure(t->ctx, t->config) != 0) {
-		*status = fail(t, DarlingErrSSLBadConfiguration, tls_error(t->ctx));
+		*status = fail(t, errSSLBadConfiguration, tls_error(t->ctx));
 		goto failed;
 	}
 	const char *name = content->server_name != NULL ? content->server_name : host;
 	t->server_name = name != NULL ? strdup(name) : NULL;
 	if (tls_connect_socket(t->ctx, fd, content->disable_sni ? NULL : t->server_name) != 0) {
-		*status = fail(t, DarlingErrSSLBadConfiguration, tls_error(t->ctx));
+		*status = fail(t, errSSLBadConfiguration, tls_error(t->ctx));
 		goto failed;
 	}
 	t->metadata = [DarlingNWTLSMetadata new];
@@ -280,11 +260,11 @@ static void fill_metadata(darling_nw_tls_t t)
 	const char *version = tls_conn_version(t->ctx);
 	if (version != NULL) {
 		if (strcmp(version, "TLSv1.2") == 0)
-			content->negotiated_protocol_version = DarlingTLSProtocol12;
+			content->negotiated_protocol_version = kTLSProtocol12;
 		else if (strcmp(version, "TLSv1.1") == 0)
-			content->negotiated_protocol_version = DarlingTLSProtocol11;
+			content->negotiated_protocol_version = kTLSProtocol11;
 		else if (strcmp(version, "TLSv1") == 0)
-			content->negotiated_protocol_version = DarlingTLSProtocol1;
+			content->negotiated_protocol_version = kTLSProtocol1;
 	}
 }
 
@@ -297,10 +277,10 @@ NW_EXPORT int32_t darling_nw_tls_handshake(darling_nw_tls_t t)
 		return result;
 	if (result != 0) {
 		const char *message = tls_error(t->ctx);
-		int32_t status = DarlingErrSSLHandshakeFail;
+		int32_t status = errSSLHandshakeFail;
 		if (message != NULL && (strstr(message, "certificate") != NULL || strstr(message, "verify") != NULL
 				|| strstr(message, "name") != NULL))
-			status = DarlingErrSSLXCertChainInvalid;
+			status = errSSLXCertChainInvalid;
 		return fail(t, status, message);
 	}
 	fill_metadata(t);
@@ -310,9 +290,8 @@ NW_EXPORT int32_t darling_nw_tls_handshake(darling_nw_tls_t t)
 // The DER certificates in a PEM chain, leaf first, as SecCertificates in a CFArray.
 static CFArrayRef certificates_from_pem(const uint8_t *pem, size_t length)
 {
-	SecCertificateRef (*create)(CFAllocatorRef, CFDataRef) = security_symbol("SecCertificateCreateWithData");
 	CFMutableArrayRef certificates = CFArrayCreateMutable(NULL, 0, &kCFTypeArrayCallBacks);
-	if (create == NULL || pem == NULL)
+	if (pem == NULL)
 		return certificates;
 	static const char begin[] = "-----BEGIN CERTIFICATE-----", end[] = "-----END CERTIFICATE-----";
 	const char *text = (const char *)pem, *limit = text + length;
@@ -353,7 +332,7 @@ static CFArrayRef certificates_from_pem(const uint8_t *pem, size_t length)
 		}
 		CFDataRef data = CFDataCreate(NULL, der, used);
 		free(der);
-		SecCertificateRef certificate = create(NULL, data);
+		SecCertificateRef certificate = SecCertificateCreateWithData(NULL, data);
 		CFRelease(data);
 		if (certificate != NULL) {
 			CFArrayAppendValue(certificates, certificate);
@@ -364,52 +343,62 @@ static CFArrayRef certificates_from_pem(const uint8_t *pem, size_t length)
 	return certificates;
 }
 
-// Settles trust once the handshake is done: through the app's verify block when it set one
-// (handing it the peer's chain as a sec_trust_t), and otherwise by libtls's own check against
-// /etc/ssl/cert.pem, which tls_handshake already made. Calls `done` exactly once.
+// Settles trust once the handshake is done, through Security: the peer's chain is evaluated
+// for the server name (SSL policy, system trust). With the application's verify block, the block
+// receives the chain as a sec_trust_t and its answer decides; without one, the evaluation
+// result decides. Calls `done` exactly once, so a session whose trust was not established is
+// never reported as trusted.
 NW_EXPORT void darling_nw_tls_verify(darling_nw_tls_t t, void (^done)(bool trusted))
 {
 	struct sec_protocol_options_content *content = &t->options->content;
-	if (content->verify_block == NULL) {
-		done(true);
-		return;
-	}
-	SecPolicyRef (*policy_create)(Boolean, CFStringRef) = security_symbol("SecPolicyCreateSSL");
-	OSStatus (*trust_create)(CFTypeRef, CFTypeRef, SecTrustRef *) = security_symbol("SecTrustCreateWithCertificates");
-	sec_trust_t (*sec_trust_make)(SecTrustRef) = security_symbol("sec_trust_create");
-	if (policy_create == NULL || trust_create == NULL || sec_trust_make == NULL) {
-		done(false);
-		return;
-	}
-
 	size_t length = 0;
 	const uint8_t *pem = tls_peer_cert_chain_pem(t->ctx, &length);
 	CFArrayRef certificates = certificates_from_pem(pem, length);
 	CFStringRef host = t->server_name != NULL ? CFStringCreateWithCString(NULL, t->server_name, kCFStringEncodingUTF8) : NULL;
-	SecPolicyRef policy = policy_create(true, host);
+	SecPolicyRef policy = SecPolicyCreateSSL(true, host);
 	SecTrustRef trust = NULL;
-	OSStatus status = CFArrayGetCount(certificates) > 0 ? trust_create(certificates, policy, &trust) : -1;
+	OSStatus status = (policy != NULL && CFArrayGetCount(certificates) > 0)
+		? SecTrustCreateWithCertificates(certificates, policy, &trust) : errSecParam;
 	CFRelease(certificates);
 	if (policy != NULL)
 		CFRelease(policy);
 	if (host != NULL)
 		CFRelease(host);
-	if (status != 0 || trust == NULL) {
+	if (status != errSecSuccess || trust == NULL) {
 		done(false);
 		return;
 	}
-	sec_trust_t sec_trust = sec_trust_make(trust);
+
+	void (^finish)(bool) = Block_copy(done);
+	if (content->verify_block == NULL) {
+		dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
+			bool trusted = SecTrustEvaluateWithError(trust, NULL);
+			CFRelease(trust);
+			finish(trusted);
+			Block_release(finish);
+		});
+		return;
+	}
+
+	sec_trust_t sec_trust = sec_trust_create(trust);
 	CFRelease(trust);
+	if (sec_trust == NULL) {
+		finish(false);
+		Block_release(finish);
+		return;
+	}
 	t->metadata->content.trust_ref = (sec_trust_t)[(id)sec_trust retain];
 
-	sec_protocol_verify_t verify_block = content->verify_block;
+	sec_protocol_verify_t verify_block = Block_copy(content->verify_block);
+	dispatch_queue_t queue = content->verify_queue != NULL ? content->verify_queue
+		: dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0);
 	DarlingNWTLSMetadata *metadata = [t->metadata retain];
-	void (^finish)(bool) = Block_copy(done);
-	dispatch_async(content->verify_queue, ^{
+	dispatch_async(queue, ^{
 		verify_block((sec_protocol_metadata_t)metadata, sec_trust, ^(bool result) {
 			finish(result);
 			Block_release(finish);
 		});
+		Block_release(verify_block);
 		[metadata release];
 		[(id)sec_trust release];
 	});
@@ -421,7 +410,7 @@ NW_EXPORT ssize_t darling_nw_tls_read(darling_nw_tls_t t, void *buffer, size_t l
 {
 	ssize_t result = tls_read(t->ctx, buffer, length);
 	if (result == -1)
-		fail(t, DarlingErrSSLClosedAbort, tls_error(t->ctx));
+		fail(t, errSSLClosedAbort, tls_error(t->ctx));
 	return result;
 }
 
@@ -429,7 +418,7 @@ NW_EXPORT ssize_t darling_nw_tls_write(darling_nw_tls_t t, const void *buffer, s
 {
 	ssize_t result = tls_write(t->ctx, buffer, length);
 	if (result == -1)
-		fail(t, DarlingErrSSLClosedAbort, tls_error(t->ctx));
+		fail(t, errSSLClosedAbort, tls_error(t->ctx));
 	return result;
 }
 
