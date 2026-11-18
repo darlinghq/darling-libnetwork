@@ -26,7 +26,7 @@ DARLING_NW_CLASS_STUB;
 
 @end
 
-DARLING_NW_STUB(nw_protocol_metadata_access_handle);
+// nw_protocol_metadata_access_handle is in darling_tls.m.
 DARLING_NW_STUB(nw_protocol_metadata_copy_definition);
 DARLING_NW_STUB(nw_protocol_metadata_copy_identifier);
 DARLING_NW_STUB(nw_protocol_metadata_copy_message_options);

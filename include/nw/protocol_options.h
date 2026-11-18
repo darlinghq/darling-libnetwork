@@ -25,7 +25,7 @@
 
 _NW_OPAQUE(nw_protocol_options);
 
-void* nw_protocol_options_access_handle(void);
+bool nw_protocol_options_access_handle(void *options, bool (^access_block)(void *handle));
 void* nw_protocol_options_copy(void);
 NW_RETURNS_RETAINED nw_protocol_definition_t NW_NON_NULL nw_protocol_options_copy_definition(nw_protocol_options_t NW_NON_NULL options) NW_AVAILABLE_2018;
 void* nw_protocol_options_get_hash(void);

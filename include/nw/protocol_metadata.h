@@ -24,7 +24,7 @@
 
 _NW_OPAQUE(nw_protocol_metadata);
 
-void* nw_protocol_metadata_access_handle(void);
+bool nw_protocol_metadata_access_handle(void *metadata, bool (^access_block)(void *handle));
 void* nw_protocol_metadata_copy_definition(void);
 void* nw_protocol_metadata_copy_identifier(void);
 void* nw_protocol_metadata_copy_message_options(void);
