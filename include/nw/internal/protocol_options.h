@@ -23,7 +23,11 @@
 #include <nw/base.h>
 #include <nw/protocol_options.h>
 
-@interface _NW_CONCRETE(nw_protocol_options)
+@interface _NW_CONCRETE(nw_protocol_options) {
+@public
+	int protocol;
+	bool no_delay;
+}
 
 @end
 

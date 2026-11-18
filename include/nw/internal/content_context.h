@@ -23,7 +23,11 @@
 #include <nw/base.h>
 #include <nw/content_context.h>
 
-@interface _NW_CONCRETE(nw_content_context)
+@interface _NW_CONCRETE(nw_content_context) {
+@public
+	char *identifier;
+	bool is_final;
+}
 
 @end
 

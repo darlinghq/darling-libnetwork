@@ -126,7 +126,6 @@ void* nw_parameters_create_quic_connection(void);
 void* nw_parameters_create_quic_connection_with_tls_fallback(void);
 void* nw_parameters_create_quic_stream(void);
 void* nw_parameters_create_quic_stream_with_tls_fallback(void);
-void* nw_parameters_create_secure_udp(void);
 void* nw_parameters_get_account_id(void);
 void* nw_parameters_get_allow_duplicate_state_updates(void);
 void* nw_parameters_get_allow_joining_connected_fd(void);
@@ -368,6 +367,7 @@ void* nw_parameters_set_use_tfo_heuristics(void);
 
 #if _NW_BLOCKS
 	nw_parameters_t nw_parameters_create_secure_tcp(nw_parameters_configure_protocol_block_t configure_tls, nw_parameters_configure_protocol_block_t configure_tcp);
+	NW_RETURNS_RETAINED nw_parameters_t NW_NON_NULL nw_parameters_create_secure_udp(nw_parameters_configure_protocol_block_t NW_NON_NULL configure_dtls, nw_parameters_configure_protocol_block_t NW_NON_NULL configure_udp) NW_AVAILABLE_2018;
 #endif
 
 void nw_parameters_set_e_proc_uuid(nw_parameters_t parameters, uuid_t uuid);
