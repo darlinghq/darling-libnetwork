@@ -23,7 +23,38 @@
 #include <nw/base.h>
 #include <nw/connection.h>
 
-@interface _NW_CONCRETE(nw_connection)
+typedef struct darling_nw_tls *darling_nw_tls_t;
+
+@interface _NW_CONCRETE(nw_connection) {
+@public
+	nw_endpoint_t endpoint;
+	nw_parameters_t parameters;
+	dispatch_queue_t userQueue;
+	nw_connection_state_changed_handler_t stateHandler;
+	dispatch_queue_t io;
+	bool started;
+
+	// Everything below belongs to the io queue.
+	int phase;
+	bool cancelled;
+	bool udp;
+	NSMutableArray *addresses;
+	NSUInteger addressIndex;
+	int lastErrno;
+	nw_error_t lastError;
+	int fd;
+	dispatch_source_t readSource, writeSource;
+	bool readSuspended, writeSuspended;
+	darling_nw_tls_t tls;
+	int tlsWant;
+	NSMutableArray *receives, *sends;
+	NSMutableData *rbuf;
+	NSMutableData *udpPending;
+	bool eof, eofDelivered, finSent;
+	int rerrDomain, rerrCode;
+	uint8_t *scratch;
+	nw_content_context_t rxContext;
+}
 
 @end
 
