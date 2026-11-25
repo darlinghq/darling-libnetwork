@@ -24,11 +24,15 @@
 
 _NW_OPAQUE(nw_authentication_credential);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_authentication_credential_add_valid_authentication_type(void);
 void* nw_authentication_credential_create(void);
 void* nw_authentication_credential_iterate_valid_authentication_types(void);
 void* nw_authentication_credential_set_identity(void);
 void* nw_authentication_credential_set_password(void);
 void* nw_authentication_credential_set_username(void);
+#endif // DARLING
 
 #endif // _NW_AUTHENTICATION_CREDENTIAL_H_

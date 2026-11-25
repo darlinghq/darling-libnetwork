@@ -30,8 +30,12 @@
 NW_RETURNS_RETAINED nw_protocol_metadata_t NW_NON_NULL nw_udp_create_metadata(void) NW_AVAILABLE_2018;
 NW_RETURNS_RETAINED nw_protocol_options_t NW_NON_NULL nw_udp_create_options(void) NW_AVAILABLE_2018;
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_udp_options_get_no_metadata(void);
 void* nw_udp_options_set_no_metadata(void);
+#endif // DARLING
 void nw_udp_options_set_prefer_no_checksum(nw_protocol_options_t NW_NON_NULL options, bool prefer_no_checksum) NW_AVAILABLE_2018;
 
 #endif // _NW_UDP_H_

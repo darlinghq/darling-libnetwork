@@ -49,23 +49,43 @@ typedef _NW_ENUM(int, nw_listener_state_t) {
 #endif
 
 void nw_listener_cancel(nw_listener_t NW_NON_NULL listener) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_listener_copy_advertise_descriptor(void);
 void* nw_listener_copy_local_endpoint(void);
+#endif // DARLING
 NW_RETURNS_RETAINED nw_listener_t NW_NULLABLE nw_listener_create(nw_parameters_t NW_NON_NULL parameters) NW_AVAILABLE_2018;
 NW_RETURNS_RETAINED nw_listener_t NW_NULLABLE nw_listener_create_with_connection(nw_connection_t NW_NON_NULL connection, nw_parameters_t NW_NON_NULL parameters) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_listener_create_with_launchd_key(void);
+#endif // DARLING
 NW_RETURNS_RETAINED nw_listener_t NW_NULLABLE nw_listener_create_with_port(const char * NW_NON_NULL port, nw_parameters_t NW_NON_NULL parameters) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_listener_get_new_connection_limit(void);
+#endif // DARLING
 uint16_t nw_listener_get_port(nw_listener_t NW_NON_NULL listener) NW_AVAILABLE_2018;
 void nw_listener_set_advertise_descriptor(nw_listener_t NW_NON_NULL listener, nw_advertise_descriptor_t NW_NULLABLE advertise_descriptor) NW_AVAILABLE_2018;
 #if _NW_BLOCKS
 	void nw_listener_set_advertised_endpoint_changed_handler(nw_listener_t NW_NON_NULL listener, nw_listener_advertised_endpoint_changed_handler_t NW_NULLABLE handler) NW_AVAILABLE_2018;
 #endif
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_listener_set_event_handler(void);
+#endif // DARLING
 #if _NW_BLOCKS
 	void nw_listener_set_new_connection_handler(nw_listener_t NW_NON_NULL listener, nw_listener_new_connection_handler_t NW_NULLABLE handler) NW_AVAILABLE_2018;
 #endif
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_listener_set_new_connection_limit(void);
+#endif // DARLING
 void nw_listener_set_queue(nw_listener_t NW_NON_NULL listener, dispatch_queue_t NW_NON_NULL queue) NW_AVAILABLE_2018;
 #if _NW_BLOCKS
 	void nw_listener_set_state_changed_handler(nw_listener_t NW_NON_NULL listener, nw_listener_state_changed_handler_t NW_NULLABLE handler) NW_AVAILABLE_2018;

@@ -22,7 +22,14 @@
 
 #include <nw/endpoint.h>
 
+// The name of the known tracker the endpoint's host belongs to, or NULL.
+const char * _Nullable nw_endpoint_get_known_tracker_name(nw_endpoint_t _Nonnull endpoint);
+
 // does this belong here? and what does it do?
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_endpoint_address_endpoint_matches_address(void);
+#endif // DARLING
 
 #endif // _NW_ENDPOINT_PRIVATE_H_

@@ -33,13 +33,21 @@ typedef _NW_ENUM(int, nw_error_domain_t) {
 	nw_error_domain_tls = 3,
 };
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_error_copy_cf_error(void);
 void* nw_error_create_dns_error(void);
 void* nw_error_create_error_with_inferred_domain(void);
 void* nw_error_create_posix_error(void);
 void* nw_error_create_tls_error(void);
+#endif // DARLING
 nw_error_domain_t nw_error_get_error_domain(nw_error_t NW_NON_NULL error) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_error_is_equal(void);
+#endif // DARLING
 
 int nw_error_get_error_code(nw_error_t NW_NON_NULL error) NW_AVAILABLE_2018;
 

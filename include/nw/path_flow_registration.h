@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_path_flow_registration);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_flow_registration_access_interface_stats(void);
 void* nw_path_flow_registration_clear_stats_regions(void);
 void* nw_path_flow_registration_close(void);
@@ -49,5 +52,6 @@ void* nw_path_flow_registration_set_partial_checksum_offload(void);
 void* nw_path_flow_registration_set_stats_region(void);
 void* nw_path_flow_registration_set_tfo_cache(void);
 void* nw_path_flow_registration_uses_nexus(void);
+#endif // DARLING
 
 #endif // _NW_PATH_FLOW_REGISTRATION_H_

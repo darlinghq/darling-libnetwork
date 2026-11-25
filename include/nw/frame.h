@@ -24,6 +24,9 @@
 
 _NW_OS_OBJECT(nw_frame);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_frame_check_validity(void);
 void* nw_frame_claim(void);
 void* nw_frame_collapse(void);
@@ -71,8 +74,12 @@ void* nw_frame_unclaimed_bytes(void);
 void* nw_frame_unclaimed_length(void);
 void* nw_frame_uses_external_data(void);
 void* nw_frame_will_free_buffer_externally(void);
+#endif // DARLING
 
 // these might need their own header
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_frame_array_append(void);
 void* nw_frame_array_append_array(void);
 void* nw_frame_array_check_length(void);
@@ -87,10 +94,15 @@ void* nw_frame_array_prepend(void);
 void* nw_frame_array_prepend_array(void);
 void* nw_frame_array_remove(void);
 void* nw_frame_array_unclaimed_length(void);
+#endif // DARLING
 
 // same with these
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_frame_buffer_get_manager(void);
 void* nw_frame_buffer_used_malloc(void);
 void* nw_frame_buffer_used_manager(void);
+#endif // DARLING
 
 #endif // _NW_FRAME_H_

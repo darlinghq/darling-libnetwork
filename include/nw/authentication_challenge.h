@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_authentication_challenge);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_authentication_challenge_copy_http_message(void);
 void* nw_authentication_challenge_copy_protection_space(void);
 void* nw_authentication_challenge_create(void);
@@ -31,5 +34,6 @@ void* nw_authentication_challenge_get_attempt_count(void);
 void* nw_authentication_challenge_get_type(void);
 void* nw_authentication_challenge_set_attempt_count(void);
 void* nw_authentication_challenge_set_protection_space(void);
+#endif // DARLING
 
 #endif // _NW_AUTHENTICATION_CHALLENGE_H_

@@ -24,7 +24,26 @@
 #include <os/object_private.h>
 #include <os/availability.h>
 
+// The public macros of Network.framework's object.h: they declare an object
+// type, and one derived from another, the way Network's own types are
+// declared, so that code can declare types the headers leave out.
+#ifndef NW_OBJECT_DECL
+#if OS_OBJECT_USE_OBJC
+#define NW_OBJECT_DECL(type) OS_OBJECT_DECL(type)
+#define NW_OBJECT_DECL_SUBCLASS(type, super) OS_OBJECT_DECL_SUBCLASS(type, super)
+#else
+#define NW_OBJECT_DECL(type) struct type; typedef struct type * type ## _t
+#define NW_OBJECT_DECL_SUBCLASS(type, super) typedef super ## _t type ## _t
+#endif
+#endif
+
+#if OS_OBJECT_USE_OBJC || defined(DARLING)
 #define _NW_OPAQUE(_name) OS_OBJECT_DECL_CLASS(_name)
+#else
+// SDK consumers get the struct tag that Network.framework's public headers
+// use without Objective-C objects, so that their own declarations agree
+#define _NW_OPAQUE(_name) struct _name; typedef struct _name * _name ## _t
+#endif
 
 #if OS_OBJECT_USE_OBJC
 	#define NW_NON_NULL _Nonnull
@@ -62,7 +81,13 @@
 		@protocol _name \
 		@end
 #else
+	#ifdef DARLING
 	#define _NW_OS_OBJECT(_name) typedef struct OS_ ## _name ## _s * _name ## _t
+	#else
+	// SDK consumers get the struct tag that Network.framework's public headers
+	// use without Objective-C objects, so that their own declarations agree
+	#define _NW_OS_OBJECT(_name) struct _name; typedef struct _name * _name ## _t
+	#endif
 	#define _NW_OS_CONTAINER(_name) /* empty because you're supposed to call both `_NW_OS_OBJECT` and `_NW_OS_CONTAINER` for containers */
 	#define _NW_OBJECT(_name) typedef struct _name ## _s * _name ## _t
 	#define _NW_WEIRD_OPAQUE(_name) typedef struct _name ## _s * _name ## _t

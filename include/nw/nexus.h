@@ -24,10 +24,14 @@
 
 _NW_OS_OBJECT(nw_nexus);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_nexus_bind_client_port(void);
 void* nw_nexus_close(void);
 void* nw_nexus_close_channel_and_instance(void);
 void* nw_nexus_create(void);
 void* nw_nexus_create_channel_to_new_instance(void);
+#endif // DARLING
 
 #endif // _NW_NEXUS_H_

@@ -124,6 +124,14 @@ const char *nw_endpoint_get_hostname(nw_endpoint_t endpoint) {
 	return ((NWConcrete_nw_endpoint *)endpoint)->hostname;
 }
 
+// The name of the tracker an endpoint's host is known as, from the system's
+// list of known trackers. Darling has no such list, so no endpoint is a known
+// tracker and the answer is always NULL.
+const char *nw_endpoint_get_known_tracker_name(nw_endpoint_t endpoint) {
+	(void)endpoint;
+	return NULL;
+}
+
 const struct sockaddr *nw_endpoint_get_address(nw_endpoint_t endpoint) {
 	NWConcrete_nw_endpoint *e = (NWConcrete_nw_endpoint *)endpoint;
 	return e->type == nw_endpoint_type_address ? (const struct sockaddr *)&e->address : NULL;

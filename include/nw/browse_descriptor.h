@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_browse_descriptor);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_browse_descriptor_copy_custom_browse_block(void);
 void* nw_browse_descriptor_copy_custom_data(void);
 void* nw_browse_descriptor_create_bonjour_service(void);
@@ -35,5 +38,6 @@ void* nw_browse_descriptor_get_include_txt_record(void);
 void* nw_browse_descriptor_get_type(void);
 void* nw_browse_descriptor_is_custom_type(void);
 void* nw_browse_descriptor_set_include_txt_record(void);
+#endif // DARLING
 
 #endif // _NW_BROWSE_DESCRIPTOR_H_

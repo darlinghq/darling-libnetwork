@@ -25,6 +25,9 @@
 _NW_OS_OBJECT(nw_parallel_array);
 // strangely, not an `_NW_OS_CONTAINER`
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_parallel_array_append(void);
 void* nw_parallel_array_apply(void);
 void* nw_parallel_array_apply_with_range(void);
@@ -36,5 +39,6 @@ void* nw_parallel_array_get_at_index(void);
 void* nw_parallel_array_get_count(void);
 void* nw_parallel_array_is_equal(void);
 void* nw_parallel_array_remove_at_index(void);
+#endif // DARLING
 
 #endif // _NW_PARALLEL_ARRAY_H_

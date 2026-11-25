@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(tcp_connection);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* tcp_connection_accept(void);
 void* tcp_connection_add_event_adaptive_read_timeout(void);
 void* tcp_connection_add_event_adaptive_write_timeout(void);
@@ -144,5 +147,6 @@ void* tcp_connection_start(void);
 void* tcp_connection_write(void);
 void* tcp_connection_write_buffer(void);
 void* tcp_connection_write_eof(void);
+#endif // DARLING
 
 #endif // _NW_TCP_CONNECTION_H_

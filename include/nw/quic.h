@@ -20,6 +20,9 @@
 #ifndef _NW_QUIC_H_
 #define _NW_QUIC_H_
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_quic_connection_copy_sec_protocol_metadata(void);
 void* nw_quic_connection_copy_sec_protocol_options(void);
 void* nw_quic_connection_get_idle_timeout(void);
@@ -56,16 +59,29 @@ void* nw_quic_connection_set_max_streams_bidirectional_handler(void);
 void* nw_quic_connection_set_max_streams_unidirectional(void);
 void* nw_quic_connection_set_max_streams_unidirectional_handler(void);
 void* nw_quic_connection_set_sec_protocol_metadata(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_quic_create_connection_metadata(void);
 void* nw_quic_create_connection_options(void);
 void* nw_quic_create_stream_options(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_quic_metadata_copy_stream_options(void);
 void* nw_quic_metadata_set_original(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_quic_stream_copy_shared_connection_options(void);
 void* nw_quic_stream_get_is_unidirectional(void);
 void* nw_quic_stream_set_is_unidirectional(void);
+#endif // DARLING
 
 #endif // _NW_QUIC_H_

@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_socks5_server);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_socks5_server_cancel(void);
 void* nw_socks5_server_copy_parameters(void);
 void* nw_socks5_server_create(void);
@@ -31,5 +34,6 @@ void* nw_socks5_server_get_port(void);
 void* nw_socks5_server_set_error_handler(void);
 void* nw_socks5_server_set_state_changed_handler(void);
 void* nw_socks5_server_start(void);
+#endif // DARLING
 
 #endif // _NW_SOCKS5_SERVER_H_

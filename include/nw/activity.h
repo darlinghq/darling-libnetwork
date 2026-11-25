@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_activity);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_activity_activate(void);
 void* nw_activity_child_has_forked(void);
 void* nw_activity_complete_with_reason(void);
@@ -64,5 +67,6 @@ void* nw_activity_set_parent_activity(void);
 void* nw_activity_set_reporting_strategy(void);
 void* nw_activity_should_report_to_destination(void);
 void* nw_activity_uuid_is_selected_for_reporting(void);
+#endif // DARLING
 
 #endif // _NW_ACTIVITY_H_

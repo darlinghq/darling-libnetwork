@@ -24,10 +24,14 @@
 
 _NW_OPAQUE(nw_fd_wrapper);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_fd_wrapper_close(void);
 void* nw_fd_wrapper_create(void);
 void* nw_fd_wrapper_get_fd(void);
 void* nw_fd_wrapper_guard(void);
 void* nw_fd_wrapper_is_guarded(void);
+#endif // DARLING
 
 #endif // _NW_FD_WRAPPER_H_

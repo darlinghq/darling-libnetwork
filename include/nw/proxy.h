@@ -20,10 +20,18 @@
 #ifndef _NW_PROXY_H_
 #define _NW_PROXY_H_
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_proxy_copy_http_connect_definition(void);
 void* nw_proxy_create_options(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_proxy_options_set_authentication_challenge_handler(void);
 void* nw_proxy_options_set_http_proxy_authorization_header(void);
+#endif // DARLING
 
 #endif // _NW_PROXY_H_

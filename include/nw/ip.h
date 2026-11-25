@@ -43,7 +43,11 @@ typedef _NW_ENUM(unsigned int, nw_ip_ecn_flag_t) {
 };
 
 NW_RETURNS_RETAINED nw_protocol_metadata_t NW_NON_NULL nw_ip_create_metadata(void) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_ip_create_options(void);
+#endif // DARLING
 
 nw_ip_ecn_flag_t nw_ip_metadata_get_ecn_flag(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
 uint64_t nw_ip_metadata_get_receive_time(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
@@ -54,7 +58,11 @@ void nw_ip_metadata_set_service_class(nw_protocol_metadata_t NW_NON_NULL metadat
 void nw_ip_options_set_calculate_receive_time(nw_protocol_options_t NW_NON_NULL options, bool calculate_receive_time) NW_AVAILABLE_2018;
 void nw_ip_options_set_disable_fragmentation(nw_protocol_options_t NW_NON_NULL options, bool disable_fragmentation) NW_AVAILABLE_2018;
 void nw_ip_options_set_hop_limit(nw_protocol_options_t NW_NON_NULL options, uint8_t hop_limit) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_ip_options_set_local_address_preference(void);
+#endif // DARLING
 void nw_ip_options_set_use_minimum_mtu(nw_protocol_options_t NW_NON_NULL options, bool use_minimum_mtu) NW_AVAILABLE_2018;
 void nw_ip_options_set_version(nw_protocol_options_t NW_NON_NULL options, nw_ip_version_t version) NW_AVAILABLE_2018;
 

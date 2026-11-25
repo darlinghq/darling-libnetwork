@@ -26,8 +26,15 @@
 _NW_OPAQUE(nw_protocol_options);
 
 bool nw_protocol_options_access_handle(void *options, bool (^access_block)(void *handle));
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_options_copy(void);
+#endif // DARLING
 NW_RETURNS_RETAINED nw_protocol_definition_t NW_NON_NULL nw_protocol_options_copy_definition(nw_protocol_options_t NW_NON_NULL options) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_options_get_hash(void);
 void* nw_protocol_options_get_log_id_num(void);
 void* nw_protocol_options_get_log_id_str(void);
@@ -35,5 +42,6 @@ void* nw_protocol_options_is_quic(void);
 void* nw_protocol_options_is_quic_connection(void);
 void* nw_protocol_options_is_quic_stream(void);
 void* nw_protocol_options_is_tcp(void);
+#endif // DARLING
 
 #endif // _NW_PROTOCOL_OPTIONS_H_

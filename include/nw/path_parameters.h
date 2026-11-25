@@ -24,9 +24,13 @@
 
 _NW_OPAQUE(nw_path_parameters);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_parameters_are_equal(void);
 void* nw_path_parameters_copy_context(void);
 void* nw_path_parameters_get_context_privacy_level(void);
 void* nw_path_parameters_get_hash(void);
+#endif // DARLING
 
 #endif // _NW_PATH_PARAMETERS_H_

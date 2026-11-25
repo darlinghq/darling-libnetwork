@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_protocol_instance);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_instance_access_cached_content(void);
 void* nw_protocol_instance_access_flow_state(void);
 void* nw_protocol_instance_access_globals(void);
@@ -54,5 +57,6 @@ void* nw_protocol_instance_set_reserve_footer_size(void);
 void* nw_protocol_instance_set_reserve_header_size(void);
 void* nw_protocol_instance_set_wakeup_handler(void);
 void* nw_protocol_instance_update_outbound_data_limit(void);
+#endif // DARLING
 
 #endif // _NW_PROTOCOL_INSTANCE_H_

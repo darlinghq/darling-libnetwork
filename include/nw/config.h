@@ -20,6 +20,9 @@
 #ifndef _NW_CONFIG_H_
 #define _NW_CONFIG_H_
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* network_config_cellular_blocked_observer_cancel(void);
 void* network_config_cellular_blocked_observer_create(void);
 void* network_config_cellular_failed_observer_create(void);
@@ -50,5 +53,6 @@ void* network_config_set_opportunistic_blocked(void);
 void* network_config_set_persistent_interface(void);
 void* network_config_set_setting(void);
 void* network_config_wifi_blocked_observer_create(void);
+#endif // DARLING
 
 #endif // _NW_CONFIG_H_

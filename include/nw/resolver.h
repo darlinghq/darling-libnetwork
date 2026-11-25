@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_resolver);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_resolver_cancel(void);
 void* nw_resolver_create_srv_weighted_variant(void);
 void* nw_resolver_create_with_endpoint(void);
@@ -34,5 +37,6 @@ void* nw_resolver_inject_dns_service_error(void);
 void* nw_resolver_set_cancel_handler(void);
 void* nw_resolver_set_enable_esni(void);
 void* nw_resolver_set_update_handler(void);
+#endif // DARLING
 
 #endif // _NW_RESOLVER_H_

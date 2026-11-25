@@ -24,6 +24,10 @@
 
 _NW_OPAQUE(nw_path_observer);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_observer_cancel(void);
+#endif // DARLING
 
 #endif // _NW_PATH_OBSERVER_H_

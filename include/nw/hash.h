@@ -20,9 +20,16 @@
 #ifndef _NW_HASH_H_
 #define _NW_HASH_H_
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_hash_node_get_extra(void);
 void* nw_hash_node_get_object(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_hash_table_add_object(void);
 void* nw_hash_table_apply(void);
 void* nw_hash_table_count(void);
@@ -32,5 +39,6 @@ void* nw_hash_table_get_some_node(void);
 void* nw_hash_table_release(void);
 void* nw_hash_table_release_all_objects(void);
 void* nw_hash_table_remove_node(void);
+#endif // DARLING
 
 #endif // _NW_HASH_H_

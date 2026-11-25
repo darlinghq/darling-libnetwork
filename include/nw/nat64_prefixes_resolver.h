@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_nat64_prefixes_resolver);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_nat64_prefixes_resolver_cancel(void);
 void* nw_nat64_prefixes_resolver_copy_interface(void);
 void* nw_nat64_prefixes_resolver_create(void);
@@ -31,5 +34,6 @@ void* nw_nat64_prefixes_resolver_set_cancel_handler(void);
 void* nw_nat64_prefixes_resolver_set_queue(void);
 void* nw_nat64_prefixes_resolver_set_update_handler(void);
 void* nw_nat64_prefixes_resolver_start(void);
+#endif // DARLING
 
 #endif // _NW_NAT64_PREFIXES_RESOLVER_H_

@@ -24,7 +24,11 @@
 
 _NW_OPAQUE(nw_ws_request);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_ws_request_enumerate_additional_headers(void);
 void* nw_ws_request_enumerate_subprotocols(void);
+#endif // DARLING
 
 #endif // _NW_WS_REQUEST_H_

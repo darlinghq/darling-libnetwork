@@ -24,6 +24,10 @@
 
 _NW_OPAQUE(nw_link_info);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_link_info_create(void);
+#endif // DARLING
 
 #endif // _NW_LINK_INFO_H_

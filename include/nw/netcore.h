@@ -20,6 +20,9 @@
 #ifndef _NW_NETCORE_H_
 #define _NW_NETCORE_H_
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* netcore_append_format(void);
 void* netcore_bool_to_string(void);
 void* netcore_convert_to_timebase(void);
@@ -40,5 +43,6 @@ void* netcore_queue(void);
 void* netcore_stats_tcp_report_copy_description(void);
 void* netcore_xpc_array_get_value_of_type(void);
 void* netcore_xpc_dictionary_get_value_of_type(void);
+#endif // DARLING
 
 #endif // _NW_NETCORE_H_
