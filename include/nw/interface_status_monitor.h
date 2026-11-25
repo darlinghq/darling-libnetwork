@@ -24,9 +24,13 @@
 
 _NW_OPAQUE(nw_interface_status_monitor);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_interface_status_monitor_cancel(void);
 void* nw_interface_status_monitor_copy_interface(void);
 void* nw_interface_status_monitor_set_packet_event_handler(void);
 void* nw_interface_status_monitor_set_update_handler(void);
+#endif // DARLING
 
 #endif // _NW_INTERFACE_STATUS_MONITOR_H_

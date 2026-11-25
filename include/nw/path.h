@@ -51,6 +51,9 @@ _NW_OPAQUE(nw_path_monitor);
 	typedef void (^nw_path_monitor_update_handler_t)(nw_path_t NW_NON_NULL path);
 #endif
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_allows_multipath(void);
 void* nw_path_assert_agent(void);
 void* nw_path_assert_required_agents(void);
@@ -67,8 +70,12 @@ void* nw_path_copy_derived_parameters(void);
 void* nw_path_copy_description(void);
 void* nw_path_copy_direct_interface(void);
 void* nw_path_copy_discovered_endpoints(void);
+#endif // DARLING
 NW_RETURNS_RETAINED nw_endpoint_t NW_NULLABLE nw_path_copy_effective_local_endpoint(nw_path_t NW_NON_NULL path) NW_AVAILABLE_2018;
 NW_RETURNS_RETAINED nw_endpoint_t NW_NULLABLE nw_path_copy_effective_remote_endpoint(nw_path_t NW_NON_NULL path) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_copy_endpoint(void);
 void* nw_path_copy_endpoint_from_tlv(void);
 void* nw_path_copy_flow_divert_token(void);
@@ -129,7 +136,11 @@ void* nw_path_get_recommended_mss(void);
 void* nw_path_get_rtt_values(void);
 void* nw_path_get_scoped_interface_index(void);
 void* nw_path_get_sysctls_region(void);
+#endif // DARLING
 bool nw_path_get_vpn_config_id(nw_path_t path, uuid_t *uuid);
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_has_advertise_descriptor(void);
 void* nw_path_has_browse_descriptor(void);
 void* nw_path_has_flow_for_nexus_agent(void);
@@ -144,13 +155,21 @@ void* nw_path_is_defunct(void);
 void* nw_path_is_direct(void);
 void* nw_path_is_eligible_for_CrazyIvan46(void);
 void* nw_path_is_equal_inner(void);
+#endif // DARLING
 bool nw_path_is_flow_divert(nw_path_t path);
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_is_listener(void);
 void* nw_path_is_local(void);
 void* nw_path_is_multilayer_packet_logging_enabled(void);
 void* nw_path_is_override_constrained(void);
 void* nw_path_is_override_expensive(void);
+#endif // DARLING
 bool nw_path_is_per_app_vpn(nw_path_t path);
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_is_preferred(void);
 void* nw_path_is_roaming(void);
 void* nw_path_is_traffic_mgmt_background(void);
@@ -180,10 +199,15 @@ void* nw_path_update_parameters_for_fallback(void);
 void* nw_path_uses_interface_subtype(void);
 void* nw_path_uses_nexus(void);
 void* nw_path_voluntary_agent_matches_address(void);
+#endif // DARLING
 
 // i think these might belong elsewhere
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_nexus_can_support_user_packet_pool(void);
 void* nw_path_nexus_should_use_event_ring(void);
+#endif // DARLING
 
 // same with these
 NW_RETURNS_RETAINED nw_path_monitor_t NW_NON_NULL nw_path_monitor_create(void) NW_AVAILABLE_2018;
@@ -199,13 +223,21 @@ void nw_path_monitor_cancel(nw_path_monitor_t NW_NON_NULL monitor) NW_AVAILABLE_
 #endif
 
 // maybe these too?
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_listener_is_interface_specific(void);
 void* nw_path_listener_uses_nexus_only(void);
+#endif // DARLING
 
 // and possibly these?
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_fallback_is_forced(void);
 void* nw_path_fallback_is_weak(void);
 void* nw_path_fallback_should_not_use_timer(void);
+#endif // DARLING
 
 int32_t nw_path_get_flow_divert_unit(nw_path_t path);
 nw_path_status_t nw_path_get_status(nw_path_t NW_NON_NULL path) NW_AVAILABLE_2018;

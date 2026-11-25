@@ -20,6 +20,9 @@
 #ifndef _NW_NETWORK_AGENT_H_
 #define _NW_NETWORK_AGENT_H_
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_network_agent_add_persistent_agent_to_interface(void);
 void* nw_network_agent_add_to_interface(void);
 void* nw_network_agent_copy_dictionary_for_uuid(void);
@@ -48,5 +51,6 @@ void* nw_network_agent_start(void);
 void* nw_network_agent_stop(void);
 void* nw_network_agent_unregister(void);
 void* nw_network_agent_update_registration(void);
+#endif // DARLING
 
 #endif // _NW_NETWORK_AGENT_H_

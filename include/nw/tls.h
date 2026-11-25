@@ -25,9 +25,16 @@
 #include <nw/protocol_metadata.h>
 #include <nw/protocol_options.h>
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tls_copy_peer_certificates(void);
+#endif // DARLING
 NW_RETURNS_RETAINED sec_protocol_metadata_t NW_NON_NULL nw_tls_copy_sec_protocol_metadata(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
 NW_RETURNS_RETAINED nw_protocol_options_t NW_NON_NULL nw_tls_create_options(void) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tls_create_peer_acceptable_distinguished_names(void);
 void* nw_tls_create_peer_trust(void);
 void* nw_tls_create_secret(void);
@@ -70,6 +77,7 @@ void* nw_tls_set_psk_identity_hint(void);
 void* nw_tls_set_psk_secret(void);
 void* nw_tls_set_session_resumption_enabled(void);
 void* nw_tls_set_session_ticket_enabled(void);
+#endif // DARLING
 
 NW_RETURNS_RETAINED sec_protocol_options_t NW_NON_NULL nw_tls_copy_sec_protocol_options(nw_protocol_options_t NW_NON_NULL options) NW_AVAILABLE_2018;
 

@@ -24,10 +24,14 @@
 
 _NW_OPAQUE(nw_authentication_protection_space);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_authentication_protection_space_copy_endpoint(void);
 void* nw_authentication_protection_space_create(void);
 void* nw_authentication_protection_space_get_is_proxy(void);
 void* nw_authentication_protection_space_set_endpoint(void);
 void* nw_authentication_protection_space_set_is_proxy(void);
+#endif // DARLING
 
 #endif // _NW_AUTHENTICATION_PROTECTION_SPACE_H_

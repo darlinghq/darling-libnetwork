@@ -24,6 +24,9 @@
 
 _NW_OS_OBJECT(network_proxy);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* network_proxy_copy_host(void);
 void* network_proxy_copy_password(void);
 void* network_proxy_copy_user(void);
@@ -31,5 +34,6 @@ void* network_proxy_create_from_parameters(void);
 void* network_proxy_get_port(void);
 void* network_proxy_get_type(void);
 void* network_proxy_is_transparent(void);
+#endif // DARLING
 
 #endif // _NW_NETWORK_PROXY_H_

@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_service_connector);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_service_connector_cancel(void);
 void* nw_service_connector_cancel_active_connection(void);
 void* nw_service_connector_cancel_request(void);
@@ -31,5 +34,6 @@ void* nw_service_connector_create(void);
 void* nw_service_connector_set_service_available_block(void);
 void* nw_service_connector_start(void);
 void* nw_service_connector_start_request(void);
+#endif // DARLING
 
 #endif // _NW_SERVICE_CONNECTOR_H_

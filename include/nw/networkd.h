@@ -20,6 +20,9 @@
 #ifndef _NW_NETWORKD_H_
 #define _NW_NETWORKD_H_
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* networkd_privileged_reload_managed_network_settings(void);
 void* networkd_privileged_set_agent_on_interface_internal(void);
 void* networkd_privileged_set_constrained(void);
@@ -31,5 +34,6 @@ void* networkd_settings_copy_value_of_type(void);
 void* networkd_settings_get_bool(void);
 void* networkd_settings_get_int64(void);
 void* networkd_settings_get_int64_with_default(void);
+#endif // DARLING
 
 #endif // _NW_NETWORKD_H_

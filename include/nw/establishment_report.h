@@ -23,7 +23,12 @@
 #include <nw/base.h>
 
 _NW_OPAQUE(nw_establishment_report);
+// how a name was resolved while a connection was established (macOS 11)
+_NW_OPAQUE(nw_resolution_report);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_establishment_report_copy_dictionary(void);
 void* nw_establishment_report_copy_proxy_endpoint(void);
 void* nw_establishment_report_create_from_dictionary(void);
@@ -36,5 +41,6 @@ void* nw_establishment_report_get_previous_attempt_count(void);
 void* nw_establishment_report_get_proxy_configured(void);
 void* nw_establishment_report_get_resolution_started_after_milliseconds(void);
 void* nw_establishment_report_get_used_proxy(void);
+#endif // DARLING
 
 #endif // _NW_ESTABLISHMENT_REPORT_H_

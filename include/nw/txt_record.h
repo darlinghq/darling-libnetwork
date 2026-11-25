@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_txt_record);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_txt_record_access_bytes(void);
 void* nw_txt_record_access_key(void);
 void* nw_txt_record_apply(void);
@@ -46,5 +49,6 @@ void* nw_txt_record_key_is_valid(void);
 void* nw_txt_record_remove_key(void);
 void* nw_txt_record_remove_key_locked(void);
 void* nw_txt_record_set_key(void);
+#endif // DARLING
 
 #endif // _NW_TXT_RECORD_H_

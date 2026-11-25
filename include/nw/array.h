@@ -25,6 +25,9 @@
 _NW_OS_OBJECT(nw_array);
 _NW_OS_CONTAINER(nw_array);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_array_append(void);
 void* nw_array_apply(void);
 void* nw_array_contains_object(void);
@@ -36,5 +39,6 @@ void* nw_array_duplicate_array_without_object(void);
 void* nw_array_get_count(void);
 void* nw_array_get_object_at_index(void);
 void* nw_array_is_equal(void);
+#endif // DARLING
 
 #endif // _NW_ARRAY_H_

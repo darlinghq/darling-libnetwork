@@ -24,13 +24,20 @@
 
 #include <nw/base.h>
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_log_delta_to_ms(void);
 void* nw_log_ms_to_delta(void);
 void* nw_log_ring_append(void);
 void* nw_log_ring_copyout(void);
 void* nw_log_ring_parse(void);
 void* nw_log_ring_parse_count(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* __nwlog_create_hash_from_private_string(void);
 void* __nwlog_disable_simulate_crash_block(void);
 void* __nwlog_dump_to_fd(void);
@@ -46,9 +53,18 @@ void* __nwlog_run_with_lock(void);
 void* __nwlog_salted_hash(void);
 void* __nwlog_salted_hostname_hash(void);
 void* __nwlog_snprintf_pack(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nwlog_get_private_redacted(void);
+#endif // DARLING
 const char * NW_NON_NULL nwlog_get_string_for_dns_service_error(int32_t err) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nwlog_send_copy_to_fd(void);
+#endif // DARLING
 
 #endif // _NW_LOG_H_

@@ -24,12 +24,19 @@
 
 _NW_OPAQUE(nw_protocol_definition);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_definition_create(void);
 void* nw_protocol_definition_create_named(void);
 void* nw_protocol_definition_create_with_identifier(void);
 void* nw_protocol_definition_get_identifier(void);
 void* nw_protocol_definition_get_variant(void);
+#endif // DARLING
 bool nw_protocol_definition_is_equal(nw_protocol_definition_t NW_NON_NULL definition1, nw_protocol_definition_t NW_NON_NULL definition2) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_definition_register(void);
 void* nw_protocol_definition_set_cache_entry_deallocator(void);
 void* nw_protocol_definition_set_copy_establishment_report(void);
@@ -55,5 +62,6 @@ void* nw_protocol_definition_set_should_flush_cache_entry(void);
 void* nw_protocol_definition_set_start(void);
 void* nw_protocol_definition_set_stop(void);
 void* nw_protocol_definition_unregister(void);
+#endif // DARLING
 
 #endif // _NW_PROTOCOL_DEFINITION_H_

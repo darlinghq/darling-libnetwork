@@ -20,6 +20,9 @@
 #ifndef _NW_QUEUE_H_
 #define _NW_QUEUE_H_
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_queue_activate_source(void);
 void* nw_queue_assert_context(void);
 void* nw_queue_async(void);
@@ -33,10 +36,15 @@ void* nw_queue_source_get_data(void);
 void* nw_queue_source_get_handle(void);
 void* nw_queue_suspend_source(void);
 void* nw_queue_target_dispatch_queue(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_queue_context_async(void);
 void* nw_queue_context_async_if_needed(void);
 void* nw_queue_context_create_source(void);
 void* nw_queue_context_target_dispatch_queue(void);
+#endif // DARLING
 
 #endif // _NW_QUEUE_H_

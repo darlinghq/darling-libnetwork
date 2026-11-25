@@ -24,7 +24,11 @@
 
 _NW_OPAQUE(nw_endpoint_proxy);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_endpoint_proxy_copy_synthesized_url(void);
 void* nw_endpoint_proxy_match_exception_to_endpoint(void);
+#endif // DARLING
 
 #endif // _NW_ENDPOINT_PROXY_H_

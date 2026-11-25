@@ -37,6 +37,7 @@
 #include <nw/browser.h>
 #include <nw/channel.h>
 #include <nw/connection.h>
+#include <nw/connection_group.h>
 #include <nw/conn_lib.h>
 #include <nw/content_context.h>
 #include <nw/context.h>
@@ -101,6 +102,7 @@
 #include <nw/quic.h>
 #include <nw/read_request.h>
 #include <nw/resolver.h>
+#include <nw/resolver_config.h>
 #include <nw/service_connector.h>
 #include <nw/shoes_server.h>
 #include <nw/socks5_connection.h>
@@ -122,9 +124,16 @@
 
 #include <nw/NW_URL_ENDPOINT_CLS.h>
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* __nw_create_backtrace_string(void);
 void* __nw_should_simulate_crash(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* copymptcpinfo(void);
 void* freemptcpinfo(void);
 void* in6_pseudo(void);
@@ -133,7 +142,11 @@ void* in_adjust_cksum(void);
 void* in_finalize_cksum(void);
 void* in_pseudo(void);
 void* inet_cksum(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_SSLAllocBuffer(void);
 void* nw_SSLCopyBuffer(void);
 void* nw_SSLCopyBufferFromData(void);
@@ -159,14 +172,23 @@ void* nw_unordered_xpc_array_is_equal(void);
 void* nw_utf8_validator_init(void);
 void* nw_utf8_validator_is_parsing(void);
 void* nw_utf8_validator_parse(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* sa_dst_compare(void);
 void* sa_dst_compare_no_dependencies(void);
 void* sa_dst_compare_no_stats(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* tcp_fallback_watcher_fallback_inuse(void);
 void* udp_validate_cksum(void);
 void* validate_tcp_cksum(void);
+#endif // DARLING
 
 void* network_retain(void* network_object);
 void network_release(void* network_object);

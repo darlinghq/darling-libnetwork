@@ -24,6 +24,10 @@
 
 _NW_OPAQUE(nw_protocol_establishment_report);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_establishment_report_create(void);
+#endif // DARLING
 
 #endif // _NW_PROTOCOL_ESTABLISHMENT_REPORT_H_

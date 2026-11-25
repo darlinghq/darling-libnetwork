@@ -24,8 +24,12 @@
 
 _NW_OPAQUE(nw_pac_resolver);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_pac_resolver_create_with_script(void);
 void* nw_pac_resolver_create_with_url(void);
 void* nw_pac_resolver_start(void);
+#endif // DARLING
 
 #endif // _NW_PAC_RESOLVER_H_

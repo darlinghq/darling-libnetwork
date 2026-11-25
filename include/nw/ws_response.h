@@ -24,10 +24,14 @@
 
 _NW_OPAQUE(nw_ws_response);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_ws_response_add_additional_header(void);
 void* nw_ws_response_create(void);
 void* nw_ws_response_enumerate_additional_headers(void);
 void* nw_ws_response_get_selected_subprotocol(void);
 void* nw_ws_response_get_status(void);
+#endif // DARLING
 
 #endif // _NW_WS_RESPONSE_H_

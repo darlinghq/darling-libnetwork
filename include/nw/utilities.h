@@ -20,9 +20,13 @@
 #ifndef _NW_UTILITIES_H_
 #define _NW_UTILITIES_H_
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_utilities_cidr_string_to_subnet_and_mask(void);
 void* nw_utilities_copy_local_entitlement_value(void);
 void* nw_utilities_copy_sanitized_url(void);
 void* nw_utilities_create_c_string_from_cfstring(void);
+#endif // DARLING
 
 #endif // _NW_UTILITIES_H_

@@ -27,16 +27,31 @@
 #include <nw/protocol_options.h>
 #include <nw/protocol_metadata.h>
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tcp_create_metadata(void);
+#endif // DARLING
 NW_RETURNS_RETAINED nw_protocol_options_t NW_NON_NULL nw_tcp_create_options(void) NW_AVAILABLE_2018;
 uint32_t nw_tcp_get_available_receive_buffer(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
 uint32_t nw_tcp_get_available_send_buffer(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tcp_set_callbacks(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tcp_connection_copy_error(void);
 void* nw_tcp_connection_set_tls_message_handler(void);
 void* nw_tcp_connection_set_tls_prepare_handler(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tcp_options_get_connection_timeout(void);
 void* nw_tcp_options_get_disable_ack_stretching(void);
 void* nw_tcp_options_get_disable_blackhole_detection(void);
@@ -59,26 +74,51 @@ void* nw_tcp_options_get_persist_timeout(void);
 void* nw_tcp_options_get_reduce_buffering(void);
 void* nw_tcp_options_get_retransmit_connection_drop_time(void);
 void* nw_tcp_options_get_retransmit_fin_drop(void);
+#endif // DARLING
 void nw_tcp_options_set_connection_timeout(nw_protocol_options_t NW_NON_NULL options, uint32_t connection_timeout) NW_AVAILABLE_2018;
 void nw_tcp_options_set_disable_ack_stretching(nw_protocol_options_t NW_NON_NULL options, bool disable_ack_stretching) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tcp_options_set_disable_blackhole_detection(void);
+#endif // DARLING
 void nw_tcp_options_set_disable_ecn(nw_protocol_options_t NW_NON_NULL options, bool disable_ecn) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tcp_options_set_enable_background_traffic_management(void);
+#endif // DARLING
 void nw_tcp_options_set_enable_fast_open(nw_protocol_options_t NW_NON_NULL options, bool enable_fast_open) NW_AVAILABLE_2018;
 void nw_tcp_options_set_enable_keepalive(nw_protocol_options_t NW_NON_NULL options, bool enable_keepalive) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tcp_options_set_enable_keepalive_offload(void);
 void* nw_tcp_options_set_fast_open_force_enable(void);
+#endif // DARLING
 void nw_tcp_options_set_keepalive_count(nw_protocol_options_t NW_NON_NULL options, uint32_t keepalive_count) NW_AVAILABLE_2018;
 void nw_tcp_options_set_keepalive_idle_time(nw_protocol_options_t NW_NON_NULL options, uint32_t keepalive_idle_time) NW_AVAILABLE_2018;
 void nw_tcp_options_set_keepalive_interval(nw_protocol_options_t NW_NON_NULL options, uint32_t keepalive_interval) NW_AVAILABLE_2018;
 void nw_tcp_options_set_maximum_segment_size(nw_protocol_options_t NW_NON_NULL options, uint32_t maximum_segment_size) NW_AVAILABLE_2018;
 void nw_tcp_options_set_no_delay(nw_protocol_options_t NW_NON_NULL options, bool no_delay) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tcp_options_set_no_fast_open_cookie(void);
+#endif // DARLING
 void nw_tcp_options_set_no_options(nw_protocol_options_t NW_NON_NULL options, bool no_options) NW_AVAILABLE_2018;
 void nw_tcp_options_set_no_push(nw_protocol_options_t NW_NON_NULL options, bool no_push) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tcp_options_set_no_timewait(void);
+#endif // DARLING
 void nw_tcp_options_set_persist_timeout(nw_protocol_options_t NW_NON_NULL options, uint32_t persist_timeout) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_tcp_options_set_reduce_buffering(void);
+#endif // DARLING
 void nw_tcp_options_set_retransmit_connection_drop_time(nw_protocol_options_t NW_NON_NULL options, uint32_t retransmit_connection_drop_time) NW_AVAILABLE_2018;
 void nw_tcp_options_set_retransmit_fin_drop(nw_protocol_options_t NW_NON_NULL options, bool retransmit_fin_drop) NW_AVAILABLE_2018;
 

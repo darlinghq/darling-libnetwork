@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_browse_result);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_browse_result_copy_endpoint(void);
 void* nw_browse_result_copy_txt_record_object(void);
 void* nw_browse_result_create(void);
@@ -37,5 +40,6 @@ void* nw_browse_result_insert_interface(void);
 void* nw_browse_result_mark_immutable(void);
 void* nw_browse_result_remove_interface(void);
 void* nw_browse_result_set_txt_record_object(void);
+#endif // DARLING
 
 #endif // _NW_BROWSE_RESULT_H_

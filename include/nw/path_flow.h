@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_path_flow);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_flow_copy_description(void);
 void* nw_path_flow_copy_interface(void);
 void* nw_path_flow_copy_local_endpoint(void);
@@ -44,9 +47,14 @@ void* nw_path_flow_is_direct(void);
 void* nw_path_flow_is_equal(void);
 void* nw_path_flow_is_local(void);
 void* nw_path_flow_is_viable(void);
+#endif // DARLING
 
 // i think these might belong elsewhere
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_flow_nexus_can_support_user_packet_pool(void);
 void* nw_path_flow_nexus_should_use_event_ring(void);
+#endif // DARLING
 
 #endif // _NW_PATH_FLOW_H_

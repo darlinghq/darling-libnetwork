@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_framer);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_framer_async(void);
 void* nw_framer_copy_local_endpoint(void);
 void* nw_framer_copy_options(void);
@@ -57,5 +60,6 @@ void* nw_framer_set_wakeup_handler(void);
 void* nw_framer_write_output(void);
 void* nw_framer_write_output_data(void);
 void* nw_framer_write_output_no_copy(void);
+#endif // DARLING
 
 #endif // _NW_FRAMER_H_

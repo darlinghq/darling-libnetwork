@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_browser);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_browser_cancel(void);
 void* nw_browser_copy_browse_descriptor(void);
 void* nw_browser_copy_browse_results(void);
@@ -34,5 +37,6 @@ void* nw_browser_set_browse_results_changed_handler(void);
 void* nw_browser_set_queue(void);
 void* nw_browser_set_state_changed_handler(void);
 void* nw_browser_start(void);
+#endif // DARLING
 
 #endif // _NW_BROWSER_H_

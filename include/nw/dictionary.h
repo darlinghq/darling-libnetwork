@@ -25,11 +25,15 @@
 _NW_OS_OBJECT(nw_dictionary);
 _NW_OS_CONTAINER(nw_dictionary);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_dictionary_apply(void);
 void* nw_dictionary_copy(void);
 void* nw_dictionary_copy_value(void);
 void* nw_dictionary_create(void);
 void* nw_dictionary_get_count(void);
 void* nw_dictionary_set_value(void);
+#endif // DARLING
 
 #endif // _NW_DICTIONARY_H_

@@ -29,20 +29,36 @@ _NW_OPAQUE(nw_protocol_stack);
 	typedef void (^nw_protocol_stack_iterate_protocols_block_t)(nw_protocol_options_t NW_NON_NULL protocol);
 #endif
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_stack_append_application_protocol(void);
+#endif // DARLING
 void nw_protocol_stack_clear_application_protocols(nw_protocol_stack_t NW_NON_NULL stack) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_stack_copy_application_protocols(void);
+#endif // DARLING
 NW_RETURNS_RETAINED nw_protocol_options_t NW_NULLABLE nw_protocol_stack_copy_internet_protocol(nw_protocol_stack_t NW_NON_NULL stack) NW_AVAILABLE_2018;
 NW_RETURNS_RETAINED nw_protocol_options_t NW_NULLABLE nw_protocol_stack_copy_transport_protocol(nw_protocol_stack_t NW_NON_NULL stack) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_stack_create_empty(void);
 void* nw_protocol_stack_includes_protocol(void);
+#endif // DARLING
 #if _NW_BLOCKS
 	void nw_protocol_stack_iterate_application_protocols(nw_protocol_stack_t NW_NON_NULL stack, NW_NOESCAPE nw_protocol_stack_iterate_protocols_block_t NW_NON_NULL iterate_block) NW_AVAILABLE_2018;
 #endif
 void nw_protocol_stack_prepend_application_protocol(nw_protocol_stack_t NW_NON_NULL stack, nw_protocol_options_t NW_NON_NULL protocol) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_stack_remove_protocol(void);
 void* nw_protocol_stack_set_application_protocols(void);
 void* nw_protocol_stack_set_internet_protocol(void);
+#endif // DARLING
 void nw_protocol_stack_set_transport_protocol(nw_protocol_stack_t NW_NON_NULL stack, nw_protocol_options_t NW_NON_NULL protocol) NW_AVAILABLE_2018;
 
 #endif // _NW_PROTOCOL_STACK_H_

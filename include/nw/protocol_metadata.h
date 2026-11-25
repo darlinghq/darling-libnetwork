@@ -25,6 +25,9 @@
 _NW_OPAQUE(nw_protocol_metadata);
 
 bool nw_protocol_metadata_access_handle(void *metadata, bool (^access_block)(void *handle));
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_metadata_copy_definition(void);
 void* nw_protocol_metadata_copy_identifier(void);
 void* nw_protocol_metadata_copy_message_options(void);
@@ -33,14 +36,23 @@ void* nw_protocol_metadata_create(void);
 void* nw_protocol_metadata_create_reply(void);
 void* nw_protocol_metadata_create_singleton(void);
 void* nw_protocol_metadata_is_framer_message(void);
+#endif // DARLING
 bool nw_protocol_metadata_is_ip(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_metadata_is_quic_connection(void);
 void* nw_protocol_metadata_is_quic_stream(void);
+#endif // DARLING
 bool nw_protocol_metadata_is_tcp(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
 bool nw_protocol_metadata_is_tls(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
 bool nw_protocol_metadata_is_udp(nw_protocol_metadata_t NW_NON_NULL metadata) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_metadata_is_ws(void);
 void* nw_protocol_metadata_set_original(void);
 void* nw_protocol_metadata_supports_replies(void);
+#endif // DARLING
 
 #endif // _NW_PROTOCOL_METADATA_H_

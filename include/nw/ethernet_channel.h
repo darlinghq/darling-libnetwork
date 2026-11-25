@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_ethernet_channel);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_ethernet_channel_cancel(void);
 void* nw_ethernet_channel_create(void);
 void* nw_ethernet_channel_send(void);
@@ -31,5 +34,6 @@ void* nw_ethernet_channel_set_queue(void);
 void* nw_ethernet_channel_set_receive_handler(void);
 void* nw_ethernet_channel_set_state_changed_handler(void);
 void* nw_ethernet_channel_start(void);
+#endif // DARLING
 
 #endif // _NW_ETHERNET_CHANNEL_H_

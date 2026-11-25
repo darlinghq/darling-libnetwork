@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_protocol_data_array);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_data_array_append(void);
 void* nw_protocol_data_array_apply(void);
 void* nw_protocol_data_array_apppend_array(void);
@@ -38,5 +41,6 @@ void* nw_protocol_data_array_next(void);
 void* nw_protocol_data_array_prepend(void);
 void* nw_protocol_data_array_prepend_array(void);
 void* nw_protocol_data_array_remove(void);
+#endif // DARLING
 
 #endif // _NW_PROTOCOL_DATA_ARRAY_H_

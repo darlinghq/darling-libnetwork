@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_data_transfer_report);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_data_transfer_report_collect(void);
 void* nw_data_transfer_report_copy_dictionary(void);
 void* nw_data_transfer_report_copy_path_interface(void);
@@ -43,5 +46,6 @@ void* nw_data_transfer_report_get_state(void);
 void* nw_data_transfer_report_get_transport_minimum_rtt_milliseconds(void);
 void* nw_data_transfer_report_get_transport_rtt_variance(void);
 void* nw_data_transfer_report_get_transport_smoothed_rtt_milliseconds(void);
+#endif // DARLING
 
 #endif // _NW_DATA_TRANSFER_REPORT_H_

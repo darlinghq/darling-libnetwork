@@ -35,6 +35,9 @@ _NW_OPAQUE(nw_path_evaluator);
 	typedef void (^nw_path_evaluator_update_handler_t)(nw_path_t path);
 #endif
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_create_default_evaluator(void);
 void* nw_path_create_evaluator_for_advertise(void);
 void* nw_path_create_evaluator_for_browse(void);
@@ -43,7 +46,11 @@ void* nw_path_create_evaluator_for_custom_ether(void);
 void* nw_path_create_evaluator_for_custom_ip(void);
 void* nw_path_create_evaluator_for_interpose(void);
 void* nw_path_create_evaluator_for_listener(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_path_evaluator_add_endpoint_to_necp_message(void);
 void* nw_path_evaluator_copy_description(void);
 void* nw_path_evaluator_create_flow(void);
@@ -53,10 +60,12 @@ void* nw_path_evaluator_get_error_string(void);
 void* nw_path_evaluator_request_nexus(void);
 void* nw_path_evaluator_set_queue(void);
 void* nw_path_evaluator_trigger_agents(void);
+#endif // DARLING
 
-nw_path_evaluator_t nw_path_create_evaluator_for_endpoint(nw_endpoint_t endpoint, nw_parameters_t parameters);
+// Created and copied objects come with a reference for the caller.
+NW_RETURNS_RETAINED nw_path_evaluator_t nw_path_create_evaluator_for_endpoint(nw_endpoint_t endpoint, nw_parameters_t parameters);
 
-nw_path_t nw_path_evaluator_copy_path(nw_path_evaluator_t evaluator);
+NW_RETURNS_RETAINED nw_path_t nw_path_evaluator_copy_path(nw_path_evaluator_t evaluator);
 
 void nw_path_evaluator_start(nw_path_evaluator_t evaluator);
 void nw_path_evaluator_cancel(nw_path_evaluator_t evaluator);

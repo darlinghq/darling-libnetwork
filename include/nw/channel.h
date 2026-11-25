@@ -24,6 +24,9 @@
 
 _NW_OS_OBJECT(nw_channel);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_channel_close(void);
 void* nw_channel_create_with_attributes(void);
 void* nw_channel_create_with_nexus(void);
@@ -36,5 +39,6 @@ void* nw_channel_has_partial_checksum_offload(void);
 void* nw_channel_set_close_automatically(void);
 void* nw_channel_set_defer_input_available(void);
 void* nw_channel_set_protocol_level(void);
+#endif // DARLING
 
 #endif // _NW_CHANNEL_H_

@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_association);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_association_clear_cached_content_for_protocol(void);
 void* nw_association_copy_current_path(void);
 void* nw_association_copy_endpoint(void);
@@ -38,5 +41,6 @@ void* nw_association_mark_flow_disconnected(void);
 void* nw_association_register(void);
 void* nw_association_set_cached_content_for_protocol(void);
 void* nw_association_unregister(void);
+#endif // DARLING
 
 #endif // _NW_ASSOCIATION_H_

@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_interpose);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_interpose_cancel(void);
 void* nw_interpose_client_claim(void);
 void* nw_interpose_client_register(void);
@@ -31,5 +34,6 @@ void* nw_interpose_get_client_uuid(void);
 void* nw_interpose_set_flow_event_handler(void);
 void* nw_interpose_set_queue(void);
 void* nw_interpose_start(void);
+#endif // DARLING
 
 #endif // _NW_INTERPOSE_H_

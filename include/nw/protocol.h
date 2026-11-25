@@ -23,15 +23,26 @@
 #include <nw/base.h>
 #include <nw/protocol_definition.h>
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_can_join_existing(void);
+#endif // DARLING
 NW_RETURNS_RETAINED nw_protocol_definition_t NW_NON_NULL nw_protocol_copy_ip_definition(void) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_copy_quic_connection_definition(void);
 void* nw_protocol_copy_quic_stream_definition(void);
 void* nw_protocol_copy_subdata(void);
 void* nw_protocol_copy_superdata(void);
+#endif // DARLING
 NW_RETURNS_RETAINED nw_protocol_definition_t NW_NON_NULL nw_protocol_copy_tcp_definition(void) NW_AVAILABLE_2018;
 NW_RETURNS_RETAINED nw_protocol_definition_t NW_NON_NULL nw_protocol_copy_tls_definition(void) NW_AVAILABLE_2018;
 NW_RETURNS_RETAINED nw_protocol_definition_t NW_NON_NULL nw_protocol_copy_udp_definition(void) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_copy_ws_definition(void);
 void* nw_protocol_create(void);
 void* nw_protocol_create_inbound_data(void);
@@ -67,11 +78,19 @@ void* nw_protocol_tcp_not_available(void);
 void* nw_protocol_udp_identifier(void);
 void* nw_protocol_unregister(void);
 void* nw_protocols_are_equal(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_parameters_copy_value(void);
 void* nw_protocol_parameters_get_identifier(void);
 void* nw_protocol_parameters_iterate_stack(void);
+#endif // DARLING
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_trainer_bottom_check_output(void);
 void* nw_protocol_trainer_bottom_identifier(void);
 void* nw_protocol_trainer_bottom_inject_input(void);
@@ -87,5 +106,6 @@ void* nw_protocol_trainer_top_expect_disconnected(void);
 void* nw_protocol_trainer_top_flush_output(void);
 void* nw_protocol_trainer_top_identifier(void);
 void* nw_protocol_trainer_top_inject_output(void);
+#endif // DARLING
 
 #endif // _NW_PROTOCOL_H_

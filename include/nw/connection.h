@@ -66,26 +66,45 @@ typedef _NW_ENUM(unsigned int, nw_connection_state_t) {
 	typedef void (^nw_connection_state_changed_handler_t)(nw_connection_state_t state, nw_error_t NW_NULLABLE error);
 #endif
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_access_establishment_report(void);
 void* nw_connection_access_probe_connections(void);
 void* nw_connection_add_client_event(void);
 void* nw_connection_add_probe(void);
 void* nw_connection_append_and_start_application_protocol(void);
+#endif // DARLING
 void nw_connection_batch(nw_connection_t NW_NON_NULL connection, NW_NOESCAPE dispatch_block_t NW_NON_NULL batch_block) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_better_path_available(void);
+#endif // DARLING
 void nw_connection_cancel_current_endpoint(nw_connection_t NW_NON_NULL connection) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_check_experimental_probe_options(void);
 void* nw_connection_copy_attempted_endpoint_array(void);
 void* nw_connection_copy_connected_local_endpoint(void);
 void* nw_connection_copy_connected_path(void);
 void* nw_connection_copy_connected_remote_endpoint(void);
+#endif // DARLING
 NW_RETURNS_RETAINED nw_path_t NW_NULLABLE nw_connection_copy_current_path(nw_connection_t NW_NON_NULL connection) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_copy_description(void);
 void* nw_connection_copy_establishment_report_on_queue(void);
 void* nw_connection_copy_host_endpoint(void);
 void* nw_connection_copy_metadata(void);
 void* nw_connection_copy_parameters(void);
+#endif // DARLING
 NW_RETURNS_RETAINED nw_protocol_metadata_t NW_NULLABLE nw_connection_copy_protocol_metadata(nw_connection_t NW_NON_NULL connection, nw_protocol_definition_t NW_NON_NULL definition) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_copy_protocol_metadata_on_queue(void);
 void* nw_connection_copy_tcp_info(void);
 void* nw_connection_create_experimental_probe(void);
@@ -100,10 +119,18 @@ void* nw_connection_dump_timestamps(void);
 void* nw_connection_end_activity(void);
 void* nw_connection_fillout_tcp_connection_info(void);
 void* nw_connection_fillout_tcp_statistics(void);
+#endif // DARLING
 void nw_connection_force_cancel(nw_connection_t NW_NON_NULL connection) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_get_connected_socket(void);
 void* nw_connection_get_id(void);
+#endif // DARLING
 uint32_t nw_connection_get_maximum_datagram_size(nw_connection_t NW_NON_NULL connection) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_get_unsent_byte_count(void);
 void* nw_connection_get_uuid(void);
 void* nw_connection_has_proxy_attempt(void);
@@ -115,36 +142,56 @@ void* nw_connection_multipath_get_subflow_count(void);
 void* nw_connection_read(void);
 void* nw_connection_read_buffer(void);
 void* nw_connection_read_multiple(void);
+#endif // DARLING
 #if _NW_BLOCKS
 	void nw_connection_receive_message(nw_connection_t NW_NON_NULL connection, nw_connection_receive_completion_t NW_NON_NULL completion) NW_AVAILABLE_2018;
 #endif
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_receive_message_with_context(void);
 void* nw_connection_receive_with_context(void);
 void* nw_connection_remove_probe(void);
 void* nw_connection_reset_expected_progress_target(void);
 void* nw_connection_reset_traffic_class(void);
+#endif // DARLING
 void nw_connection_restart(nw_connection_t NW_NON_NULL connection) NW_AVAILABLE_2018;
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_send_reply(void);
 void* nw_connection_set_adaptive_read_handler(void);
 void* nw_connection_set_adaptive_write_handler(void);
 void* nw_connection_set_alternate_path_state_handler(void);
+#endif // DARLING
 #if _NW_BLOCKS
 	void nw_connection_set_better_path_available_handler(nw_connection_t NW_NON_NULL connection, nw_connection_boolean_event_handler_t NW_NULLABLE handler) NW_AVAILABLE_2018;
 #endif
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_set_cancel_handler(void);
 void* nw_connection_set_event_handler(void);
 void* nw_connection_set_excessive_keepalive_handler(void);
 void* nw_connection_set_low_throughput_handler(void);
 void* nw_connection_set_metadata_changed_handler(void);
+#endif // DARLING
 #if _NW_BLOCKS
 	void nw_connection_set_path_changed_handler(nw_connection_t NW_NON_NULL connection, nw_connection_path_event_handler_t NW_NULLABLE handler) NW_AVAILABLE_2018;
 #endif
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_set_read_close_handler(void);
 void* nw_connection_set_tls_message_handler(void);
 void* nw_connection_set_tls_prepare_handler(void);
+#endif // DARLING
 #if _NW_BLOCKS
 	void nw_connection_set_viability_changed_handler(nw_connection_t NW_NON_NULL connection, nw_connection_boolean_event_handler_t NW_NULLABLE handler) NW_AVAILABLE_2018;
 #endif
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_connection_set_write_close_handler(void);
 void* nw_connection_should_run_experimental_probe(void);
 void* nw_connection_start_activity(void);
@@ -158,6 +205,7 @@ void* nw_connection_uses_sleep_proxy(void);
 void* nw_connection_write(void);
 void* nw_connection_write_close(void);
 void* nw_connection_write_multiple(void);
+#endif // DARLING
 
 NW_RETURNS_RETAINED nw_connection_t NW_NON_NULL nw_connection_create(nw_endpoint_t NW_NON_NULL endpoint, nw_parameters_t NW_NON_NULL parameters) NW_AVAILABLE_2018;
 

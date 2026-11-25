@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_protocol_transform);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_protocol_transform_append_protocol(void);
 void* nw_protocol_transform_clear_protocols_at_level(void);
 void* nw_protocol_transform_copy(void);
@@ -54,5 +57,6 @@ void* nw_protocol_transform_set_prohibit_direct(void);
 void* nw_protocol_transform_set_tfo(void);
 void* nw_protocol_transform_set_tfo_no_cookie(void);
 void* nw_protocol_transform_set_use_tfo_heuristics(void);
+#endif // DARLING
 
 #endif // _NW_PROTOCOL_TRANSFORM_H_

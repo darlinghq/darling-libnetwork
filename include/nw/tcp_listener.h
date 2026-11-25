@@ -24,6 +24,9 @@
 
 _NW_OS_OBJECT(tcp_listener);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* tcp_listener_cancel(void);
 void* tcp_listener_create(void);
 void* tcp_listener_create_launchd(void);
@@ -43,5 +46,6 @@ void* tcp_listener_set_register_p2p(void);
 void* tcp_listener_set_service(void);
 void* tcp_listener_set_tfo(void);
 void* tcp_listener_start(void);
+#endif // DARLING
 
 #endif // _NW_TCP_LISTENER_H_

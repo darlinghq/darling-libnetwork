@@ -24,6 +24,9 @@
 
 _NW_OPAQUE(nw_context);
 
+// generated stubs, for building Darling only: SDK consumers declare the
+// libnetwork functions they use themselves
+#ifdef DARLING
 void* nw_context_128k_buffer_length(void);
 void* nw_context_128k_buffer_manager(void);
 void* nw_context_16k_buffer_length(void);
@@ -52,5 +55,6 @@ void* nw_context_set_isolate_protocol_stack(void);
 void* nw_context_set_privacy_level(void);
 void* nw_context_set_protocol_cache_limits(void);
 void* nw_context_set_scheduling_mode(void);
+#endif // DARLING
 
 #endif // _NW_CONTEXT_H_
